@@ -5,9 +5,9 @@
 # Site
 title: ryansecreat blog
 subtitle: smile hard
-description:
+description: 保持积极昂扬的状态，避免成为别人眼中的傻子
 author: ryansecreat
-language: cn
+language: zh-Hans
 timezone:
 
 # URL
@@ -44,7 +44,7 @@ highlight:
   tab_replace:
 
 # Category & Tag
-default_category: uncategorized
+default_category: nodejs
 category_map:
 tag_map:
 
@@ -63,7 +63,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: light
+theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
