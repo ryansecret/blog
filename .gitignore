@@ -4,3 +4,5 @@ public/components
 .vscode
 logs
 .editorconfig
+.deploy_git
+public
