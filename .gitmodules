@@ -1,0 +1,3 @@
+[submodule "themes/next"]
+	path = themes/next
+	url = git+https://github.com/theme-next/hexo-theme-next.git
