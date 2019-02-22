@@ -1,0 +1,17 @@
+---
+title: gitInfo
+date: 2019-02-20 17:58:18
+tags:
+---
+
+1. git rm --cached  从git索引和缓存中删除 
+2. git mv 重命名或者移动文件
+3. git reset --soft "HEAD^" 留下当前变更内容
+4. git reset head 从当前缓存区删除
+5. git checkout .  撤销当前工作区修改
+6. git commit --amend 修改上次提交信息
+7. git log --oneline/--raw 
+8. checkout只会移动HEAD指针，reset会改变HEAD的引用值。
+9. git config --global user.name [user.email]
+10. git tag -a 'annotate' -m 'message'
+11. git remote set-url --add <name> <newurl>  添加多个url
