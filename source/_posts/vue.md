@@ -3,6 +3,9 @@ title: vue
 date: 2017-01-19 15:19:03
 tags:
 ---
+###  router 元数据 
+ meta: { requiresAuth: true }  
+ 
 #####  v-once 指令，你也能执行一次性地插值
 
 ##### Mustache 不能在 HTML 属性中使用，应使用 v-bind 指令：

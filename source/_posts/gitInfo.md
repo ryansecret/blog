@@ -15,3 +15,10 @@ tags:
 9. git config --global user.name [user.email]
 10. git tag -a 'annotate' -m 'message'
 11. git remote set-url --add <name> <newurl>  添加多个url
+12. git tag -d <tag-name>  
+13. git status --ignored  显示忽略掉文件
+14. git checkout --orphan <branch-name>  新建没有commit的分支
+1. git push origin :refs/tags/<tag-name>  删除远程tag
+2. git branch -u <origin/mybranch> 设置远程分支 
+2. git branch -vv 查看本地分之关联情况
+2. git checkout -  最近两个分子间切换
