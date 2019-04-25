@@ -1,12 +1,48 @@
 ---
 title: eslint
 date: 2016-12-25 13:31:39
-tags:
+tags: eslint
 ---
 
 ESLint 一旦发现配置文件中有 "root": true，它就会停止在父级目录中寻找。
 
+```
 
+在整个文件中取消eslint检查：
+
+/* eslint-disable */
+
+// Disables all rules for the rest of the file 
+alert(‘foo’);
+
+在整个文件中禁用某一项eslint规则的检查：
+
+/* eslint-disable no-alert */
+
+// Disables no-alert for the rest of the file 
+alert(‘foo’);
+
+针对某一行禁用eslint检查：
+
+alert(‘foo’); // eslint-disable-line
+
+// eslint-disable-next-line 
+alert(‘foo’);
+
+针对某一行的某一具体规则禁用eslint检查：
+
+alert(‘foo’); // eslint-disable-line no-alert
+
+// eslint-disable-next-line no-alert 
+alert(‘foo’);
+
+针对某一行禁用多项具体规则的检查：
+
+alert(‘foo’); // eslint-disable-line no-alert, quotes, semi
+
+// eslint-disable-next-line no-alert, quotes, semi 
+alert(‘foo’);
+```
 
 ```
 行内配置

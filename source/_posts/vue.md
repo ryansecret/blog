@@ -3,6 +3,11 @@ title: vue
 date: 2017-01-19 15:19:03
 tags:
 ---
+
+### 内部机制 
+
+vue-loader 
+
 ###  router 元数据 
  meta: { requiresAuth: true }  
  
