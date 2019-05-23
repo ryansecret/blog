@@ -1,7 +1,7 @@
 ---
 title: vue
 date: 2017-01-19 15:19:03
-tags:
+tags: vue
 ---
 
 ### 内部机制 

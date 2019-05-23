@@ -17,6 +17,8 @@ tags: useful package
 1. mime-types content-type 工具：1. 可以根据文件后缀获取 2. 根据content-type获取charset 3. 根据content-type 获取默认的文件名
 1. CodeMirror是一个运行在浏览器中的在线代码编辑器，支持100多种语言，高度可定制。
 1. @typescript-eslint/eslint-plugin.  eslint 检测typescript 
+1. nanoid  A tiny, secure, URL-friendly, unique string ID generator for JavaScript.
+1. mm 对mudule 中的方法mock
   
 
   
