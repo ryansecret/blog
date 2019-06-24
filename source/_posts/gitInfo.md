@@ -1,7 +1,7 @@
 ---
 title: gitInfo
 date: 2019-02-20 17:58:18
-tags:
+tags: git
 ---
 
 1. git rm --cached  从git索引和缓存中删除 

@@ -19,6 +19,9 @@ tags: useful package
 1. @typescript-eslint/eslint-plugin.  eslint 检测typescript 
 1. nanoid  A tiny, secure, URL-friendly, unique string ID generator for JavaScript.
 1. mm 对mudule 中的方法mock
+1. numerify  用来格式化数字 
+   
+1. utils-lite  前端提供debounce、thorttling、clone、cloneDeep 等方法
   
 
   

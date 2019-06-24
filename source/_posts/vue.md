@@ -1,7 +1,7 @@
 ---
 title: vue
 date: 2017-01-19 15:19:03
-tags: vue
+tags: vue eventloop
 ---
 
 ### 内部机制 
@@ -16,6 +16,7 @@ compiler 目录包含 Vue.js 所有编译相关的代码。它包括把模板解
 process.nextTick
 promise
 Object.observe
+
 宏任务的例子：
 
 setTimeout

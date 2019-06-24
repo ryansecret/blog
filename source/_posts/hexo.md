@@ -1,7 +1,7 @@
 ---
 title: hexo
 date: 2016-12-21 11:47:39
-tags:
+tags: hexo 
 ---
 # install
 Node和Git都安装好后,首先创建一个文件夹,如blog,用户存放hexo的配置文件,然后进入blog里安装Hexo。

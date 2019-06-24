@@ -1,7 +1,7 @@
 ---
 title: postgre
 date: 2017-02-21 11:18:37
-tags:
+tags: postgre
 ---
 
 ```

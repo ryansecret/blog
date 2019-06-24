@@ -1,7 +1,7 @@
 ---
 title: loadtest
 date: 2017-01-17 09:41:01
-tags:
+tags: loadtest
 ---
 ### loadtest 压力测试
 可用powershell 或linux bash 

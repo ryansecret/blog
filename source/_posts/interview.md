@@ -1,7 +1,7 @@
 ---
 title: interview
 date: 2017-01-23 18:25:52
-tags:
+tags: interview
 ---
  而在底层，Node.js借助libuv来作为抽象封装层， 从而屏蔽不同操作系统的差异，Node可以借助livuv来来实现多线程。
  

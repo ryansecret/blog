@@ -1,7 +1,7 @@
 ---
 title: pm2
 date: 2016-12-29 17:53:39
-tags:
+tags: pm2 
 ---
 ### pm2 start 启动文件的设置
 

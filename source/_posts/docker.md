@@ -1,7 +1,7 @@
 ---
 title: docker 常用命令
 date: 2016-12-14 17:56:03
-tags:
+tags: docker
 ---
 总结一下常用命令:
 

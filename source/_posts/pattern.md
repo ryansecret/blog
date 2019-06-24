@@ -1,7 +1,7 @@
 ---
 title: pattern
 date: 2016-12-26 14:05:38
-tags:
+tags: pattern
 ---
 ##  装饰模式
 
