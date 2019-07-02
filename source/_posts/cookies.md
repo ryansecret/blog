@@ -3,15 +3,20 @@ title: cookies
 date: 2019-06-24 14:40:18
 tags: 零碎
 ---
+### 发版
+1. 发布阶段：更新chagelog ,打 git tag 。
 
 ### js
 
-随机字符串 Math.random().toString(36).substr(2));
+1. 随机字符串 Math.random().toString(36).substr(2));
+
+2. Babel pollyfy 的作用 ：https://zhuanlan.zhihu.com/p/29058936
 
 
 ## mac
-Mac 设置path  export PATH=$PATH:
-
+1. Mac 设置path  export PATH=$PATH:
+1.  查看端口占用：lsof -i:3001
+   
 ### vim 
 j: 下移一行；
 
@@ -36,3 +41,7 @@ O: 在上面新建一行插入；
 a: 在光标后插入；
 
 A: 在当前行最后插入；
+
+u: 取消一(n)个改动。
+
+ctrl + r: 重做最后的改动。

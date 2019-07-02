@@ -22,6 +22,25 @@ tags: useful package
 1. numerify  用来格式化数字 
    
 1. utils-lite  前端提供debounce、thorttling、clone、cloneDeep 等方法
+1. is-type-of   node check 数据类型
+1. on-finished  Execute a callback when a HTTP request closes, finishes, or errors
+1. await-event  封装了promise 
+```javascript
+var PassThrough = require('stream').PassThrough
+ 
+var stream = new PassThrough()
+// you attach it directly on an event emitter
+stream.await = require('await-event')
+ 
+co(function* () {
+  var chunk = yield stream.await('data')
+  var chunk = yield stream.await('data')
+  var chunk = yield stream.await('data')
+}).catch(noop)
+ 
+stream.write('some chunk’) 
+```
+1. get-ready  NodeJS mixin to add one-time ready event
   
 
   
