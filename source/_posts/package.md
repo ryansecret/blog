@@ -41,6 +41,7 @@ co(function* () {
 stream.write('some chunk’) 
 ```
 1. get-ready  NodeJS mixin to add one-time ready event
-  
+1. ShellJS 是Unix shell命令在Node.js API上的可移植实现
+1.   
 
   

@@ -16,6 +16,15 @@ tags: 零碎
 ## mac
 1. Mac 设置path  export PATH=$PATH:
 1.  查看端口占用：lsof -i:3001
+
+## npm
+1. npm config edit
+1. npm config set init.author.name "ryansecreat"
+1. npm config set init.email='chenjingnan@jd.com’
+1. npm config set init.license "MIT"
+1. npm start --prefix path/to/your/folder   //指定目录下运行
+1. npm repo   浏览器中打开repo
+
    
 ### vim 
 j: 下移一行；
