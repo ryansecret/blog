@@ -12,7 +12,16 @@ tags: 零碎
 
 2. Babel pollyfy 的作用 ：https://zhuanlan.zhihu.com/p/29058936
 
-
+3. Babel stag2 的功能  https://github.com/babel/babel/tree/master/packages/babel-preset-stage-2
+1. 所有的babel 包  https://github.com/babel/babel/tree/master/packages
+1.  npx babel-upgrade
+1. ES2019 中为Symbol对象添加了只读属性 description ，该对象返回包含Symbol描述的字符串。
+1. 变量的临时死区  
+1. SET 操作的时间复杂度
+1. 如果你传的 context 就 null 或者 undefined，那么 window 对象就是默认的 context（严格模式下默认 context 是 undefined）
+1. 高阶函数的定义
+1. 作用域以及作用域链  函数作用域 —闭包
+1. 
 ## mac
 1. Mac 设置path  export PATH=$PATH:
 1.  查看端口占用：lsof -i:3001

@@ -255,4 +255,52 @@ function selfish (target) {
 const logger = selfish(new Logger());
 ```   
 
+#### 类型转换 
+1. 转换为数字
+```javascript
+let int = "15";
+int = +int;
+console.log(int); // Result: 15
+console.log(typeof int); Result: "number"
 
+//这也可以用于将布尔值转换为数字，如下所示
+ console.log(+true);  // Return: 1
+ console.log(+false); // Return: 0
+
+```
+#### console 
+```javascript
+
+console.table()
+console.dir()
+console.count()
+Console.time() 
+consoel.timeLog()
+ console.time("answer time");
+alert("Click to continue");
+console.timeEnd("answer time”);
+
+```
+
+#### 对象的结构 
+1. 对象的解构：let { x, y, ...z } = { x: 1, y: 2, a: 3, b: 4 };
+```javascript
+let obj = {   p: [     'Hello',     { y: 'World' }   ] }; 
+let { p: [x, { y }] } = obj; x // "Hello"
+```
+
+2. 展开运算符的妙用 
+```javascript
+
+//需要根据一个条件创建两个不同的对象，可以使用展开运算符号来处理。
+
+const getUser = (emailIncluded) => {
+  return {
+    name: 'John',
+    surname: 'Doe',
+    ...emailIncluded && { email : 'john@doe.com' }
+  }
+}
+
+```
+####

@@ -122,6 +122,10 @@ deep watcher 和 sync watcher
  
 #####  v-once 指令，你也能执行一次性地插值
 
+#### v-slot 新的用法
+v-slot 的别名是#。因此，可以用#header="data" 来代替 v-slot:header="data"。还可以使用 #header来代替 v-slot:header(前提:不是作用域插槽时)。对于默认插槽，在使用别名时需要指定默认名称。换句话说，需要这样写 #default="data" 而不是#="data"。
+
+
 ##### Mustache 不能在 HTML 属性中使用，应使用 v-bind 指令：
 
 ```
@@ -178,22 +182,8 @@ v-on 缩写
 <!-- 缩写 -->
 <a @click="doSomething"></a>
 ```
-##### watch property
-##### 条件组
-
-```
-<h1 v-if="ok">Yes</h1>
-<h1 v-else>No</h1>
-```
-##### 列表渲染
-
-```
-<ul id="example-1">
-  <li v-for="item in items">
-    {{ item.message }}
-  </li>
-</ul>
-```
+ 
+ 
 ##### 按键修饰符
 记住所有的 keyCode 比较困难，所以 Vue 为最常用的按键提供了别名：
 
