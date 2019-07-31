@@ -42,6 +42,22 @@ stream.write('some chunk’)
 ```
 1. get-ready  NodeJS mixin to add one-time ready event
 1. ShellJS 是Unix shell命令在Node.js API上的可移植实现
-1.   
-
-  
+1. graceful-process   graceful exit process even parent exit on SIGKILL.
+1. semver.gte(process.version, '7.0.0’)  版本的比对 
+1. pkgfiles  自动再package中添加 npm publish 文件
+1. depd  标注方法deprecating 
+1. http-errors   http错误  
+1. Global-tunnel  http请求的全局代理  
+1. humanize-ms  转义为ms  
+```
+transform humanize time to ms  ms('1s') // 1000
+ms(1000) // 1000
+```
+1. Exceljs 一个功能强大的excel 处理包
+1. ready-callback 所有注册的事件完成后，才执行ready中方法
+1. Get-ready  NodeJS mixin to add one-time ready event，ready 后执行相关方法
+1. xml2js  将xml 转换为json 
+1. debug  调试状态输出  debug=*  debug=work:*   
+1. delegates  node模块中代理proto中属性的方法、setter和getter
+1. chokidar filewatch 
+1. Puppeteer  headless browser

@@ -1,8 +1,33 @@
 ---
 title: vue
 date: 2017-01-19 15:19:03
-tags: vue eventloop
+tags: vue eventloop js 
 ---
+### js
+1. js 链接 defer 和 async
+```text
+defer 和 async 都是并行加载的，主要区别在于下载后何时执行。
+每一个 async 属性的脚本都在它下载结束之后立刻执行，所以就有可能出现脚本执行顺序被打乱的情况
+每一个 defer 属性的脚本会在 HTML 解析完成后, DOMContentLoaded 之前，按照 DOM 中的顺序执行（ie>=10）
+defer 和 async 都只适用于外部脚本文件，对与内联的 script 标签是不起作用
+
+```
+1. preload 用 “as” 或者用 “type” 属性来表示他们请求资源的优先级（比如说 preload 使用 as="style" 属性将获得最高的优先级）。没有 “as” 属性的将被看作异步请求，“Early”意味着在所有未被预加载的图片请求之前被请求（“late”意味着之后）
+1. WebRTC，名称源自网页即时通信（英语：Web Real-Time Communication）的缩写，是一个支持网页浏览器进行实时语音对话或视频对话的API。
+1. Vue-intro  新功能引导  
+1. __proto__ 属性，这是历史遗留的非标准的语法，但在现代浏览器中广泛实现。获得原型的更可靠方法是使用 Object.getPrototypeOf(new Object())；例如：
+ ```javascript
+const car = {}
+const list = []
+ 
+console.log(Object.getPrototypeOf(car));
+console.log(Object.getPrototypeOf(list));
+```
+1. Object.prototype.toString.call(variable) 用这个方法来判断变量类型目前是最可靠的了，它总能返回正确的值。
+   
+   该方法返回 "[object type]", 其中type是对象类型。
+1.  document.getElementsByClassName('test');
+1.    
 
 ### 内部机制 
 

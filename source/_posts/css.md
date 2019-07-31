@@ -6,21 +6,21 @@ tags: css
 
 1. overflow:https://developer.mozilla.org/zh-CN/docs/Web/CSS/overflow
 
-2. Element.scrollTop 属性可以获取或设置一个元素的内容垂直滚动的像素数。
+1. Element.scrollTop 属性可以获取或设置一个元素的内容垂直滚动的像素数。
 
 offsetTop: 当前元素顶部距离最近父元素顶部的距离,和有没有滚动条没有关系。单位px，只读元素。
 
-scrollHeight: 因为子元素比父元素高，父元素不想被子元素撑的一样高就显示出了滚动条，在滚动的过程中本元素有部分被隐藏了，scrollHeight代表包括当前不可见部分的元素的高度。而可见部分的高度其实就是clientHeight，也就是scrollHeight>=clientHeight恒成立。在有滚动条时讨论scrollHeight才有意义，在没有滚动条时scrollHeight==clientHeight恒成立。单位px，只读元素。
+  scrollHeight: 因为子元素比父元素高，父元素不想被子元素撑的一样高就显示出了滚动条，在滚动的过程中本元素有部分被隐藏了，scrollHeight代表包括当前不可见部分的元素的高度。而可见部分的高度其实就是clientHeight，也就是scrollHeight>=clientHeight恒成立。在有滚动条时讨论scrollHeight才有意义，在没有滚动条时scrollHeight==clientHeight恒成立。单位px，只读元素。
 
-https://imweb.io/topic/57c5409e808fd2fb204eef52
+   https://imweb.io/topic/57c5409e808fd2fb204eef52
 
-clientheight offsetheight 
+   clientheight offsetheight 
 
 
-3. 相对位置：
+1. 相对位置：
 https://developer.mozilla.org/zh-CN/docs/Web/CSS/position
 
-4. Image alt 属性是一个必需的属性，它规定在图像无法显示时的替代文本。
+1. Image alt 属性是一个必需的属性，它规定在图像无法显示时的替代文本。
 
 
 text-decoration 设置下划线等
@@ -29,7 +29,12 @@ https://jsfiddle.net/ryansecreat/58um7k43/
 document​.active​Element
 
  返回当前页面中获得焦点的元素,也就是说,如果此时用户按下了键盘上某个键,会在该元素上触发键盘事件.该属性是只读的.
-
+ 
+ #### 性能  
+1. 尽量使用 flexbox 而不是老的布局模型。它运行速度更快，可为你的应用程序创造巨大的性能优势。
+1. 根据 Google Developer，渲染线程分为 主线程 (main thread) 和 合成线程 (compositor thread)。如果 CSS 动画只是改变 transforms 和 opacity，这时整个 CSS 动画得以在 合成线程完成（而JS动画则会在 主线程 执行，然后触发合成线程进行下一步操作），在 JS 执行一些昂贵的任务时，主线程繁忙，CSS 动画由于使用了合成线程可以保持流畅
+1. CSS动画有天然事件支持（TransitionEnd、AnimationEnd，但是它们都需要针对浏览器加前缀），JS则需要自己写事件。
+1. 在实现一些小的交互动效的时候，就多考虑考虑 CSS 动画。对于一些复杂控制的动画，使用 javascript 比较可靠。
 
 #### 块元素是一个元素，占用了全部宽度，在前后都是换行符。
    ```text

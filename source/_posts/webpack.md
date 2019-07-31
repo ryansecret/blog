@@ -3,12 +3,19 @@ title: webpack
 date: 2017-01-17 14:58:02
 tags: webpack  
 ---
-autoprefixer 自动补充前缀
+1. autoprefixer 自动补充前缀
 
 
-WebPack可以看做是模块打包机：它做的事情是，分析你的项目结构，找到JavaScript模块以及其它的一些浏览器不能直接运行的拓展语言（Scss，TypeScript等），并将其打包为合适的格式以供浏览器使用。
+1. WebPack可以看做是模块打包机：它做的事情是，分析你的项目结构，找到JavaScript模块以及其它的一些浏览器不能直接运行的拓展语言（Scss，TypeScript等），并将其打包为合适的格式以供浏览器使用。
 
-Webpack在打包时可以为我们生成的source maps，这为我们提供了一种对应编译文件和源文件的方法，使得编译后的代码可读性更高，也更容易调试
+1. Webpack splitchunk 将各个模块的交集部分抽离出来 
+
+1. Webpack ProvidePlugin 自动加载js，不必import。
+   new webpack.ProvidePlugin({
+     _map: ['lodash', 'map']
+   })
+
+1. Webpack在打包时可以为我们生成的source maps，这为我们提供了一种对应编译文件和源文件的方法，使得编译后的代码可读性更高，也更容易调试
 
 具体配置参考：http://www.jianshu.com/p/42e11515c10f
 
