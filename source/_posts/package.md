@@ -61,3 +61,28 @@ ms(1000) // 1000
 1. delegates  node模块中代理proto中属性的方法、setter和getter
 1. chokidar filewatch 
 1. Puppeteer  headless browser
+1. cross-env Run scripts that set and use environment variables across platforms
+1. simplemde  markdown editor 
+1. serialize-javascript  Serialize JavaScript to a superset of JSON that includes regular expressions and functions.
+1.route-cache  express router cache
+```javascript
+var routeCache = require('route-cache');
+ 
+// cache route for 20 seconds
+app.get('/index', routeCache.cacheSeconds(20), function(req, res){
+  // do your dirty work here...
+  console.log('you will only see this every 20 seconds.');
+  res.send('this response will be cached');
+});
+```
+1. Ws server 端的websoket 
+1. fastclick  解决浏览器点击的延迟
+1. Qs  A querystring parsing and stringifying library with some added security.
+1. lru-cache  A cache object that deletes the least-recently-used items.
+1. memory-fs  A simple in-memory filesystem. Holds data in a javascript object
+1. faker.js  generate massive amounts of fake data in the browser and node.js
+1. parseurl 等同node url parse，加了cache
+1. vue-lazy-component   Vue.js 2.x 组件级懒加载方案-Vue.js 2.x component level lazy loading solution
+1. async-validator  数据验证
+1. fast-safe-stringify    Safe and fast serialization alternative to JSON.stringify.
+1. node-notifier   Send cross platform native notifications using Node.js.

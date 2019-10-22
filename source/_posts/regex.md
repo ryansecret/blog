@@ -96,6 +96,18 @@ Replace 函数形式：
 });
 ```
 
+```javascript
+// 可以直接赋值
+let {groups: {one, two}} = /^(?<one>.*):(?<two>.*)$/u.exec('foo:bar');
+one  // foo
+two  // bar
+
+// 直接replace
+let re = /(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})/u;
+
+'2015-01-02'.replace(re, '$<day>/$<month>/$<year>')
+```
+
 ### 使用引用
 
 使用引用：const RE_TWICE = /^(?<word>[a-z]+)!\k<word>$/;

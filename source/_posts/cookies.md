@@ -45,10 +45,15 @@ tags: 零碎
    ```
 1. 要应用更新，Virtual DOM核心功能将发挥作用，即 协调算法，它的工作是提供最优的解决方案来解决以前和当前虚拟DOM 状态之间的差异。
 
+## opentracing
+1. Opentracing 的carrier 有多种实现，tracer 的inject（客户端进程） 和 extract（服务端进程），这样 客户端和服务端 就可以拥有相同的trace context。
+1. Server 首先extract check 有没有注入的span，没有的话启动一个新的span
 
 ## mac
 1. Mac 设置path  export PATH=$PATH:
 1.  查看端口占用：lsof -i:3001
+1. export http_proxy="http://localhost:8899"
+1. Grep -A 5 显示后面5行信息
 
 ## npm
 1. npm config edit
@@ -58,9 +63,27 @@ tags: 零碎
 1. npm start --prefix path/to/your/folder   //指定目录下运行
 1. npm repo   浏览器中打开repo
 1. npm publish --registry=http://registry.npmjs.org  --registry=https://registry.npm.taobao.org
-1.    
+1. npm outdated  查看过时package
+1. npm publish --tag=beta.
+1. npm version patch -m "Upgrade to %s for reasons”
+1. npm dist-tag add n-n-n-n@1.0.2-1 latest  将某个预发版本更新为最新   
+1. npm ping [--registry <registry>]
 
 ### node
+1. Stream cork uncork
+1. escape-html  This function will escape the following characters: ", ', &, <, and >.
+1. domain模块，把处理多个不同的IO的操作作为一个组。注册事件和回调到domain，当发生一个错误事件或抛出一个错误时，domain对象会被通知，不会丢失上下文环境，也不导致程序错误立即退出，与process.on('uncaughtException')不同。
+1. stream tranform
+```text
+const { Transform } = require('stream');
+
+const myTransform = new Transform({
+  transform(chunk, encoding, callback) {
+    // ...
+  }
+});
+```
+1. 可以引入corejs实现feature
 1. 性能分析
 Node 性能分析，抓取火焰图 node --inspect app.js
 Node  --prof-process  https://github.com/nswbmw/node-in-debugging/blob/master/1.3%20Tick%20Processor.md
@@ -93,7 +116,21 @@ Client-Hints 的引入允许浏览器或者客户端来主动交流它的需求�
 1. Ca 使用证书颁发机构的证书中的公钥去解密被颁发者的指纹算法和指纹，并计算比对指纹，正确才能验证身份
 1. const { EventEmitter } = require('events’);  EventEmitter 的继承
 1. Require.resovle() 获取模块的绝对路径  
+1. peerDependencies 相关模块安装
+1. websocket 
+```text
+WebSocket 使用了自定义的二进制分帧格式，把每个应用消息切分成一或多个帧，发送到目的地之后再组装起来，等到接收到完整的消息后再通知接收端。基本的成帧协议定义了帧类型有操作码、有效载荷的长度，指定位置的Extension data和Application data，统称为Payload data，保留了一些特殊位和操作码供后期扩展。在打开握手完成后，终端发送一个关闭帧之前的任何时间里，数据帧可能由客户端或服务器的任何一方发送。
 
+• 帧：最小的通信单位，包含可变长度的帧首部和净荷部分，净荷可能包含完整或部分应用消息。
+• 消息：一系列帧，与应用消息对等。
+```
+1. jwt 签名算法
+```text
+HS256 使用密钥生成固定的签名，RS256 使用成非对称进行签名。简单地说，HS256 必须与任何想要验证 JWT的 客户端或 API 共享秘密。
+RS256 生成非对称签名，这意味着必须使用私钥来签签名 JWT，并且必须使用对应的公钥来验证签名。与对称算法不同，使用 RS256 可以保证服务端是 JWT 的签名者，因为服务端是唯一拥有私钥的一方。这样做将不再需要在许多应用程序之间共享私钥
+
+这种方法可以让我们分离开签发与验证，签发时需要用一个密钥，验证时使用公钥，也就是有公钥的地方只能做验证，但不能签发 JWT。
+```
 ### egg
 1. 启动顺序
 ```text
@@ -103,7 +140,12 @@ Master 再 fork 多个 App Worker
 App Worker 初始化成功，通知 Master
 所有的进程初始化成功后，Master 通知 Agent 和 Worker 应用启动成功
 ```
+### 网络
+1. 子网是所属VPC IP地址范围内的 IP 地址块。目前私有网络中的云资源部署在子网内，如云主机、容器、负载均衡等。
 
+1. 可用区（Availability Zone）是电力及网络之间互相独立的物理区域，相同可用区内的实例之间较之同地域不同可用区内实例之间的网络延时更小。同地域内不同可用区之间提供内网互通环境，可用区之间可做到故障隔离。
+  若您的业务要求有较低网络时延，建议将实例或者Pod部署在同一可用区内。
+  
 ### vim 
 j: 下移一行；
 
