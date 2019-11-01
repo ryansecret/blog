@@ -3,8 +3,11 @@ title: cookies
 date: 2019-06-24 14:40:18
 tags: 零碎
 ---
+
+:smile:
 ### 发版
 1. 发布阶段：更新chagelog ,打 git tag 。
+
 ### word
 1. deflate 放气，紧缩
 1. Sanitize 消毒，净化
