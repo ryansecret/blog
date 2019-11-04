@@ -61,5 +61,27 @@ document​.active​Element
    
    transform: rotateX(120deg);  x轴旋转 
    
+#### 不被选中
+body{
+
+-webkit-touch-callout: none;
+
+-webkit-user-select: none;
+
+-khtml-user-select: none;
+
+-moz-user-select: none;
+
+-ms-user-select: none;
+
+user-select: none;
+
+}
+
+#### 隐藏
+
+1.opacity：0,该元素隐藏起来了，但不会改变页面布局，并且，如果该元素已经绑定了一些事件，如click事件也能触发 2.visibility:hidden,该元素隐藏起来了，但不会改变页面布局，但是不会触发该元素已经绑定的事件 3.display:node, 把元素隐藏起来，并且会改变页面布局，可以理解成在页面中把该元素删掉
+#### html 生成
+将html代码按照深度优先遍历来生成DOM树。 css文件下载完后也会进行渲染，生成相应的CSSOM。 当所有的css文件下载完且所有的CSSOM构建结束后，就会和DOM一起生成Render Tree。 接下来，浏览器就会进入Layout环节，将所有的节点位置计算出来。 最后，通过Painting环节将所有的节点内容呈现到屏幕上。
    
    

@@ -32,7 +32,25 @@ tags: 零碎
 1. Console.dir  显示对象所有的属性和方法
 1. Broadcast Channel API 允许同一原始域和用户代理下的所有窗口,iFrames 等进行交互。也就是说，如果用户打开了同一个网站的的两个标签窗口，如果网站内容发生了变化，那么两个窗口会同时得到更新通知。
 1. escape 在处理 0xff 之外字符的时候，是直接使用字符的 unicode 在前面加上一个 「%u」，而encodeURI则是先进行 UTF-8，再在 UTF-8 的每个字节码前加上一个 「%」； 所以通过encodeUrI 可以获取utf-8 字节长度
-1. 
+1. js value
+```text
+对象转原始类型，会调用内置的[ToPrimitive]函数，对于该函数而言，其逻辑如下：
+
+如果Symbol.toPrimitive()方法，优先调用再返回
+调用valueOf()，如果转换为原始类型，则返回
+调用toString()，如果转换为原始类型，则返回
+如果都没有返回原始类型，会报错
+var a = {
+  value: 0,
+  valueOf: function() {
+    this.value++;
+    return this.value;
+  }
+};
+console.log(a == 1 && a == 2);//true
+
+```
+
 
 #### 编译
 1. 无论你使用的是解释型语言(JavaScript、Python、Ruby)还是编译型语言(c#、Java、Rust)，都有一个共同的部分:将源代码作为纯文本解析为 抽象语法树(abstract syntax tree, AST) 的数据结构。
@@ -102,21 +120,6 @@ then(resolve, reject){
 1. Node 内置了pipeline  const { pipeline } = require('stream');
 1. Elastic APM 是 Elastic 公司开源的一款 APM 工具
 1. Error.prepareStackTrace:定制化堆栈信息    Error.captureStackTrace:隐藏内部的实现细节，优化错误栈。
-1.http2
-```text
-http2基础理论
-
-HTTP2是二进制协议
-这是一个复用协议。并行的请求能在同一个链接中处理，移除了HTTP/1.x中顺序和阻塞的约束。
-压缩了headers。因为headers在一系列请求中常常是相似的，其移除了重复和传输重复数据的成本。
-其允许服务器在客户端缓存中填充数据，通过一个叫服务器推送的机制来提前请求。
-对Alt-Svc的支持允许了给定资源的位置和资源鉴定，允许了更智能的CDN缓冲机制。
-Client-Hints 的引入允许浏览器或者客户端来主动交流它的需求，或者是硬件约束的信息给服务端。
-在Cookie头中引入安全相关的的前缀，现在帮助保证一个安全的cookie没被更改过。
-
-```
-1. Https https://zhuanlan.zhihu.com/p/27395037    https://blog.51cto.com/11883699/2160032
-1. Ca 使用证书颁发机构的证书中的公钥去解密被颁发者的指纹算法和指纹，并计算比对指纹，正确才能验证身份
 1. const { EventEmitter } = require('events’);  EventEmitter 的继承
 1. Require.resovle() 获取模块的绝对路径  
 1. peerDependencies 相关模块安装
@@ -144,10 +147,16 @@ App Worker 初始化成功，通知 Master
 所有的进程初始化成功后，Master 通知 Agent 和 Worker 应用启动成功
 ```
 ### 网络
-1. 子网是所属VPC IP地址范围内的 IP 地址块。目前私有网络中的云资源部署在子网内，如云主机、容器、负载均衡等。
+1. 子网是所属VPC IP地址范围内的 IP 地址块。目前私有网络中的云资源部署在子网内，如云主机、容器、负载均衡等。子网：子网是对VPC地址空间的再一次划分，用户可以在子网中创建云主机。
 
 1. 可用区（Availability Zone）是电力及网络之间互相独立的物理区域，相同可用区内的实例之间较之同地域不同可用区内实例之间的网络延时更小。同地域内不同可用区之间提供内网互通环境，可用区之间可做到故障隔离。
   若您的业务要求有较低网络时延，建议将实例或者Pod部署在同一可用区内。
+1. VPC：VPC是用户网络在京东云上的表现形式，包含了一系列的网络功能，与其他的VPC逻辑隔离。VPC有一个网络地址空间，用户可以在其中继续划分子网。
+1. NAT 地址网络转换，通过在路由器上安装 NAT 软件，它至少有一个有效的公网 IP 地址，通过 NAT 路由器将内部私有 IP 转换成公网 IP。它的问题在于 NAT 设备自动屏蔽了非内网主机主动发起的连接，也就是说，从外网发往内网的数据包将被 NAT 设备丢弃，这使得位于不同 NAT 设备之后的主机之间无法直接交换信息.
+  
+1. 503 服务器资源不足问题导致的拒绝服务，比如熔断。
+1. 
+
   
 ### vim 
 j: 下移一行；

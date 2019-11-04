@@ -15,6 +15,25 @@ defer 和 async 都只适用于外部脚本文件，对与内联的 script 标�
 1. preload 用 “as” 或者用 “type” 属性来表示他们请求资源的优先级（比如说 preload 使用 as="style" 属性将获得最高的优先级）。没有 “as” 属性的将被看作异步请求，“Early”意味着在所有未被预加载的图片请求之前被请求（“late”意味着之后）
 1. WebRTC，名称源自网页即时通信（英语：Web Real-Time Communication）的缩写，是一个支持网页浏览器进行实时语音对话或视频对话的API。
 1. Vue-intro  新功能引导  
+1. Vm.$attrs  Vm.$attrs 
+1. <home :title.sync=
+   "title" /> //编译时会被扩展为 <home :title="title" @update:title="val => title = val"/> // 子组件 // 所以子组件可以通过$emit 触发 update 方法改变 mounted(){ this.$emit("update:title", '这是新的title') }
+1. Vue.config.errorHandler   
+1. v-pre  场景:vue 是响应式系统,但是有些静态的标签不需要多次编译,这样可以节省性能
+1. v-loader transformAssetUrls  
+在模板编译过程中，编译器可以将某些特性转换为 require 调用，例如 src 中的 URL。因此这些目标资源可以被 webpack 处理。例如 <img src="./foo.png"> 会找到你文件系统中的 ./foo.png 并将其作为一个依赖包含在你的包里
+1. view router加key  场景:由于 Vue 会复用相同组件, 即 /page/1 => /page/2 或者 /page?id=1 => /page?id=2 这类链接跳转时, 将不在执行created, mounted之类的钩子
+1. 生命周期
+```text
+beforeCreate阶段：vue实例的挂载元素el和数据对象data都是undefined，还没有初始化。
+created阶段：vue实例的数据对象data有了，可以访问里面的数据和方法，未挂载到DOM，el还没有
+beforeMount阶段：vue实例的el和data都初始化了，但是挂载之前为虚拟的dom节点
+mounted阶段：vue实例挂载到真实DOM上，就可以通过DOM获取DOM节点
+beforeUpdate阶段：响应式数据更新时调用，发生在虚拟DOM打补丁之前，适合在更新之前访问现有的DOM，比如手动移除已添加的事件监听器
+updated阶段：虚拟DOM重新渲染和打补丁之后调用，组成新的DOM已经更新，避免在这个钩子函数中操作数据，防止死循环
+beforeDestroy阶段：实例销毁前调用，实例还可以用，this能获取到实例，常用于销毁定时器，解绑事件
+destroyed阶段：实例销毁后调用，调用后所有事件监听器会被移除，所有的子实例都会被销毁  
+```         
 1. __proto__ 属性，这是历史遗留的非标准的语法，但在现代浏览器中广泛实现。获得原型的更可靠方法是使用 Object.getPrototypeOf(new Object())；例如：
  ```javascript
 const car = {}

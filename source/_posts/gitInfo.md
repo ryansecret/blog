@@ -22,3 +22,4 @@ tags: git
 2. git branch -u <origin/mybranch> 设置远程分支 
 2. git branch -vv 查看本地分之关联情况
 2. git checkout -  最近两个分子间切换
+1. git commit -m "Big-ass commit" --allow-empty

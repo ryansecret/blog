@@ -86,3 +86,10 @@ app.get('/index', routeCache.cacheSeconds(20), function(req, res){
 1. async-validator  数据验证
 1. fast-safe-stringify    Safe and fast serialization alternative to JSON.stringify.
 1. node-notifier   Send cross platform native notifications using Node.js.
+1. dateformat   node 时间处理函数
+1. agentkeepalive  defaut is keepalive
+1. copy-to   copy an object's properties to another one, include propertiy, getter and setter.
+1. platform   A platform detection library that works on nearly all JavaScript platforms.
+
+1. svg-captcha 验证码  
+1. 
