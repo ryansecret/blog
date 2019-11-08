@@ -68,7 +68,7 @@ setInterval
 setImmediate
 I/O
 
-需要注意的是node 和 浏览器的 event loop 是有区别的：
+需要注意的是node 和 浏览器的 event loop 是有区别的(需要注意的是node v12.0 之后和浏览器处理事一致的)：
 
 ```text
 浏览器的事件循环：
@@ -115,7 +115,7 @@ even loop将同步执行poll队列里的回调，直到队列为空或执行的�
 注意一个细节，没有setImmediate()会导致event loop阻塞在poll阶段，这样之前设置的timer岂不是执行不了了？所以咧，在poll阶段event loop会有一个检查机制，检查timer队列是否为空，如果timer队列非空，event loop就开始下一轮事件循环，即重新进入到timer阶段。
 
 check 阶段
-setImmediate()的回调会被加入check队列中， 从event loop的阶段图可以知道，check阶段的执行顺序在poll阶段之后。
+setImmediate()的回调会被加入check队列中，从event loop的阶段图可以知道，check阶段的执行顺序在poll阶段之后。
 
 
 回顾上一篇，浏览器环境下，microtask的任务队列是每个macrotask执行完之后执行。而在Node.js中，microtask会在事件循环的各个阶段之间执行，也就是一个阶段执行完毕，就会去执行microtask队列的任务。详见：http://lynnelv.github.io/js-event-loop-nodejs

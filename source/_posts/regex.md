@@ -108,11 +108,18 @@ let re = /(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})/u;
 '2015-01-02'.replace(re, '$<day>/$<month>/$<year>')
 ```
 
-### 使用引用
+### 使用引用(具名)
 
 使用引用：const RE_TWICE = /^(?<word>[a-z]+)!\k<word>$/;
 
 RE_TWICE.test('abc!abc') // true
 RE_TWICE.test('abc!ab') // false
+
+### 捕获组的使用
+Regex 中捕获组的使用：
+对于普通捕获组和命名捕获组的引用，语法如下：
+普通捕获组反向引用：\k<number>，通常简写为\number
+
+命名捕获组反向引用：\k<name>或者\k'name'
 
 

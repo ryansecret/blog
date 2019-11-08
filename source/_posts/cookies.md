@@ -33,6 +33,7 @@ tags: 零碎
 1. Broadcast Channel API 允许同一原始域和用户代理下的所有窗口,iFrames 等进行交互。也就是说，如果用户打开了同一个网站的的两个标签窗口，如果网站内容发生了变化，那么两个窗口会同时得到更新通知。
 1. escape 在处理 0xff 之外字符的时候，是直接使用字符的 unicode 在前面加上一个 「%u」，而encodeURI则是先进行 UTF-8，再在 UTF-8 的每个字节码前加上一个 「%」； 所以通过encodeUrI 可以获取utf-8 字节长度
 1. js value
+1. Prototype 包含constructor 和 __proto__
 ```text
 对象转原始类型，会调用内置的[ToPrimitive]函数，对于该函数而言，其逻辑如下：
 
@@ -50,7 +51,9 @@ var a = {
 console.log(a == 1 && a == 2);//true
 
 ```
-
+1. Same origin 可以使用broadcast channel 两页面间通信。
+1. 注意闭包内this的指向
+1. 
 
 #### 编译
 1. 无论你使用的是解释型语言(JavaScript、Python、Ruby)还是编译型语言(c#、Java、Rust)，都有一个共同的部分:将源代码作为纯文本解析为 抽象语法树(abstract syntax tree, AST) 的数据结构。
@@ -124,6 +127,11 @@ then(resolve, reject){
 1. Require.resovle() 获取模块的绝对路径  
 1. peerDependencies 相关模块安装
 1. websocket 
+1. cors 新浏览器
+SameSite=Strict: The cookie is only sent if you are currently on the site that the cookie is set for. If you are on a different site and you click a link to a site that the cookie is set for, the cookie is not sent with the first request.
+1. 
+1. 
+
 ```text
 WebSocket 使用了自定义的二进制分帧格式，把每个应用消息切分成一或多个帧，发送到目的地之后再组装起来，等到接收到完整的消息后再通知接收端。基本的成帧协议定义了帧类型有操作码、有效载荷的长度，指定位置的Extension data和Application data，统称为Payload data，保留了一些特殊位和操作码供后期扩展。在打开握手完成后，终端发送一个关闭帧之前的任何时间里，数据帧可能由客户端或服务器的任何一方发送。
 
@@ -155,8 +163,25 @@ App Worker 初始化成功，通知 Master
 1. NAT 地址网络转换，通过在路由器上安装 NAT 软件，它至少有一个有效的公网 IP 地址，通过 NAT 路由器将内部私有 IP 转换成公网 IP。它的问题在于 NAT 设备自动屏蔽了非内网主机主动发起的连接，也就是说，从外网发往内网的数据包将被 NAT 设备丢弃，这使得位于不同 NAT 设备之后的主机之间无法直接交换信息.
   
 1. 503 服务器资源不足问题导致的拒绝服务，比如熔断。
-1. 
+1. Options  
+```text
+   1. 检测服务支持的method
+   2. Cors 预检
+```
+1. HTTP HEAD 方法 请求资源的头部信息, 并且这些头部与 HTTP GET 方法请求时返回的一致. 该请求方法的一个使用场景是在下载一个大文件前先获取其大小再决定是否要下载, 以此可以节约带宽资源.
+1. WebSocket是基于Http协议的，或者说借用了Http协议来完成一部分握手，在握手阶段与Http是相同的。我们来看一个websocket握手协议的实现，基本是2个属性，upgrade，connection。
+```text
+Upgrade:webSocket
+Connection:Upgrade
+```
 
+### html
+1. Web quality  : alt
+1. 该WindowEventHandlers.onstorage属性包含一个在storage事件触发时运行的事件处理程序。当更改存储区域时会发生这种情况（例如，存储新项目）。
+```javascript
+   window.onstorage = function(e) { console.log('The ' + e.key + ' key has been changed from ' + e.oldValue + ' to ' + e.newValue + '.'); };
+```
+1. navigator.sendBeacon() 方法可用于通过HTTP将少量数据异步传输到Web服务器。
   
 ### vim 
 j: 下移一行；
