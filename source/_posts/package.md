@@ -92,4 +92,4 @@ app.get('/index', routeCache.cacheSeconds(20), function(req, res){
 1. platform   A platform detection library that works on nearly all JavaScript platforms.
 
 1. svg-captcha 验证码  
-1. 
+1. vue-virtual-scroller  加载大量数据

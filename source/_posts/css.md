@@ -3,7 +3,7 @@ title: css
 date: 2019-05-07 15:12:57
 tags: css
 ---
-
+1. 这是一个叫做@font-face 的CSS @规则 ，它允许网页开发者为其网页指定在线字体。 通过这种作者自备字体的方式，@font-face 可以消除对用户电脑字体的依赖。
 1. overflow:https://developer.mozilla.org/zh-CN/docs/Web/CSS/overflow
 
 1. Element.scrollTop 属性可以获取或设置一个元素的内容垂直滚动的像素数。
@@ -86,4 +86,15 @@ user-select: none;
  #### base64
  TMLCanvasElement.toDataURL() 方法返回一个包含图片展示的 data URI 。可以使用 type 参数其类型，默认为 PNG 格式。图片的分辨率为96dpi。
  
-   
+#### base64 渲染图片
+
+使用 Base64 编码渲染图片有以下优点：
+
+有效减少 HTTP 请求次数
+可对数据进行简单加密，无法肉眼获取信息
+没有跨域问题，无需考虑图片缓存
+凡事皆有利弊，使用 Base64 编码同时也会带来一些问题：
+
+编码后文件体积增大，仅适用于小体积图片编码
+增加了编码和解码的工作量
+不支持 IE 8.0 以下版本   

@@ -122,4 +122,8 @@ Regex 中捕获组的使用：
 
 命名捕获组反向引用：\k<name>或者\k'name'
 
+### 匹配字符和非字符
+\b matches the empty string at the beginning or end of a word. 
+
+\B matches the empty string not at the beginning or end of a word. 
 

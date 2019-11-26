@@ -33,7 +33,25 @@ tags: 零碎
 1. Broadcast Channel API 允许同一原始域和用户代理下的所有窗口,iFrames 等进行交互。也就是说，如果用户打开了同一个网站的的两个标签窗口，如果网站内容发生了变化，那么两个窗口会同时得到更新通知。
 1. escape 在处理 0xff 之外字符的时候，是直接使用字符的 unicode 在前面加上一个 「%u」，而encodeURI则是先进行 UTF-8，再在 UTF-8 的每个字节码前加上一个 「%」； 所以通过encodeUrI 可以获取utf-8 字节长度
 1. js value
-1. Prototype 包含constructor 和 __proto__
+1. Prototype 包含constructor 和 __proto__. 原型链存储共有的属性和方法，减少内存
+1. 基本的数据类型 
+```text
+基本的数据类型
+undefined
+null
+string
+boolean
+number
+symbol(ES6)
+
+```
+1. navigator.userAgent: 返回当前浏览器的user agent字符串
+1. 懒加载：
+   Javascript 脚步通常要等到 DOM 加载完后才会执行，如果加载的资源过多，可能会影响网页的正常使用。
+   能够节省流量和减轻服务器压力，更近一步就是能够为公司省成本。
+1. String 和 new String 区别
+1. 
+
 ```text
 对象转原始类型，会调用内置的[ToPrimitive]函数，对于该函数而言，其逻辑如下：
 

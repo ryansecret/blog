@@ -66,3 +66,17 @@ F5 刷新会忽略强缓存不会忽略协商缓存，ctrl+f5 都失效
 
 1. Https https://zhuanlan.zhihu.com/p/27395037    https://blog.51cto.com/11883699/2160032
 1. Ca 使用证书颁发机构的证书中的公钥去解密被颁发者的指纹算法和指纹，并计算比对指纹，正确才能验证身份
+
+1. 缓存的分类：
+```text
+   强缓存：在缓存数据未失效的情况下，不需要再和服务器发生交互.cache-control :no-cache 走协商缓存
+   协商缓存：需要与服务端校验是否使用缓存。etag If-None-Match HTTP 请求头内提供 ETag
+```
+
+1. 30X 区分
+```text
+301，Moved Permanently。永久重定向，该操作比较危险，需要谨慎操作：如果设置了301，但是一段时间后又想取消，但是浏览器中已经有了缓存，还是会重定向。
+302，Fount。临时重定向，但是会在重定向的时候改变 method: 把 POST 改成 GET，于是有了 307
+307，Temporary Redirect。临时重定向，在重定向时不会改变 method
+```
+1. 
