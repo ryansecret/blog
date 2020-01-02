@@ -79,4 +79,44 @@ F5 刷新会忽略强缓存不会忽略协商缓存，ctrl+f5 都失效
 302，Fount。临时重定向，但是会在重定向的时候改变 method: 把 POST 改成 GET，于是有了 307
 307，Temporary Redirect。临时重定向，在重定向时不会改变 method
 ```
-1. 
+1. https 
+```text
+这些ＣＡ本身也有证书来证明自己的身份，并且ＣＡ的信用是像树一样分级的，高层的ＣＡ给底层的ＣＡ做信用背书，而操作系统／浏览器中会内置一些顶层的ＣＡ的证书，相当于你自动信任了他们。　
+
+公钥+个人信息+其它信息—》hash 算法 —》信息摘要-》用ca的私钥加密—》数字签名   签名+信息=数字证书 
+Ca 的公钥解密—》hash hash 算法 —》信息摘要-》对比是否一致
+
+```
+
+1. content-type
+```text
+multipart/form-data
+
+请求消息头中, Content-Type: multipart/form-data; boundary=----WebKitFormBoundarykALcKBgBaI9xA79y
+boundary为分隔符.
+
+application/x-www-form-urlencoded
+```
+
+1. Nat network adreess translation 网络地址转换.
+  当访问外网时自动分配一个端口，这个端口和内网的机器建立了映射关系。
+1. Defer
+
+   这个属性的用途是表明脚本在执行时不会影响页面的构造。也就是说，脚本会被延迟到整个页面都解析完毕后再运行。因此，在script元素中设置defer属性，相当于告诉浏览器立即下载，但延迟执行。
+   但与defer不同的是，标记为async的脚本并不保证按照它们的先后顺序执行。
+1.    在 http 1.1 中，在响应头中设置 keep-alive 可以在一个 TCP 连接上发送多个 http 请求
+      
+      避免了重开 TCP 连接的开销
+      避免了刷新时重新建立 SSL 连接的开销
+      避免了QPS过大时，服务器的连接数过大
+      
+1. 缓存协商
+ 
+ ```text
+我们知道协商缓存有两种方式
+
+Last-Modified/if-Modified-Since  ** Last-Modified 是由一个 unix timestamp 表示，则意味着它只能作用于秒级的改变**
+ETag/If-None-Match
+```     
+1. window.opener 表示打开当前窗体页面的的父窗体的是谁。例如，在 A 页面中，通过一个带有 target="_blank" 的 a 标签打开了一个新的页面 B，那么在 B 页面里，window.opener 的值为 A 页面的 window 对象。   rel=noopener 规定禁止新页面传递源页面的地址，通过设置了此属性的链接打开的页面，其 window.opener 的值为 null。
+1. Gzip 不要使用再图片以及其它二进制文件上

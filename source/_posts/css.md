@@ -3,6 +3,47 @@ title: css
 date: 2019-05-07 15:12:57
 tags: css
 ---
+1. Flex 主轴（x）、交叉轴(y)
+1.  calc函数是css3新增的功能，可以使用calc()计算border、margin、pading、font-size和width等属性设置动态值。
+1.触发BFC条件  BFC（Block Formatting Context）格式化上下文，
+  ```text
+  根元素
+  float的值不为none
+  overflow的值不为visible
+  display的值为inline-block、table-cell、table-caption
+  position的值为absolute、fixed
+```
+
+1. 使用vw设置，vw也是一个相对单位，100vw等于屏幕宽度
+1. Flex-shrink、flex-grow   溢出空间和剩余空间
+1. max-width/min-width > flex-basis > width > box
+1. &:nth-child(odd)  选择器
+1. writing-mode: vertical-rl;  设置文字方向
+1. text-align-last  描述的是一段文本中最后一行在被强制换行之前的对齐规则
+```text
+justify
+
+最后一行文字的开头与内容盒子的左侧对齐，末尾与右侧对齐
+
+```
+1.设置打印样式
+  
+  @media print {
+    /* print styles here. */
+  }. 
+1. line-clamp 定义文字显示行数
+1. pointer-events: none; 禁用点击事件
+1. focus-within是一个伪类，现在已经被列入到CSS选择器中。当元素本身或其后代元素获得焦点时，:focus-within伪类的元素就会有效。 
+1. 单冒号(:)用于 CSS3 伪类，双冒号(::)用于 CSS3 伪元素。
+1. 但是有个好处是当元素没有内容时候，设置height:100%该元素不会被撑开，
+   
+   但是设置height:100vh，该元素会被撑开屏幕高度一致。 
+
+1. 伪类：
+   https://user-gold-cdn.xitu.io/2019/12/12/16ef8eecad4f1adb?imageView2/0/w/1280/h/960/format/webp/ignore-error/1
+   
+1. 伪元素用于创建一些不在文档树中的元素，并为其添加样式。比如说，我们可以通过:before来在一个元素前增加一些文本，并为这些文本添加样式。虽然用户可以看到这些文本，但是这些文本实际上不在文档树中。常见的伪元素有：::before，::after，::first-line，::first-letter，::selection、::placeholder等. 伪类和伪元素的区别在于有没有创建一个文档书之外的元素。
+1.    
 1. 这是一个叫做@font-face 的CSS @规则 ，它允许网页开发者为其网页指定在线字体。 通过这种作者自备字体的方式，@font-face 可以消除对用户电脑字体的依赖。
 1. overflow:https://developer.mozilla.org/zh-CN/docs/Web/CSS/overflow
 

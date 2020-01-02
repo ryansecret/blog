@@ -4,7 +4,28 @@ date: 2017-01-19 15:19:03
 tags: vue eventloop js 
 ---
 ### js
+
+1. Vue 通过在内存中实现文档结构的虚拟表示来解决此问题，其中虚拟节点（VNode）表示 DOM 树中的节点。当需要操纵时，可以在虚拟 DOM的 内存中执行计算和操作，而不是在真实 DOM 上进行操纵。这自然会更快，并且允许虚拟 DOM 算法计算出最优化的方式来更新实际 DOM 结构。
+1. 
+Vue 不会对 provide 中的变量进行响应式处理。所以，要想 inject 接受的变量是响应式的，provide 提供的变量本身就需要是响应式的。单项数据流
+
+inheritAttrs: false, // 可以关闭自动挂载到组件根元素上的没有在props声明的属性
+1. 子组件不需要任何处理，只需要在父组件引用的时候通过@hook来监听即可，代码重写如下：<Child @hook:mounted="doSomething”/>
+1. 数据动态变化：
+   export const store = Vue.observable({ count: 0 });
+1. vue life cycle
+```
+parse阶段：使用正在表达式将template进行字符串解析，得到指令、class、style等数据，生成抽象语法树 AST。
+optimize阶段：寻找 AST 中的静态节点进行标记，为后面 VNode 的 patch 过程中对比做优化。被标记为 static 的节点在后面的 diff 算法中会被直接忽略，不做详细的比较。
+
+generate阶段：根据 AST 结构拼接生成 render 函数的字符串。
+```
+![life cycle](https://user-gold-cdn.xitu.io/2019/12/26/16f40a08cac6d3cb?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+
+1. 每个逻辑关注点的代码现在都在复合函数中并置在一起。 这大大减少了在处理大型组件时需要不断“跳转”的情况。 组合函数也可以在编辑器中折叠，使组件更容易扫描:
+
 1. js 链接 defer 和 async
+1. keep-alive 的实现正是用到了 LRU 策略,将最近访问的组件 push 到 this.keys 最后面,this.keys[0]也就是最久没被访问的组件,当缓存实例超过 max 设置值,删除 this.keys[0]
 ```text
 defer 和 async 都是并行加载的，主要区别在于下载后何时执行。
 每一个 async 属性的脚本都在它下载结束之后立刻执行，所以就有可能出现脚本执行顺序被打乱的情况

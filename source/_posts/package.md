@@ -93,3 +93,16 @@ app.get('/index', routeCache.cacheSeconds(20), function(req, res){
 
 1. svg-captcha 验证码  
 1. vue-virtual-scroller  加载大量数据
+1. FileSaver.js  保存大于 ram的文档
+1. vue-draggable-resizable  Vue2 Component for draggable and resizable elements.
+1. ScrollTrigger  根据滚动位置出发事件
+1. Vue Virtual Scroller   RecycleScroller 可以渲染列表中的可见项目。如果你不知道项目的大小，最好使用 DynamicScroller
+1. Vuetensils  没有样式的component,可定制自己样式
+1. v-calendar  日历插件
+1. vue-grid-layout 可以拖拽的布局控件
+1. Vue-content-loader  占位符控件
+1. Sinon   node 端监控方法执行、mock、spy
+1. figlet  控制台标题文字
+1. Cockatiel  是一个弹性和瞬态故障处理库，如重试，断路器，超时，隔板隔离和回退之类的策略。
+1. Signale  一个 Node 的日志格式库，自带16个级别，可以定制颜色和 Emoji。
+1. Wiki.js  构建wiki 文档管理 

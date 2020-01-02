@@ -23,6 +23,9 @@ tags: webpack
 如果useBuiltIns为true，项目中必须引入babel-polyfill。
 
 
+
+1.UglifyJS: vue-cli 默认使用的压缩代码方式，它使用的是单线程压缩代码，打包时间较慢
+  ParallelUglifyPlugin: 开启多个子进程，把对多个文件压缩的工作分别给多个子进程去完成
 1. Vue Loader 是一个 webpack 的 loader，它允许你以一种名为单文件组件 (SFCs)的格式撰写 Vue 组件.   
 1. autoprefixer 自动补充前缀
 
