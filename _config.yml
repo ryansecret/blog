@@ -69,5 +69,5 @@ theme: landscape
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git 
-  repository: git@github.com:ryansecret/ryansecret.github.io.git
+  repository: git@gitee.com:smilehard/smilehard.git
   branch: master
