@@ -23,3 +23,4 @@ tags: git
 2. git branch -vv 查看本地分之关联情况
 2. git checkout -  最近两个分子间切换
 1. git commit -m "Big-ass commit" --allow-empty
+1. git commit --amend，撤销上一次提交到暂存区，并重新提交内容；
