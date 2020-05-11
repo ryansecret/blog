@@ -22,6 +22,14 @@ tags: webpack
 1. @babel/preset-env
 如果useBuiltIns为true，项目中必须引入babel-polyfill。
 
+1.  我们可以配置webpack的特殊注释(需要 Webpack > 2.4)，将一些按需加载的路由打包到同一个js文件
+```javascript
+   const Foo = () => import(/* webpackChunkName: "group-foo" */ './Foo.vue')
+   const Bar = () => import(/* webpackChunkName: "group-foo" */ './Bar.vue')
+   const Baz = () => import(/* webpackChunkName: "group-foo" */ './Baz.vue')
+```   
+
+1.    
 
 
 1.UglifyJS: vue-cli 默认使用的压缩代码方式，它使用的是单线程压缩代码，打包时间较慢

@@ -5,6 +5,31 @@ tags: vue eventloop js
 ---
 ### js
 
+1.
+```javascript
+/*parse解析得到ast树*/
+  
+    const ast = parse(template.trim(), options)
+    /*
+      将AST树进行优化
+      优化的目标：生成模板AST树，检测不需要进行DOM改变的静态子树。
+      一旦检测到这些静态树，我们就能做以下这些事情：
+      1.把它们变成常数，这样我们就再也不需要每次重新渲染时创建新的节点了。
+      2.在patch的过程中直接跳过。
+   */
+    optimize(ast, options)
+```
+
+  optimize的主要作用是标记static静态节点，这是Vue在编译过程中的一处优化，后面当update更新界面时，会有一个patch的过程，diff算法会直接跳过静态节点，从而减少了比较的过程，优化了patch的性能。
+  
+1. Render
+// resolve template/el and convert to render function 。mounted 方法中
+在此方法中调用 vm._render 方法先生成虚拟 Node(render 函数返回的就是vnode)，最终调用 vm._update 更新 DOM。
+
+Update 调用的时机：1.首次渲染 2.数据更新 
+
+1. 绑定事件时可以用特殊变量 $event 把它传入方法：<button v-on:click="warn('Form cannot be submitted yet.', $event)">
+1. 
 1. Vue 通过在内存中实现文档结构的虚拟表示来解决此问题，其中虚拟节点（VNode）表示 DOM 树中的节点。当需要操纵时，可以在虚拟 DOM的 内存中执行计算和操作，而不是在真实 DOM 上进行操纵。这自然会更快，并且允许虚拟 DOM 算法计算出最优化的方式来更新实际 DOM 结构。
 1. 
 Vue 不会对 provide 中的变量进行响应式处理。所以，要想 inject 接受的变量是响应式的，provide 提供的变量本身就需要是响应式的。单项数据流
@@ -20,7 +45,7 @@ optimize阶段：寻找 AST 中的静态节点进行标记，为后面 VNode 的
 
 generate阶段：根据 AST 结构拼接生成 render 函数的字符串。
 ```
-![life cycle](https://user-gold-cdn.xitu.io/2019/12/26/16f40a08cac6d3cb?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+ [life cycle](https://user-gold-cdn.xitu.io/2019/12/26/16f40a08cac6d3cb?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
 
 1. 每个逻辑关注点的代码现在都在复合函数中并置在一起。 这大大减少了在处理大型组件时需要不断“跳转”的情况。 组合函数也可以在编辑器中折叠，使组件更容易扫描:
 

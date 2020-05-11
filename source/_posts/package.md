@@ -107,3 +107,10 @@ app.get('/index', routeCache.cacheSeconds(20), function(req, res){
 1. Signale  一个 Node 的日志格式库，自带16个级别，可以定制颜色和 Emoji。
 1. Wiki.js  构建wiki 文档管理 
 1. fast-xml-parser xml 和     json 转换
+1. js-cloudimage-360-view 360度查看
+1. crontab ui
+1. X-spreadsheet css 实现的sheet
+1. SitDown  [html to markdown](http://domchristie.github.io/turndown/)
+1. Wekan 一个开源的看板软件
+1. droppy  提供web界面的可本地部署的文件管理
+1. 

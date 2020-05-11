@@ -15,7 +15,9 @@ tags: interview
 经过生产环境验证, 有较多用例保证
 
 ```
+1. Last-Modified,Etag,Expires 三个同时使用时。先判断 Expire ，然后发送 Http 请求，服务器先判断 last-modified ，再判断 Etag ，必须都没有过期，才能返回 304 响应
 
+1. 
 
 1. 
  而在底层，Node.js借助libuv来作为抽象封装层， 从而屏蔽不同操作系统的差异，Node可以借助livuv来来实现多线程。

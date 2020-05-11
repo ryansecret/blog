@@ -120,3 +120,15 @@ ETag/If-None-Match
 ```     
 1. window.opener 表示打开当前窗体页面的的父窗体的是谁。例如，在 A 页面中，通过一个带有 target="_blank" 的 a 标签打开了一个新的页面 B，那么在 B 页面里，window.opener 的值为 A 页面的 window 对象。   rel=noopener 规定禁止新页面传递源页面的地址，通过设置了此属性的链接打开的页面，其 window.opener 的值为 null。
 1. Gzip 不要使用再图片以及其它二进制文件上
+
+1. 302 临时重定向会改变method  
+502  收到了上游相应但是无法解析  
+504 上游解析超时
+1. gzip 使用了 LZ77 算法与 Huffman 编码来压缩文件，重复度越高的文件可压缩的空间就越大
+1. Etag etag = '{:x}-{:x}'.format(header.last_modified, header.content_lenth)
+1. Mtime 文件最近内容改变的时间
+1. https 解决三个安全问题 1. 内容隐私 2. 防篡改 3.身份认证
+1. LRU AND LFU  最久未使用 最少使用
+1. [浏览器进程](https://user-gold-cdn.xitu.io/2020/1/7/16f7ee19a85b3c8f?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+
+1. 查看network请求发现，每一个文件都有etag响应头，如果Nginx使用了已有的gz文件，那么这个请求的etag值不带有W/，反之，如果是文件是Nginx压缩的，etag值则会带有W/

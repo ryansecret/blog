@@ -3,15 +3,21 @@ title: css
 date: 2019-05-07 15:12:57
 tags: css
 ---
+
 1. Flex 主轴（x）、交叉轴(y)
-1.  calc函数是css3新增的功能，可以使用calc()计算border、margin、pading、font-size和width等属性设置动态值。
-1.触发BFC条件  BFC（Block Formatting Context）格式化上下文，
+1. calc函数是css3新增的功能，可以使用calc()计算border、margin、pading、font-size和width等属性设置动态值。   width: calc(100% - 200px);
+1.触发BFC条件  BFC（Block Formatting Context）格式化上下文，把它理解成是一个独立的容器，并且这个容器里box的布局与这个容器外的box毫不相干。
+                                               
+1. Stylelint css 的lint  
+
   ```text
   根元素
   float的值不为none
   overflow的值不为visible
   display的值为inline-block、table-cell、table-caption
   position的值为absolute、fixed
+  弹性盒（flex或inline-flex）
+  display: flow-root
 ```
 
 1. 使用vw设置，vw也是一个相对单位，100vw等于屏幕宽度
@@ -139,3 +145,15 @@ user-select: none;
 编码后文件体积增大，仅适用于小体积图片编码
 增加了编码和解码的工作量
 不支持 IE 8.0 以下版本   
+
+#### 单位
+
+1. px：绝对单位，页面按精确像素展示
+2. em：相对单位，基准点为父节点字体的大小，如果自身定义了font-size按自身来计算（浏览器默认字体是16px），整个页面内1em不是一个固定的值
+3. rem：相对单位，可理解为”root em”, 相对根节点html的字体大小来计算，CSS3新加属性，chrome/firefox/IE9+支持
+4. vw：viewpoint width，视窗宽度，1vw等于视窗宽度的1%
+5. vh：viewpoint height，视窗高度，1vh等于视窗高度的1%
+6. vmin：vw和vh中较小的那个
+7. vmax：vw和vh中较大的那个
+8. %:百分比
+

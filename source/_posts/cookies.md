@@ -11,7 +11,19 @@ tags: 零碎
 ### word
 1. deflate 放气，紧缩
 1. Sanitize 消毒，净化
-1. 
+1. access [‘ækses]
+1. Azure [‘æʒə]
+1. avatar [‘ævətɑː]
+1. ASCII [‘æski]
+1. archive [‘ɑːkaɪv]
+1. debt  [det]
+1. typical [‘tɪpɪkl]  
+1. resume [rɪ'zju:m]
+1. parameter [pə’ræmɪtə] 
+1. integer  [‘ɪntɪdʒə]
+1. matrix [ˈmeɪtrɪks]
+1. height [haɪt]
+   
 ### js
 
 1. 随机字符串 Math.random().toString(36).substr(2));
@@ -200,6 +212,22 @@ Connection:Upgrade
    window.onstorage = function(e) { console.log('The ' + e.key + ' key has been changed from ' + e.oldValue + ' to ' + e.newValue + '.'); };
 ```
 1. navigator.sendBeacon() 方法可用于通过HTTP将少量数据异步传输到Web服务器。
+1. preload：  直接请求
+   prefetch： 空闲时间请求
+   
+1. <link rel="dns-prefetch" href="//baidu.com”>
+   比较小的图片例如icon，使用base64编码，可以减少一次图片的网络请求；
+1. cache control 
+```text
+private：客户端可以缓存--打开新的窗口会重新访问、地址栏回车时第一次访问、后退不访问
+public：客户端和代理服务器都可以缓存
+max-age=t：缓存内容将在t秒后失效
+no-cache：需要使用协商缓存来验证缓存数据
+no-store：所有内容都不会缓存
+
+```   
+1. 我们可以使用 requestIdleCallback() 在浏览器空闲时运行高耗时、低优先级的任务。
+   
   
 ### vim 
 j: 下移一行；
