@@ -113,4 +113,4 @@ app.get('/index', routeCache.cacheSeconds(20), function(req, res){
 1. SitDown  [html to markdown](http://domchristie.github.io/turndown/)
 1. Wekan 一个开源的看板软件
 1. droppy  提供web界面的可本地部署的文件管理
-1. 
+1. uplot 渲染大量数据，占用资源少

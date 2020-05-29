@@ -3,13 +3,13 @@ title: css
 date: 2019-05-07 15:12:57
 tags: css
 ---
-
+1. 
+1. flex Flex-grow flex-shrink flex-basis
 1. Flex 主轴（x）、交叉轴(y)
 1. calc函数是css3新增的功能，可以使用calc()计算border、margin、pading、font-size和width等属性设置动态值。   width: calc(100% - 200px);
 1.触发BFC条件  BFC（Block Formatting Context）格式化上下文，把它理解成是一个独立的容器，并且这个容器里box的布局与这个容器外的box毫不相干。
                                                
-1. Stylelint css 的lint  
-
+1. 递归 o(2**n)-》带备忘录 o(n),自顶向下-》动态规划（自底向上）
   ```text
   根元素
   float的值不为none
@@ -19,6 +19,13 @@ tags: css
   弹性盒（flex或inline-flex）
   display: flow-root
 ```
+
+1. Stylelint css 的lint  
+1. 多行文本： Table cell 垂直居中  vertical-align
+1. 块级：1. position absolute margin-top:50%  2. Top 0 bottom 0  margin:auto
+1. 当元素浮动后不会影响块级元素的布局 只会影响内联元素的布局
+   
+   双飞布局时中间栏内容部分为两边腾开位置。
 
 1. 使用vw设置，vw也是一个相对单位，100vw等于屏幕宽度
 1. Flex-shrink、flex-grow   溢出空间和剩余空间

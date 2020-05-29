@@ -4,6 +4,34 @@ date: 2019-05-14 15:17:39
 tags: http
 ---
 
+#### Quic 
+1. 多路复用，避免队头阻塞
+1. 减少 RTT，请求更快速
+1. 快速迭代，广泛支持
+
+传统的 HTTP2 + SSL + TCP 协议栈有哪些缺点？
+1.SSL 的会话恢复依然需要一个 RTT，而且难以合并到 TCP 层
+1. TCP 的滑动窗口存在队头阻塞问题
+1. TCP 的重传纠错会浪费一个 RTT
+
+网络请求中一个常见的名词是 RTT(Round Trip Time)，表示客户端从发出一个请求数据，到接收到响应数据之间间隔的时间。
+
+#### Dns 本地dns解析器和host->本地dns服务器 
+#### http 请求限制
+默认情况下，浏览器会针对这些情况使用同一个连接：
+
+同一域名下的资源；
+
+不同域名下的资源，但是满足两个条件：1）解析到同一个 IP；2）使用同一个证书；
+
+使用多域名加上相同的 IP 和证书部署 Web 服务有特殊的意义：让支持 HTTP/2 的终端只建立一个连接，用上 HTTP/2 协议带来的各种好处；而只支持 HTTP/1.1 的终端则会建立多个连接，达到同时更多并发请求的目的。这在 HTTP/2 完全普及前也是一个不错的选择。
+
+####cors
+简单请求 可以直接发不用预检。简单请求
+1. Content-Type：只限于三个值application/x-www-form-urlencoded、multipart/form-data、text/plain
+1. Method head,get,post
+
+
 ####XST 的全称是 Cross-Site Tracing
 
     客户端发 TRACE 请求至服务器，如果服务器按照标准实现了 TRACE 响应，则在 response body 里会返回此次请求的完整头信息。通过这种方式，客户端可以获取某些敏感的头字段，例如 httpOnly 的 Cookie。
@@ -130,5 +158,6 @@ ETag/If-None-Match
 1. https 解决三个安全问题 1. 内容隐私 2. 防篡改 3.身份认证
 1. LRU AND LFU  最久未使用 最少使用
 1. [浏览器进程](https://user-gold-cdn.xitu.io/2020/1/7/16f7ee19a85b3c8f?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
-
+1. 
+HTTP/2引入二进制数据帧和流的概念，其中帧对数据进行顺序标识，如下图所示，这样浏览器收到数据之后，就可以按照序列对数据进行合并，而不会出现合并后数据错乱的情况。同样是因为有了序列，服务器就可以并行的传输数据，这就是流所做的事情。http2 静态资源的推送
 1. 查看network请求发现，每一个文件都有etag响应头，如果Nginx使用了已有的gz文件，那么这个请求的etag值不带有W/，反之，如果是文件是Nginx压缩的，etag值则会带有W/

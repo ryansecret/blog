@@ -25,6 +25,7 @@ tags: 零碎
 1. height [haɪt]
    
 ### js
+1. V8 对重复的js代码有优化 即时编译技术，如果发现一段代码经常使用，则不用转字节码 直接执行机器码
 
 1. 随机字符串 Math.random().toString(36).substr(2));
 
@@ -108,7 +109,12 @@ console.log(a == 1 && a == 2);//true
 1.  查看端口占用：lsof -i:3001
 1. export http_proxy="http://localhost:8899"
 1. Grep -A 5 显示后面5行信息
-
+1. Mac 配置：
+   Oh my zsh 
+   
+   plugins=(
+     git zsh-autosuggestions autojump zsh-syntax-highlighting
+   )
 ## npm
 1. npm config edit
 1. npm config set init.author.name "ryansecreat"
@@ -124,6 +130,9 @@ console.log(a == 1 && a == 2);//true
 1. npm ping [--registry <registry>]
 
 ### node
+1. V8 机器码的体积要比字节码大的多，执行频率高的为热点代码，启动编译器进行编译，其它的解释器执行
+1. Resovle 的任务进入微任务队列，暂停当前的协程，回到父协程
+1. Npm ^ 限定minor 版本 ~限定patch 版本
 1. Stream cork uncork
 1. escape-html  This function will escape the following characters: ", ', &, <, and >.
 1. domain模块，把处理多个不同的IO的操作作为一个组。注册事件和回调到domain，当发生一个错误事件或抛出一个错误时，domain对象会被通知，不会丢失上下文环境，也不导致程序错误立即退出，与process.on('uncaughtException')不同。
@@ -159,8 +168,39 @@ then(resolve, reject){
 1. websocket 
 1. cors 新浏览器
 SameSite=Strict: The cookie is only sent if you are currently on the site that the cookie is set for. If you are on a different site and you click a link to a site that the cookie is set for, the cookie is not sent with the first request.
-1. 
-1. 
+1. 主垃圾回收器：
+   
+   主垃圾回收器主要负责老生区中的垃圾回收。
+   
+   除了新生区中晋升的对象，一些大的对象会直接被分配到老生区。
+   
+   因此老生区中的对象有两个特点，一个是对象占用空间大，另一个是对象存活时间长。
+   
+1. V8 中会把堆分为新生代和老生代两个区域，
+   
+   新生代中存放的是生存时间短的对象，
+   
+   老生代中存放的生存时间久的对象。
+   
+   垃圾回收重要术语：
+   
+   代际假说
+   大部分对象在内存中存在的时间很短
+   不死的对象，会活得更久
+   分代收集
+   副垃圾回收器：
+   
+   主要负责新生代的垃圾回收。
+   
+   这个区域不大，但是垃圾回收比较频繁。
+   
+   新生代的垃圾回收算法是 Scavenge 算法。
+   
+   主要把新生代空间对半划分为两个区域：对象区域，空闲区域。
+   
+   当对象区域快被写满时，则会进行一次垃圾清理。
+   
+
 
 ```text
 WebSocket 使用了自定义的二进制分帧格式，把每个应用消息切分成一或多个帧，发送到目的地之后再组装起来，等到接收到完整的消息后再通知接收端。基本的成帧协议定义了帧类型有操作码、有效载荷的长度，指定位置的Extension data和Application data，统称为Payload data，保留了一些特殊位和操作码供后期扩展。在打开握手完成后，终端发送一个关闭帧之前的任何时间里，数据帧可能由客户端或服务器的任何一方发送。
@@ -206,6 +246,19 @@ Connection:Upgrade
 ```
 
 ### html
+1. 影响dom解析以及渲染都会出现白屏的问题
+1. V8 内存空间越大，执行时间越长，为了性能，限制了
+1. 1.当 onload 事件触发时，页面上所有的DOM，样式表，脚本，图片，flash都已经加载完成了。
+   
+   2.当 DOMContentLoaded 事件触发时，仅当DOM加载完成，不包括样式表，图片，flash。
+1. Host 支持虚拟站点
+1. 
+1. 如果有js 在header 中，js会等待css 加载完毕。
+1. Object.prototype 是浏览器底层根据 ECMAScript 规范创造的一个对象。
+1.  重绘 只是影响元素的外观和风格，不影响布局的  回流：元素的布局、隐藏等改变需要重新构建
+1.   data-为前端开发者提供自定义属性，这些属性集可以通过对象的dataset属性获取，
+1. 因为 DOM 是属于渲染引擎中的东西，而 JS 又是 JS 引擎中的东西。当我们通过 JS 操作 DOM 的时候，其实这个操作涉及到了两个线程之间的通信，那么势必会带来一些性能上的损耗。
+1. link属于HTML标签，而@import是CSS提供的页面被加载的时，link会同时被加载，而@import引用的CSS会等到页面被加载完再加载
 1. Web quality  : alt
 1. 该WindowEventHandlers.onstorage属性包含一个在storage事件触发时运行的事件处理程序。当更改存储区域时会发生这种情况（例如，存储新项目）。
 ```javascript
@@ -227,7 +280,14 @@ no-store：所有内容都不会缓存
 
 ```   
 1. 我们可以使用 requestIdleCallback() 在浏览器空闲时运行高耗时、低优先级的任务。
-   
+  
+1. 由于GUI渲染线程与JavaScript执行线程是互斥的关系，当浏览器在执行JavaScript程序的时候，GUI渲染线程会被保存在一个队列中，直到JS程序执行完成，才会接着执行。因此如果JS执行的时间过长，这样就会造成页面的渲染不连贯，导致页面渲染加载阻塞的感觉。
+1. 浏览器定时计数器并不是由JavaScript引擎计数的, 因为JavaScript引擎是单线程的, 如果处于阻塞线程状态就会影响记计时的准确, 因此通过单独线程来计时并触发定时是更为合理的方案。
+1.  当一个事件被触发时该线程会把事件添加到待处理队列的队尾，等待JS引擎的处理。这些事件可以是当前执行的代码块如定时任务、也可来自浏览器内核的其他线程如鼠标点击、AJAX异步请求等，但由于JS的单线程关系所有这些事件都得排队等待JS引擎处理。
+
+1.   在XMLHttpRequest在连接后是通过浏览器新开一个线程请求， 将检测到状态变更时，如果设置有回调函数，异步线程就产生状态变更事件放到 JavaScript引擎的处理队列中等待处理。
+1. dom树构建完成后document对象会派发事件DOMContentLoaded来通知dom树已构建完成。
+   DOMContentLoaded事件用来标识dom树构建完成，那如何判断另外这些非阻塞型的资源加载完成呢？答案是window.onload。由于该事件派发的过晚，因此一般情况下我们用不着，而更多的是用DOMContentLoaded来尽早的的操作dom。
   
 ### vim 
 j: 下移一行；

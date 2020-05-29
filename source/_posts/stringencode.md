@@ -38,3 +38,6 @@ encodeURI()不会对本身属于URI的特殊字符进行编码，例如冒号、
 escape 在处理 0xff 之外字符的时候，是直接使用字符的 unicode 在前面加上一个 「%u」,举例说明。
 而encodeURI则是先进行 UTF-8，再在 UTF-8 的每个字节码前加上一个 「%」；
 encodeURI 是W3C 的标准，而 Escape 是非标准。
+
+
+JavaScript 内部，字符以 UTF-16 的格式储存，每个字符固定为2个字节。对于那些需要4个字节储存的字符（Unicode 码点大于0xFFFF的字符），JavaScript 会认为它们是两个字符。
