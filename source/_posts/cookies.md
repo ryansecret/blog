@@ -115,6 +115,8 @@ console.log(a == 1 && a == 2);//true
    plugins=(
      git zsh-autosuggestions autojump zsh-syntax-highlighting
    )
+   
+   
 ## npm
 1. npm config edit
 1. npm config set init.author.name "ryansecreat"

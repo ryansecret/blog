@@ -22,7 +22,7 @@ tags: css
 
 1. Stylelint css 的lint  
 1. 多行文本： Table cell 垂直居中  vertical-align
-1. 块级：1. position absolute margin-top:50%  2. Top 0 bottom 0  margin:auto
+1. 块级：1. position absolute margin-top:-50px(translate(0,-50%))  2. Top 0 bottom 0  margin:auto
 1. 当元素浮动后不会影响块级元素的布局 只会影响内联元素的布局
    
    双飞布局时中间栏内容部分为两边腾开位置。
