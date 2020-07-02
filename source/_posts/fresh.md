@@ -3,7 +3,73 @@ title: fresh
 date: 2020-06-04 10:33:26
 tags:
 ---
-1. 
+1. jest.spyOn()方法同样创建一个mock函数，但是该mock函数不仅能够捕获函数的调用情况，还可以正常的执行被spy的函数。实际上，jest.spyOn()是jest.fn()的语法糖，它创建了一个和被spy的函数具有相同内部代码的mock函数。
+1. Node 高消耗任务：1. Regex 2. 加密、压缩、fs 同步操作 3.json.stringfy
+1. 事件循环线程只负责协调客户端的请求，而不是独自执行完所有任务。 对一个复杂的任务，最好把它从事件循环线程转移到工作线程池上。
+1. webworker-threads  node 多线程模块处理计算密集任务
+1. crumb 面包屑
+1. SCSS 是 Sass 3 引入新的语法，其语法完全兼容 CSS3，并且继承了 Sass 的强大功能。也就是说，任何标准的 CSS3 样式表都是具有相同语义的有效的 SCSS 文件
+1. SCSS提供了一个选择器可以选中当前元素的父元素，使用&表示.
+1. $border-color:#ccc !default; //声明变量 !default只能使用与变量中
+1. 使用%定义一个被继承的样式，类似静态语言中的抽象类，他本身不起作用，只用于被其他人继承。
+1. sass 的控制指令
+    ```text
+      .el-col-0 {
+         display: none;
+       }
+
+       @for $i from 0 through 24 {
+         .el-col-#{$i} {
+           width: (1 / 24 * $i * 100) * 1%;
+         }
+       }
+    ```
+1.
+1. Vue Test Utils 允许你通过 shallowMount 方法只挂载一个组件而不渲染其子组件 (即保留它们的存根)：
+    Vue beforecreated:data vue 实例化、init events
+1. !important，作用是提高指定样式规则的应用优先权
+1. components，filters，directives
+   两个对象合并的时候，不会相互覆盖，而是 权重小的 被放到 权重大 的 的原型上
+1. 数组叠加   包括生命周期函数和watch
+1. 函数合并叠加   包括选项：data，provide，权重大的优先
+1.
+1. HTML <sup> 元素定义了一个文本区域，出于排版的原因，与主要的文本相比，应该展示得更高并且更小。
+1. indexedDB 的特点：存储空间大：存储空间可以达到几百兆甚至更多；
+
+               >> 支持二进制存储：它不仅可以存储字符串，而且还可以存储二进制数据；
+               >> IndexedDB 有同源限制，每一个数据库只能在自身域名下能访问，不能跨域名访问；
+               >> 支持事务型：IndexedDB 执行的操作会按照事务来分组的，在一个事务中，要么所有的操作都成功，要么所有的操作都失败；
+               >> 键值对存储：IndexedDB 内部采用对象仓库（object store）存放数据。所有类型的数据都可以直接存入，包括 JavaScript 对象。对象仓库中，数据以 “键值对” 的形式保存，每一个数据记录都有对应的主键，主键是独一无二的，不能有重复，否则会抛出一个错误。
+               >> 数据操作是异步的：使用 IndexedDB 执行的操作是异步执行的，以免阻塞应用程序。
+
+               1. localForage 是一个快速简单的 JavaScript 存储库。 它通过使用类似于 localStorage 的简单 API 来使用异步存储（IndexedDB 或 WebSQL)），进而改善你的 Web 应用程序的离线体验。
+1. ImmortalDB 是在浏览器中存储持久键值数据的最佳方法。保存到 ImmortalDB 的数据被冗余地存储在 Cookies，IndexedDB 和 localStorage 中，并且如果其中的任何数据被删除或损坏，它们将不断进行自我修复。
+1. web-storage-cache 对HTML5 localStorage 和sessionStorage 进行了扩展，添加了超时时间，序列化方法。可以直接存储json对象，同时可以非常简单的进行超时时间的设置。
+1. 全局的components ，通过vue 的options merge 到组件上。 最后通过 extend(Vue.options.components, builtInComponents) 把一些内置组件扩展到 Vue.options.components 上，
+Vue 的内置组件目前有 <keep-alive>、<transition> 和 <transition-group> 组件，这也就是为什么我们在其它组件中使用 <keep-alive> 组件不需要注册的原因
+1.  首先通过 Vue.options = Object.create(null) 创建一个空对象，然后遍历 ASSET_TYPES:VuVue.options.components = {}
+    Vue.options.directives = {} Vue.options.filters = {}
+1.  git config --global --edit
+1. 对于渲染 watcher 而言，它在执行 this.get() 方法求值的时候，会执行 getter 方法： updateComponent = () => {
+   updateComponent = () => { vm._update(vm._render(), hydrating)
+
+1. 而对于作用域插槽，父组件在编译和渲染阶段并不会直接生成 vnodes，而是在父节点 vnode 的 data 中保留一个 scopedSlots 对象，存储着不同名称的插槽以及它们对应的渲染函数，
+只有在编译和渲染子组件阶段才会执行这个渲染函数生成 vnodes，由于是在子组件环境执行的，所以对应的数据作用域是子组件实例。
+1. 这里对该vm注册一个Watcher实例，Watcher的getter为updateComponent函数，用于触发所有渲染所需要用到的数据的getter，进行依赖收集，就是在mounted的时候进行依赖收集。
+用户的自定义 watcher 要优先于渲染 watcher 执行；因为用户自定义 watcher 是在渲染 watcher 之前创建的。Vm._watcher.update()
+
+1. Dep 是一个 Class，它定义了一些属性和方法，这里需要特别注意的是它有一个静态属性 target，这是一个全局唯一 Watcher，这是一个非常巧妙的设计，
+因为在同一时间只能有一个全局的 Watcher 被计算，另外它的自身属性 subs 也是 Watcher 的数组。
+
+1. Observer 是一个类，它的作用是给对象的属性添加 getter 和 setter，用于依赖收集和派发更新。Render 时通过getter 进行依赖收集。
+1. 每次JavaScript对DOM的操作都会改变当前页面的呈现，并重新刷新整个页面，从而消耗了大量的时间。而createDocumentFragment()的作用，就是可以创建一个文档碎片，
+把所有的新节点附加其上，然后把文档碎片的内容一次性添加到document中。
+
+1. Service Worker 是运行在浏览器背后的独立线程，一般可以用来实现缓存功能。使用 Service Worker的话，传输协议必须为 HTTPS。
+1. prune  修剪；减少；
+1. markdown-it :  markdown parser
+   cp-cli  copy 跨平台
+1. e
  在Vue2.5之前，使用函数式组件只能通过JSX的方式，在之后，可以通过模板语法来生命函数式组件
 <!--在template 上面添加 functional属性-->
 <template functional>
