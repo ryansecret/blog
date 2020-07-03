@@ -3,6 +3,48 @@ title: fresh
 date: 2020-06-04 10:33:26
 tags:
 ---
+1. vue-count-to  的数字滚动组件，vue-count-to是一个无依赖，轻量级的vue组件，可以自行覆盖easingFn。你可以设置 startVal 和 endVal，它会自动判断计数或倒计时
+1. 匹配驼峰： ([\:\-\_]+(.))
+1. redirective  
+
+```text
+binding：一个对象，包含以下 property：
+name：指令名，不包括 v- 前缀。
+value：指令的绑定值，例如：v-my-directive="1 + 1" 中，绑定值为 2。
+oldValue：指令绑定的前一个值，仅在 update 和 componentUpdated 钩子中可用。无论值是否改变都可用。
+expression：字符串形式的指令表达式。例如 v-my-directive="1 + 1" 中，表达式为 "1 + 1"。
+arg：传给指令的参数，可选。例如 v-my-directive:foo 中，参数为 "foo"。
+modifiers：一个包含修饰符的对象。例如：v-my-directive.foo.bar 中，修饰符对象为 { foo: true, bar: true }。
+```
+
+1. Vue.config.optionMergeStrategies  
+1. inject 用法：
+
+```js
+   inject: {
+   // 注入的属性名称 parentForm: {
+   // 通过 from 指定从哪个属性注入
+   from: 'customForm',
+    default: () => ({ size: 'default' }) } },
+```
+
+1. 浏览器标签页被隐藏或显示的时候会触发visibilitychange事件.
+1. robotjs 控制键盘、鼠标、屏幕
+1. Textures.js  基于d3 生成纹理
+1. 最主要最关键的原因是函数式组件不需要实例化，无状态，没有生命周期，所以渲染性能要好于普通组件
+   函数式组件结构比较简单，代码结构更清晰
+1. Usecapture:
+   true - 事件句柄在捕获阶段执行。事件捕获从父到子。
+   false- false- 默认。事件句柄在冒泡阶段执行
+1. Bem 是块（block）、元素（element）、修饰符（modifier）的简写，由 Yandex 团队提出的一种前端 CSS 命名方法论。
+   - 中划线 ：仅作为连字符使用，表示某个块或者某个子元素的多单词之间的连接记号。
+
+   __ 双下划线：双下划线用来连接块和块的子元素
+
+   _ 单下划线：单下划线用来描述一个块或者块的子元素的一种状态
+1. HTMLElement.offsetParent 是一个只读属性，返回一个指向最近的（指包含层级上的最近）包含该元素的定位元素或者最近的 table,td,th,body元素。当元素的 style.display 设置为 "none" 时，offsetParent 返回 null。offsetParent 很有用，因为 offsetTop 和 offsetLeft 都是相对于其内边距边界的。
+1. QUIC 基于 UDP，UDP 的数据包在接收端没有处理顺序，即使中间 丢失一个包，也不会阻塞整条连接，其他的资源会被正常处理。
+1. epoll是event poll的简写，是Linux内核提供的一种由事件驱动的I/O通知机制。
 1. jest.spyOn()方法同样创建一个mock函数，但是该mock函数不仅能够捕获函数的调用情况，还可以正常的执行被spy的函数。实际上，jest.spyOn()是jest.fn()的语法糖，它创建了一个和被spy的函数具有相同内部代码的mock函数。
 1. Node 高消耗任务：1. Regex 2. 加密、压缩、fs 同步操作 3.json.stringfy
 1. 事件循环线程只负责协调客户端的请求，而不是独自执行完所有任务。 对一个复杂的任务，最好把它从事件循环线程转移到工作线程池上。
