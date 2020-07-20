@@ -3,6 +3,125 @@ title: fresh
 date: 2020-06-04 10:33:26
 tags:
 ---
+1. css3 选择器
+```text
+:first-of-type	p:first-of-type	选择属于其父元素的首个 <p> 元素的每个 <p> 元素。
+:last-of-type	p:last-of-type	选择属于其父元素的最后 <p> 元素的每个 <p> 元素。
+
+element element	div p	选择 <div> 元素内部的所有 <p> 元素。	
+element>element	div>p	选择父元素为 <div> 元素的所有 <p> 元素。	
+element+element	div+p	选择紧接在 <div> 元素之后的所有 <p> 元素。
+```
+1. scss 
+   >@content
+   ```text
+   @mixin colors($color: blue) {
+  background-color: $color;
+  @content;
+  border-color: $color;
+}
+.colors {
+  @include colors { color: $color; }
+}
+  ```
+
+1. 支持布尔型的 and or 以及 not 运算。  @if  or or 
+```text
+$i: 6;
+@while $i > 0 {
+  .item-#{$i} { width: 2em * $i; }
+  $i: $i - 2;
+}
+
+@for $i from 1 through 3 {
+  .item-#{$i} { width: 2em * $i; }
+}
+
+@each $animal in puma, sea-slug, egret, salamander {
+  .#{$animal}-icon {
+    background-image: url('/images/#{$animal}.png');
+  }
+}
+
+@each $animal, $color, $cursor in (puma, black, default),
+                                  (sea-slug, blue, pointer),
+                                  (egret, white, move) {
+  .#{$animal}-icon {
+    background-image: url('/images/#{$animal}.png');
+    border: 2px solid $color;
+    cursor: $cursor;
+  }
+}
+```
+1. Async validator
+ ```javascript
+ asyncValidator: (rule, value) => {
+        return new Promise((resolve, reject) => {
+          if (value < 18) {
+            reject("too young");  // reject with error message
+          } else {
+            resolve();
+          }
+        });
+      }
+ ```
+2. @minxin @include  @extend 
+ ```css
+ @for $i from 1 through 1000 {
+    .#{unique-id()}-#{$i} {
+        ...
+    }
+}
+ ```
+
+2. 使用 #{} (interpolation) 时，
+3. 属性嵌套：
+```css
+div {  
+
+  font: {  
+
+    size: 10px;  
+
+    weight: bold;  
+
+  }  }
+```
+1. !default 声明赋值的变量赋值，此时，如果变量已经被赋值，不会再被重新赋值，但是如果变量还没有被赋值，则会被赋予新的值。
+2. indeterminate  [ˌɪndɪˈtɜːrmɪnət]
+3. inline-block的默认对齐方式是vertical-block：baseline，  vertical-align :middle
+4. :last-of-type CSS 伪类 表示了在（它父元素的）子元素列表中，最后一个给定类型的元素。当代码类似Parent tagName:last-of-type的作用区域包含父元素的所有子元素中的最后一个选定元素，也包括子元素的最后一个子元素并以此类推。
+5. 只要出现多个插槽，请始终为所有的插槽使用完整的基于`<template>`  的语法
+   ```html
+   <current-user>
+   <template v-slot:default="slotProps">
+    {{ slotProps.user.firstName }}
+  </template>
+
+  <template v-slot:other="otherSlotProps">
+    ...
+  </template> 
+</current-user>
+   ```
+1. cursor: not-allowed;
+2. CSS的transition-delay属性规定了在过渡效果开始作用之前需要等待的时间。
+3. transition-property transition-duration transition-timing-function and transition-delay.
+4. CSS 的 outline 属性是在一条声明中设置多个轮廓属性的简写属性 ， 例如 outline-style, outline-width 和 outline-color。 
+5. 作用域插槽 this.$scopedSlots.header({ text: this.headerText })
+6. s
+```javastript
+return <img
+     src={src}
+     onError={this.handleError}
+     alt={alt}
+     srcSet={srcSet}
+     style={{ 'object-fit': fit }}/>;
+```
+
+1. transform-origin CSS属性让你更改一个元素变形的原点。
+1. sup 一口；饮酒 
+1. object-fit CSS 属性指定可替换元素的内容应该如何适应到其使用的高度和宽度确定的框。
+1. cubic  const cubic = value => Math.pow(value, 3);
 1. vue-count-to  的数字滚动组件，vue-count-to是一个无依赖，轻量级的vue组件，可以自行覆盖easingFn。你可以设置 startVal 和 endVal，它会自动判断计数或倒计时
 1. 匹配驼峰： ([\:\-\_]+(.))
 1. redirective  
@@ -20,7 +139,7 @@ modifiers：一个包含修饰符的对象。例如：v-my-directive.foo.bar 中
 1. Vue.config.optionMergeStrategies  
 1. inject 用法：
 
-```js
+```javastript
    inject: {
    // 注入的属性名称 parentForm: {
    // 通过 from 指定从哪个属性注入
