@@ -3,7 +3,18 @@ title: package
 date: 2019-02-14 17:19:12
 tags: useful package
 ---
-
+1. generic-pool  资源池，可以reuse 和限制一些比较贵的资源比如数据库链接。
+1. Mind elixir 浏览器思维导图js module
+1.  cp-cli  copy 跨平台
+1.  markdown-it :  markdown parser
+1. web-storage-cache 对HTML5 localStorage 和sessionStorage 进行了扩展，添加了超时时间，序列化方法。可以直接存储json对象，同时可以非常简单的进行超时时间的设置。
+1. ImmortalDB 是在浏览器中存储持久键值数据的最佳方法。保存到 ImmortalDB 的数据被冗余地存储在 Cookies，IndexedDB 和 localStorage 中，并且如果其中的任何数据被删除或损坏，它们将不断进行自我修复。
+1. localForage 是一个快速简单的 JavaScript 存储库。 它通过使用类似于 localStorage 的简单 API 来使用异步存储（IndexedDB 或 WebSQL)），进而改善你的 Web 应用程序的离线体验。
+1. webworker-threads  node 多线程模块处理计算密集任务
+1. Textures.js  基于d3 生成纹理
+1. robotjs 控制键盘、鼠标、屏幕
+1. vue-count-to  的数字滚动组件，vue-count-to是一个无依赖，轻量级的vue组件，可以自行覆盖easingFn。你可以设置 startVal 和 endVal，它会自动判断计数或倒计时
+1. fullpagejs  通过调用本库可轻易创建全屏滚动网站(也称为单页网站)。 本库可创建全屏滚动网站，同时也可在网站中添加横向滚动条。
 1. Opn: A better node-open. Opens stuff like websites, files, executables. Cross-platform.
 2. Ora:进度条和文字。
 3. joi：数据验

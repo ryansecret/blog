@@ -9,22 +9,175 @@ tags: 零碎
 1. 发布阶段：更新chagelog ,打 git tag 。
 
 ### word
-1. deflate 放气，紧缩
-1. Sanitize 消毒，净化
-1. access [‘ækses]
-1. Azure [‘æʒə]
-1. avatar [‘ævətɑː]
-1. ASCII [‘æski]
-1. archive [‘ɑːkaɪv]
-1. debt  [det]
-1. typical [‘tɪpɪkl]  
-1. resume [rɪ'zju:m]
-1. parameter [pə’ræmɪtə] 
-1. integer  [‘ɪntɪdʒə]
-1. matrix [ˈmeɪtrɪks]
-1. height [haɪt]
-   
+1. analogy 类比 [əˈnælədʒi]
+1. pache [ə’pætʃɪ]
+2. deflate 放气，紧缩
+3. Sanitize 消毒，净化
+4. access [‘ækses]
+5. Azure [‘æʒə]
+6. avatar [‘ævətɑː]
+7. ASCII [‘æski]
+8. archive [‘ɑːkaɪv]
+9. debt  [det]
+10. typical [‘tɪpɪkl]  
+11. resume [rɪ'zju:m]
+12. parameter [pə’ræmɪtə] 
+13. integer  [‘ɪntɪdʒə]
+14. matrix [ˈmeɪtrɪks]
+15. height [haɪt]
+16. shallow  肤浅的 
+17. tenant  租户，房客
+18. coerce [kəʊˈɜːs]  强制 
+19. indeterminate  [ˌɪndɪˈtɜːrmɪnət]
+20. sup 一口；饮酒  
+21. crumb 面包屑   
+22. prune  修剪；减少；
+23. Unify 整合、统一 
+24. contiguous  kənˈtɪɡjuəs
 ### js
+1. 堆
+堆的底层实际上是一棵完全二叉树，可以用数组实现
+每个的节点元素值不小于其子节点 - 最大堆
+每个的节点元素值不大于其子节点 - 最小堆
+
+1.  浏览器中 customevent
+    
+```js
+var event = new CustomEvent("cat", {  detail: {    hazcheeseburger: true  }});obj.dispatchEvent(event);
+```
+
+1.  window.requestAnimationFrame() 告诉浏览器——你希望执行一个动画，并且要求浏览器在下次重绘之前调用指定的回调函数更新动画。该方法需要传入一个回调函数作为参数，该回调函数会在浏览器下一次重绘之前执行
+1. Element.getBoundingClientRect() 方法返回元素的大小及其相对于视口的位置。
+1.  regex  y stick 粘连修饰符 
+
+1.普通函数在被调用时，JS引擎会创建一个栈帧，在里面准备好局部变量、函数参数、临时值、代码执行的位置（也就是说这个函数的第一行对应到代码区里的第几行机器码），在当前栈帧里设置好返回位置，然后将新帧压入栈顶。待函数执行结束后，这个栈帧将被弹出栈然后销毁，返回值会被传给上一个栈帧。
+
+   当执行到yield语句时，Generator的栈帧同样会被弹出栈外，但Generator在这里耍了个花招——它在堆里保存了栈帧的引用（或拷贝）！这样当iter.next方法被调用时，JS引擎便不会重新创建一个栈帧，而是把堆里的栈帧直接入栈。因为栈帧里保存了函数执行所需的全部上下文以及当前执行的位置，所以当这一切都被恢复如初之时，就好像程序从原本暂停的地方继续向前执行了。
+
+    而因为每次yield和iter.next都对应一次出栈和入栈，所以可以直接利用已有的栈机制，实现值的传出和传入。
+1. Array(10)  稀疏矩阵
+2. clone
+```text
+function initData(target) {
+  return new target.constructor()
+}
+return Object(Symbol.prototype.valueOf.call(targe));
+
+function cloneReg(targe) {
+    const reFlags = /\w*$/;
+    const result = new targe.constructor(targe.source, reFlags.exec(targe));
+    result.lastIndex = targe.lastIndex;
+    return result;
+}
+```     
+1. js 在底层存储变量的时候，会在变量的机器码的低位1-3位存储其类型信息👉
+   
+   000：对象
+   010：浮点数
+   100：字符串
+   110：布尔
+   1：整数
+   
+   but, 对于 undefined 和 null 来说，这两个值的信息存储是有点特殊的。
+   
+   null：所有机器码均为0
+   
+   undefined：用 −2^30 整数来表示
+1. console 分组
+```javascript
+console.group('action', 'A');
+
+console.log('%c prev state', "color: #dddddd", '\n', {
+    name: 'a'
+});
+console.log('%c next state', "color: #dddddd", '\n',  {
+    name: 'b'
+});
+
+console.groupCollapsed();
+console.log('我是group折叠内容');
+console.groupEnd();
+console.groupEnd();
+```
+1.  Object.create(null) 和 {}
+1.  每次JavaScript对DOM的操作都会改变当前页面的呈现，并重新刷新整个页面，从而消耗了大量的时间。而createDocumentFragment()的作用，就是可以创建一个文档碎片，
+把所有的新节点附加其上，然后把文档碎片的内容一次性添加到document中。
+
+1. indexedDB 的特点：存储空间大：存储空间可以达到几百兆甚至更多；
+
+               >> 支持二进制存储：它不仅可以存储字符串，而且还可以存储二进制数据；
+               >> IndexedDB 有同源限制，每一个数据库只能在自身域名下能访问，不能跨域名访问；
+               >> 支持事务型：IndexedDB 执行的操作会按照事务来分组的，在一个事务中，要么所有的操作都成功，要么所有的操作都失败；
+               >> 键值对存储：IndexedDB 内部采用对象仓库（object store）存放数据。所有类型的数据都可以直接存入，包括 JavaScript 对象。对象仓库中，数据以 “键值对” 的形式保存，每一个数据记录都有对应的主键，主键是独一无二的，不能有重复，否则会抛出一个错误。
+               >> 数据操作是异步的：使用 IndexedDB 执行的操作是异步执行的，以免阻塞应用程序。
+5. Usecapture:
+   true - 事件句柄在捕获阶段执行。事件捕获从父到子。
+   false- false- 默认。事件句柄在冒泡阶段执行
+1. 浏览器标签页被隐藏或显示的时候会触发visibilitychange事件. document.addEventListener('visibilitychange')
+2. Object.assign 继承的否Object.keys & Object.assign & JSON.stringify: excluding non-enumerable & __proto__
+
+3. let is not global while var is.
+4. download
+```javascript
+function download (url, name) {
+  const a = document.createElement('a')
+  a.download = name
+  a.rel = 'noopener'
+  a.href = url
+  // 触发模拟点击
+  a.dispatchEvent(new MouseEvent('click'))
+  // 或者 a.click()
+}
+
+// 方案一：Text -> DataURL
+const dataUrl = `data:,${str}`
+download(dataUrl, 'demo.json')
+
+// 方案二：Text -> Blob -> ObjectURL
+const url = URL.createObjectURL(new Blob(str.split('')))
+download(url, 'demo1.json')
+
+```  
+1. stringfy 格式化
+```js
+
+const json = {
+  a: 3,
+  b: 4,
+  c: 5
+}
+const str = JSON.stringify(json, null, 2)
+
+```  
+1. proxy 
+```js
+const negativeArray = els =>
+    new Proxy(els, {
+        get: (target, propKey, receiver) =>
+            Reflect.get(
+                target,
+                +propKey < 0 ? String(target.length + +propKey) : propKey,
+                receiver
+            )
+    });
+const unicorn = negativeArray(["京", "程", "一", "灯"]);
+unicorn[-1]; 
+``` 
+1. 能优化[1,2,5,10].sort()  默认按照字典序  
+1.  对于 undeclared 变量的引用，浏览器会报引用错误，如 ReferenceError: b is not defined 。
+1. Es6->babel paser->babel traverse->babel core
+1.  类数组向数组转换 Array.from slice 。 aguments 就是arrarylike   
+1.  xhr  
+```js
+ 
+var request = new XMLHttpRequest()
+ request.open('GET', 'index/a/b/c?name=TianTian', true);
+ request.onreadystatechange = function () {
+   if(request.readyState === 4 && request.status === 200) {
+     console.log(request.responseText);
+   }};
+ request.send();
+```   
 1. V8 对重复的js代码有优化 即时编译技术，如果发现一段代码经常使用，则不用转字节码 直接执行机器码
 
 1. 随机字符串 Math.random().toString(36).substr(2));
@@ -134,6 +287,10 @@ console.log(a == 1 && a == 2);//true
 1. npm ping [--registry <registry>]
 
 ### node
+1. 
+1. Node 高消耗任务：1. Regex 2. 加密、压缩、fs 同步操作 3.json.stringfy
+1. epoll是event poll的简写，是Linux内核提供的一种由事件驱动的I/O通知机制。
+1. 对第三方包和库做检测：NSP(Node Security Platform)
 1. V8 机器码的体积要比字节码大的多，执行频率高的为热点代码，启动编译器进行编译，其它的解释器执行
 1. Resovle 的任务进入微任务队列，暂停当前的协程，回到父协程
 1. Npm ^ 限定minor 版本 ~限定patch 版本
@@ -250,6 +407,29 @@ Connection:Upgrade
 ```
 
 ### html
+1. 优雅降级 graceful degradation： 一开始就构建完整的功能，然后再针对低版本的浏览器进行兼容。
+1. aside  定义页面的侧边栏内容。
+   progress 原生的进度条
+
+1.  HTML `<sup>` 元素定义了一个文本区域，出于排版的原因，与主要的文本相比，应该展示得更高并且更小。
+1. domPropsInnerHTML  domPropsInnerText
+1. 根据 canvas 可以获取浏览器指纹信息
+```text
+
+绘制 canvas，获取 base64 的 dataurl
+对 dataurl 这个字符串进行 md5 摘要计算，得到指纹信息
+```
+1. 一些性能要求极高的应用中虚拟 DOM 无法进行针对性的极致优化。比如VScode采用直接手动操作DOM的方式进行极端的性
+1. 事件传播有三个阶段：
+```text
+捕获阶段–事件从 window 开始，然后向下到每个元素，直到到达目标元素事件或event.target。
+目标阶段–事件已达到目标元素。
+冒泡阶段–事件从目标元素冒泡，然后上升到每个元素，直到到达 window。
+
+```
+
+1.  将图片等未处理的文件放在assets中，打包减少体积。而对于第三方引入的一些资源文件如iconfont.css等可以放在static中，因为这些文件已经经过处理了
+1. 浏览器 Context Group 是一组共享相同上下文的 tab、window或iframe。例如，如果网站（https://a.example）打开弹出窗口（https://b.example），则打开器窗口和弹出窗口共享相同的浏览上下文，并且它们可以通过 DOM API相互访问，例如 window.opener。
 1. 影响dom解析以及渲染都会出现白屏的问题
 1. V8 内存空间越大，执行时间越长，为了性能，限制了
 1. 1.当 onload 事件触发时，页面上所有的DOM，样式表，脚本，图片，flash都已经加载完成了。

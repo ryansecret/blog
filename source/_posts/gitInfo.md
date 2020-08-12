@@ -3,7 +3,9 @@ title: gitInfo
 date: 2019-02-20 17:58:18
 tags: git
 ---
-
+1. git reflog 命令获取到的内容为本地仓库所有发生过的变更
+1. git branch -m feature/stor-13711 feature/story-13711  修改分支名称
+1. git config --global --edit
 1. git rm --cached  从git索引和缓存中删除 
 2. git mv 重命名或者移动文件
 3. git reset --soft "HEAD^" 留下当前变更内容

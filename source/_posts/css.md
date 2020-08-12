@@ -3,10 +3,134 @@ title: css
 date: 2019-05-07 15:12:57
 tags: css
 ---
-1. 
+1. flex-basis 分配多余空间之前占据的主轴空间。
+1. 多行文本溢出隐藏变为...
+     p {
+       overflow: hidden;
+       
+       /* 限制在一个块元素显示的文本的行数，即行数设置 */
+       line-clamp: 3;
+      
+     }
+1. !important，作用是提高指定样式规则的应用优先权
+1. $border-color:#ccc !default; //声明变量 !default只能使用与变量中
+1.  sass 的控制指令
+```text 
+      .el-col-0 {
+         display: none;
+       }
+
+       @for $i from 0 through 24 {
+         .el-col-#{$i} {
+           width: (1 / 24 * $i * 100) * 1%;
+         }
+       }
+ ```
+1. 使用%定义一个被继承的样式，类似静态语言中的抽象类，他本身不起作用，只用于被其他人继承。
+2. SCSS 是 Sass 3 引入新的语法，其语法完全兼容 CSS3，并且继承了 Sass 的强大功能。也就是说，任何标准的 CSS3 样式表都是具有相同语义的有效的 SCSS 文件
+
+3. SCSS提供了一个选择器可以选中当前元素的父元素，使用&表示.
+4. CSS的transition-delay属性规定了在过渡效果开始作用之前需要等待的时间。
+5. object-fit CSS 属性指定可替换元素的内容应该如何适应到其使用的高度和宽度确定的框。
+6. transform-origin CSS属性让你更改一个元素变形的原点。
+7.  响应式图像 srcSet 
+```javastript
+return <img
+     src={src}
+     onError={this.handleError}
+     alt={alt}
+     srcSet={srcSet}
+     style={{ 'object-fit': fit }}/>;
+```
+1. CSS 的 outline 属性是在一条声明中设置多个轮廓属性的简写属性 ， 例如 outline-style, outline-width 和 outline-color。
+2. transition-property transition-duration transition-timing-function and transition-delay.
+1. cursor: not-allowed;
+1. inline-block的默认对齐方式是vertical-block：baseline，  vertical-align :middle
+1. !default 声明赋值的变量赋值，此时，如果变量已经被赋值，不会再被重新赋值，但是如果变量还没有被赋值，则会被赋予新的值。
+2. 属性嵌套：
+```css
+div {  
+
+  font: {  
+
+    size: 10px;  
+
+    weight: bold;  
+
+  }  }
+```
+
+4.   @minxin @include  @extend 
+ ```css
+ @for $i from 1 through 1000 {
+    .#{unique-id()}-#{$i} {
+        ...
+    }
+}
+ ```
+
+
+1. 支持布尔型的 and or 以及 not 运算。  @if  or or 
+```css
+$i: 6;
+@while $i > 0 {
+  .item-#{$i} { width: 2em * $i; }
+  $i: $i - 2;
+}
+
+@for $i from 1 through 3 {
+  .item-#{$i} { width: 2em * $i; }
+}
+
+@each $animal in puma, sea-slug, egret, salamander {
+  .#{$animal}-icon {
+    background-image: url('/images/#{$animal}.png');
+  }
+}
+
+@each $animal, $color, $cursor in (puma, black, default),
+                                  (sea-slug, blue, pointer),
+                                  (egret, white, move) {
+  .#{$animal}-icon {
+    background-image: url('/images/#{$animal}.png');
+    border: 2px solid $color;
+    cursor: $cursor;
+  }
+}
+```
+1. css3 选择器
+```text
+:first-of-type	p:first-of-type	选择属于其父元素的首个 <p> 元素的每个 <p> 元素。
+:last-of-type	p:last-of-type	选择属于其父元素的最后 <p> 元素的每个 <p> 元素。
+
+element element	div p	选择 <div> 元素内部的所有 <p> 元素。	
+element>element	div>p	选择父元素为 <div> 元素的所有 <p> 元素。	
+element+element	div+p	选择紧接在 <div> 元素之后的所有 <p> 元素。
+```
+1. scss 
+   >@content
+ ```text
+   @mixin colors($color: blue) {
+  background-color: $color;
+  @content;
+  border-color: $color;
+}
+.colors {
+  @include colors { color: $color; }
+}
+```
+1. async 会打乱html解析，defer 总是在html解析完成后执行。
+1. 伪元素(Pseudo-elements)
+DOM树没有定义的虚拟元素
+```text
+核⼼就是需要创建通常不存在于⽂档中的元素，
+
+```
+1.  fr 关键字：Grid 布局还引入了一个另外的长度单位来帮助我们创建灵活的网格轨道。fr 单位代表网格容器中可用空间的一等份。grid-template-columns: 200px 1fr 2fr 表示第一个列宽设置为 200px，后面剩余的宽度分为两部分，宽度分别为剩余宽度的 1/3 和 2/3。
+1. auto-fill 关键字：表示自动填充，让一行（或者一列）中尽可能的容纳更多的单元格。grid-template-columns: repeat(auto-fill, 200px) 表示列宽是 200 px，但列的数量是不固定的，只要浏览器能够容纳得下，就可以放置元素
 1. flex Flex-grow flex-shrink flex-basis
-1. Flex 主轴（x）、交叉轴(y)
-1. calc函数是css3新增的功能，可以使用calc()计算border、margin、pading、font-size和width等属性设置动态值。   width: calc(100% - 200px);
+2. Flex 主轴（x）、交叉轴(y)
+3. calc函数是css3新增的功能，可以使用calc()计算border、margin、pading、font-size和width等属性设置动态值。   width: calc(100% - 200px);
 1.触发BFC条件  BFC（Block Formatting Context）格式化上下文，把它理解成是一个独立的容器，并且这个容器里box的布局与这个容器外的box毫不相干。
                                                
 1. 递归 o(2**n)-》带备忘录 o(n),自顶向下-》动态规划（自底向上）

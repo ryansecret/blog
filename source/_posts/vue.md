@@ -5,6 +5,126 @@ tags: vue eventloop js
 ---
 ### js
 
+1. vue 父子组件：
+加载渲染过程
+父beforeCreate->父created->父beforeMount->子beforeCreate->子created->子beforeMount->子mounted->父mounted
+父beforeUpdate->子beforeUpdate->子updated->父updated
+父组件更新过程
+父beforeUpdate->父updated
+销毁过程
+父beforeDestroy->子beforeDestroy->子destroyed->父destroyed
+
+1. for await...of循环，则是用于遍历异步的 Iterator 接口。
+```javascript
+function main(inputFilePath) {
+  const readStream = fs.createReadStream(
+    inputFilePath,
+    { encoding: 'utf8', highWaterMark: 1024 }
+  );
+  readStream.on('data', (chunk) => {
+    console.log('>>> '+chunk);
+  });
+  readStream.on('end', () => {
+    console.log('### DONE ###');
+  });
+}
+
+// 异步遍历器写法
+async function main(inputFilePath) {
+  const readStream = fs.createReadStream(
+    inputFilePath,
+    { encoding: 'utf8', highWaterMark: 1024 }
+  );
+
+  for await (const chunk of readStream) {
+    console.log('>>> '+chunk);
+  }
+  console.log('### DONE ###');
+}
+```  
+1. Vm.$watch this._data.$$state 的值，/* 检测store中的_committing的值，如果是true代表不是通过mutation的方法修改的 */
+2. /* 这里new了一个Vue对象，运用Vue内部的响应式实现注册state以及computed*/
+    store._vm = new Vue({ data: {$$state: state }, computed })
+3. this.$on('hook:updated', () => {})
+4. 异步组件属性
+```javascript
+
+const AsyncComponent = () => ({
+  // 需要加载的组件 (应该是一个 `Promise` 对象)
+  component: import('./MyComponent.vue'),
+  // 异步组件加载时使用的组件
+  loading: LoadingComponent,
+  // 加载失败时使用的组件
+  error: ErrorComponent,
+  // 展示加载时组件的延时时间。默认值是 200 (毫秒)
+  delay: 200,
+  // 如果提供了超时时间且组件加载也超时了，
+  // 则使用加载失败时使用的组件。默认值是：`Infinity`
+  timeout: 3000
+})
+```
+
+1.  在Vue2.5之前，使用函数式组件只能通过JSX的方式，在之后，可以通过模板语法来生命函数式组件
+ ```html
+ <!--在template 上面添加 functional属性-->
+<template functional>
+  <img :src="avatar ? avatar : 'default-avatar.png'" />
+</template>
+<!--根据上一节第六条，可以省略声明props-->
+ ```
+
+1. 全局的components ，通过vue 的options merge 到组件上。 最后通过 extend(Vue.options.components, builtInComponents) 把一些内置组件扩展到 Vue.options.components 上，
+Vue 的内置组件目前有 <keep-alive>、<transition> 和 <transition-group> 组件，这也就是为什么我们在其它组件中使用 <keep-alive> 组件不需要注册的原因
+
+11. components，filters，directives
+   两个对象合并的时候，不会相互覆盖，而是 权重小的 被放到 权重大 的 的原型上
+13. 数组叠加   包括生命周期函数和watch
+14. 函数合并叠加   包括选项：data，provide，权重大的优先 
+1. 最主要最关键的原因是函数式组件不需要实例化，无状态，没有生命周期，所以渲染性能要好于普通组件
+   函数式组件结构比较简单，代码结构更清晰
+4. inject 用法：
+
+```javastript
+   inject: {
+   // 注入的属性名称 parentForm: {
+   // 通过 from 指定从哪个属性注入
+   from: 'customForm',
+    default: () => ({ size: 'default' }) } },
+```
+1. redirective  
+
+```text
+binding：一个对象，包含以下 property：
+name：指令名，不包括 v- 前缀。
+value：指令的绑定值，例如：v-my-directive="1 + 1" 中，绑定值为 2。
+oldValue：指令绑定的前一个值，仅在 update 和 componentUpdated 钩子中可用。无论值是否改变都可用。
+expression：字符串形式的指令表达式。例如 v-my-directive="1 + 1" 中，表达式为 "1 + 1"。
+arg：传给指令的参数，可选。例如 v-my-directive:foo 中，参数为 "foo"。
+modifiers：一个包含修饰符的对象。例如：v-my-directive.foo.bar 中，修饰符对象为 { foo: true, bar: true }。
+```
+
+1. Async validator
+ ```javascript
+ asyncValidator: (rule, value) => {
+        return new Promise((resolve, reject) => {
+          if (value < 18) {
+            reject("too young");  // reject with error message
+          } else {
+            resolve();
+          }
+        });
+      }
+ ```
+1.  ref用创建一个包装对象，只具备一个响应式属性value，如果将对象指定为ref的值，该对象将被reactive方法深度遍历。如果传入 ref 的是一个对象，将调用 reactive 方法进行深层响应转换。所以ref 可以解构
+1. history 模式：
+```text
+通过 history.pushState() 方法改变地址栏
+监听 popstate 事件
+根据当前路由地址找到对应组件重新渲染
+```
+
+1. `<input type="text" v-on="{ input:onInput,focus:onFocus,blur:onBlur, }">`   同样 v-bind 
+1. keepalive mouted 只会执行一次，vnode上关联的component intance,在patch 阶段会转换为真实的dom.
 1.
 ```javascript
 /*parse解析得到ast树*/
