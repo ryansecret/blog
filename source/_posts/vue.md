@@ -4,8 +4,74 @@ date: 2017-01-19 15:19:03
 tags: vue eventloop js 
 ---
 ### js
+1. 这里对该vm注册一个Watcher实例，Watcher的getter为updateComponent函数，用于触发所有渲染所需要用到的数据的getter，进行依赖收集，就是在mounted的时候进行依赖收集。
 
-1. vue 父子组件：
+用户的自定义 watcher 要优先于渲染 watcher 执行；因为用户自定义 watcher 是在渲染 watcher 之前创建的。Vm._watcher.update()
+
+1. 对于渲染 watcher 而言，它在执行 this.get() 方法求值的时候，会执行 getter 方法： updateComponent = () => {
+   updateComponent = () => { vm._update(vm._render(), hydrating)
+1. vue diff 算法
+```text
+//相同的话进行patch
+patchVnode (oldVnode, vnode) {
+    const el = vnode.el = oldVnode.el
+    let i, oldCh = oldVnode.children, ch = vnode.children
+    if (oldVnode === vnode) return
+    if (oldVnode.text !== null && vnode.text !== null && oldVnode.text !== vnode.text) {
+        api.setTextContent(el, vnode.text)
+    }else {
+        updateEle(el, vnode, oldVnode)
+    	if (oldCh && ch && oldCh !== ch) {
+            updateChildren(el, oldCh, ch)
+    	}else if (ch){
+            createEle(vnode) //create el's children dom
+    	}else if (oldCh){
+            api.removeChildren(el)
+    	}
+    }
+}
+```
+1. 提高性能
+```text
+
+压缩代码
+提取页面公共资源 基础包cdn\splitchunks
+Tree shaking 
+scope hoisting
+图片压缩 
+动态polyfill 
+
+```
+1. 事件代理：1. 减少事件注册，节省内存。 2. 简化了dom更新时，上面的事件off与on 操作。focus，blur之类的，本身就没用冒泡的特性
+2. 函数式组件与普通组件的区别
+   
+   函数式组件需要在声明组件是指定functional
+   函数式组件不需要实例化，所以没有this,this通过render函数的第二个参数来代替
+   函数式组件没有生命周期钩子函数，不能使用计算属性，watch等等
+   函数式组件不能通过$emit对外暴露事件，调用事件只能通过context.listeners.click的方式调用外部传入的事件
+   因为函数式组件是没有实例化的，所以在外部通过ref去引用组件时，实际引用的是HTMLElement
+   函数式组件的props可以不用显示声明，所以没有在props里面声明的属性都会被自动隐式解析为prop,而普通组件所有未声明的属性都被解析到$attrs里面，并自动挂载到组件根元素上面(可以通过inheritAttrs属性禁止)
+3. 「适合引入自动化测试的场景：」
+
+公共库类的开发维护
+中长期项目的迭代/重构
+引用了不可控的第三方依赖
+1. Observer 是一个类，它的作用是给对象的属性添加 getter 和 setter，用于依赖收集和派发更新。Render 时通过getter 进行依赖收集。
+2. Dep 是一个 Class，它定义了一些属性和方法，这里需要特别注意的是它有一个静态属性 target，这是一个全局唯一 Watcher，这是一个非常巧妙的设计，
+因为在同一时间只能有一个全局的 Watcher 被计算，另外它的自身属性 subs 也是 Watcher 的数组。
+3. vue array 拦截
+```js
+ /*取得原生数组的原型*/
+const arrayProto = Array.prototype
+/*创建一个新的数组对象，修改该对象上的数组的七个方法，防止污染原生数组方法*/
+export const arrayMethods = Object.create(arrayProto)
+```
+1. 首先通过 Vue.options = Object.create(null) 创建一个空对象，然后遍历 ASSET_TYPES: 
+    Vue.options.components = {}
+    Vue.options.directives = {} 
+    Vue.options.filters = {}
+2. Object.defineProperty无法监控到数组下标的变化，导致直接通过数组的下标给数组设置值，不能实时响应。 为了解决这个问题，经过vue内部处理后可以使用以下几种方法来监听数组
+3. vue 父子组件：
 加载渲染过程
 父beforeCreate->父created->父beforeMount->子beforeCreate->子created->子beforeMount->子mounted->父mounted
 父beforeUpdate->子beforeUpdate->子updated->父updated
@@ -45,7 +111,7 @@ async function main(inputFilePath) {
 1. Vm.$watch this._data.$$state 的值，/* 检测store中的_committing的值，如果是true代表不是通过mutation的方法修改的 */
 2. /* 这里new了一个Vue对象，运用Vue内部的响应式实现注册state以及computed*/
     store._vm = new Vue({ data: {$$state: state }, computed })
-3. this.$on('hook:updated', () => {})
+3. this.$on('hook:updated', () => {})     
 4. 异步组件属性
 ```javascript
 
@@ -63,7 +129,7 @@ const AsyncComponent = () => ({
   timeout: 3000
 })
 ```
-
+1. Vue.config.optionMergeStrategies  
 1.  在Vue2.5之前，使用函数式组件只能通过JSX的方式，在之后，可以通过模板语法来生命函数式组件
  ```html
  <!--在template 上面添加 functional属性-->
@@ -72,7 +138,20 @@ const AsyncComponent = () => ({
 </template>
 <!--根据上一节第六条，可以省略声明props-->
  ```
+1. Vue beforecreated:data vue 实例化、init events
+1. 只要出现多个插槽，请始终为所有的插槽使用完整的基于`<template>`  的语法
+```html
+   <current-user>
+   <template v-slot:default="slotProps">
+    {{ slotProps.user.firstName }}
+  </template>
 
+  <template v-slot:other="otherSlotProps">
+    ...
+  </template> 
+</current-user>
+``` 
+1.  作用域插槽 this.$scopedSlots.header({ text: this.headerText })
 1. 全局的components ，通过vue 的options merge 到组件上。 最后通过 extend(Vue.options.components, builtInComponents) 把一些内置组件扩展到 Vue.options.components 上，
 Vue 的内置组件目前有 <keep-alive>、<transition> 和 <transition-group> 组件，这也就是为什么我们在其它组件中使用 <keep-alive> 组件不需要注册的原因
 
@@ -180,15 +259,15 @@ defer 和 async 都只适用于外部脚本文件，对与内联的 script 标�
 ```
 1. preload 用 “as” 或者用 “type” 属性来表示他们请求资源的优先级（比如说 preload 使用 as="style" 属性将获得最高的优先级）。没有 “as” 属性的将被看作异步请求，“Early”意味着在所有未被预加载的图片请求之前被请求（“late”意味着之后）
 1. WebRTC，名称源自网页即时通信（英语：Web Real-Time Communication）的缩写，是一个支持网页浏览器进行实时语音对话或视频对话的API。
-1. Vue-intro  新功能引导  
-1. Vm.$attrs  Vm.$attrs 
-1. <home :title.sync=
-   "title" /> //编译时会被扩展为 <home :title="title" @update:title="val => title = val"/> // 子组件 // 所以子组件可以通过$emit 触发 update 方法改变 mounted(){ this.$emit("update:title", '这是新的title') }
+ 
+ 
 1. Vue.config.errorHandler   
 1. v-pre  场景:vue 是响应式系统,但是有些静态的标签不需要多次编译,这样可以节省性能
 1. v-loader transformAssetUrls  
 在模板编译过程中，编译器可以将某些特性转换为 require 调用，例如 src 中的 URL。因此这些目标资源可以被 webpack 处理。例如 <img src="./foo.png"> 会找到你文件系统中的 ./foo.png 并将其作为一个依赖包含在你的包里
+
 1. view router加key  场景:由于 Vue 会复用相同组件, 即 /page/1 => /page/2 或者 /page?id=1 => /page?id=2 这类链接跳转时, 将不在执行created, mounted之类的钩子
+
 1.![事件循环](https://github.com/ryansecret/blog/blob/master/source/asset/eventloop.jpg)
 1. 生命周期
 ```text
@@ -209,12 +288,7 @@ const list = []
 console.log(Object.getPrototypeOf(car));
 console.log(Object.getPrototypeOf(list));
 ```
-1. Object.prototype.toString.call(variable) 用这个方法来判断变量类型目前是最可靠的了，它总能返回正确的值。
-   
-   该方法返回 "[object type]", 其中type是对象类型。
-1.  document.getElementsByClassName('test');
-1.    
-
+ 
 ### 内部机制 
 
 vue-loader 
@@ -296,15 +370,6 @@ process.nextTick() 会在各个事件阶段之间执行，一旦执行，要直�
 
 
 ###vitual dom
-
- Vue.js 实现响应式的核心是利用了 ES5 的 Object.defineProperty，这也是为什么 Vue.js 不能兼容 IE8 及以下浏览器的原因，我们先来对它有个直观的认识。值改变时会触发set方法。
- 
- 核心就是利用 Object.defineProperty 给数据添加了 getter 和 setter，目的就是为了在我们访问数据以及写数据的时候能自动执行一些逻辑：getter 做的事情是依赖收集，setter 做的事情是派发更新
- 
- 它会先执行 vm._render() 方法，因为之前分析过这个方法会生成 渲染 VNode，并且在这个过程中会对 vm 上的数据访问，这个时候就触发了数据对象的 getter。
- 
- 它并不会每次数据改变都触发 watcher 的回调，而是把这些 watcher 先添加到一个队列里，然后在 nextTick 后执行 flushSchedulerQueue。
-
  
 
 VD 最大的特点是将页面的状态抽象为 JS 对象的形式，配合不同的渲染工具，使跨平台渲染成为可能。如 React 就借助 VD 实现了服务端渲染、浏览器渲染和移动端渲染等功能。
@@ -323,25 +388,7 @@ Vue 的 _update 是实例的一个私有方法，它被调用的时机有 2 个�
 
 
 在我们之前对 setter 的分析过程知道，当响应式数据发送变化后，触发了 watcher.update()，只是把这个 watcher 推送到一个队列中，在 nextTick 后才会真正执行 watcher 的回调函数。而一旦我们设置了 sync，就可以在当前 Tick 中同步执行 watcher 的回调函数。
-
-deep watcher 和 sync watcher  
-
-
-
-###  router 元数据 
- meta: { requiresAuth: true }  
  
-#####  v-once 指令，你也能执行一次性地插值
-
-#### v-slot 新的用法
-v-slot 的别名是#。因此，可以用#header="data" 来代替 v-slot:header="data"。还可以使用 #header来代替 v-slot:header(前提:不是作用域插槽时)。对于默认插槽，在使用别名时需要指定默认名称。换句话说，需要这样写 #default="data" 而不是#="data"。
-
-
-##### Mustache 不能在 HTML 属性中使用，应使用 v-bind 指令：
-
-```
-<div v-bind:id="dynamicId"></div>
-```
 
 ##### 修饰符（Modifiers）是以半角句号 . 指明的特殊后缀，用于指出一个指定应该以特殊方式绑定。例如，.prevent 修饰符告诉 v-on 指令对于触发的事件调用 event.preventDefault()
 
@@ -360,45 +407,17 @@ v-slot 的别名是#。因此，可以用#header="data" 来代替 v-slot:header=
 <div v-on:click.self="doThat">...</div>
 <a v-on:click.once="doThis"></a>
 ```
-
-##### 过滤器函数总接受表达式的值作为第一个参数。
-
-```
-new Vue({
-  // ...
-  filters: {
-    capitalize: function (value) {
-      if (!value) return ''
-      value = value.toString()
-      return value.charAt(0).toUpperCase() + value.slice(1)
-    }
-  }
-})
-过滤器可以串联：
-{{ message | filterA | filterB }}
-```
-
-##### v-bind 缩写
-
-
-```
-<!-- 完整语法 -->
-<a v-bind:href="url"></a>
-<!-- 缩写 -->
-<a :href="url"></a>
-v-on 缩写
-
-<!-- 完整语法 -->
-<a v-on:click="doSomething"></a>
-<!-- 缩写 -->
-<a @click="doSomething"></a>
-```
  
- 
+
 ##### 按键修饰符
-记住所有的 keyCode 比较困难，所以 Vue 为最常用的按键提供了别名：
+记住所有的 keyCode 比较困难，组合键 所以 Vue 为最常用的按键提供了别名：
 
 ```
+<!-- Alt + C -->
+<input v-on:keyup.alt.67="clear">
+
+<!-- Ctrl + Click -->
+<div v-on:click.ctrl="doSomething">Do something</div>
 <!-- 同上 -->
 <input v-on:keyup.enter="submit">
 <!-- 缩写语法 -->
@@ -414,29 +433,4 @@ v-on 缩写
 .left
 .right
 ```
-##### 绑定属性值
-
-```
-<input
-  type="checkbox"
-  v-model="toggle"
-  v-bind:true-value="a"
-  v-bind:false-value="b"
->
-```
-##### 修饰符
-
-```
-在默认情况下， v-model 在 input 事件中同步输入框的值与数据 (除了 上述 IME 部分)，但你可以添加一个修饰符 lazy ，从而转变为在 change 事件中同步：
-<!-- 在 "change" 而不是 "input" 事件中更新 -->
-<input v-model.lazy="msg" >
-.number
-
-如果想自动将用户的输入值转为 Number 类型（如果原值的转换结果为 NaN 则返回原值），可以添加一个修饰符 number 给 v-model 来处理输入值：
-<input v-model.number="age" type="number">
-这通常很有用，因为在 type="number" 时 HTML 中输入的值也总是会返回字符串类型。
-.trim
-
-如果要自动过滤用户输入的首尾空格，可以添加 trim 修饰符到 v-model 上过滤输入：
-<input v-model.trim="msg">
-```
+ 

@@ -3,8 +3,40 @@ title: css
 date: 2019-05-07 15:12:57
 tags: css
 ---
-1. flex-basis 分配多余空间之前占据的主轴空间。
-1. 多行文本溢出隐藏变为...
+
+1. link属于HTML标签，而@import是css提供的；
+   页面被加载时，link会同时被加载，而 @import引用的css会等到页面被加载完再加载；
+   @import只在IE5以上才能识别，而link是XHTML标签，无兼容问题；
+   link方式的样式的权重高于@import的权重。
+1.  块级元素垂直居中—-高度不固定：transform(0,-50%) 或者 display:  table-cell vertical:middle
+1. flex-basis  可以设置比例
+1. 内联 > ID选择器 > 类选择器 > 标签选择器。
+1. transform 属于合成属性（composite property），对合成属性进行 transition/animation 动画将会创建一个合成层（composite layer），这使得被动画元素在一个独立的层中进行动画。通常情况下，浏览器会将一个层的内容先绘制进一个位图中，然后再作为纹理（texture）上传到 GPU，只要该层的内容不发生改变，就没必要进行重绘（repaint），浏览器会通过重新复合（recomposite）来形成一个新的帧。
+1. CSS3中，伪类与伪元素在语法上也有所区别，伪元素修改为以::开头。
+   
+``` text
+伪元素控制的内容和元素是没有差别的，但是它本身只是基于元素的抽象，并不存在于⽂档中，所以称为伪元素。⽤于将特殊的效果添加到某些选择器
+伪类：其核⼼就是⽤来选择DOM树之外的信息,不能够被普通选择器选择的⽂档之外的元素，⽤来添加⼀些选择器的特殊效果。
+⽐如:hover :active :visited :link :visited :first-child :focus :lang等
+
+伪类和伪元素都不出现在源⽂件和DOM树中。也就是说在html源⽂件中是看不到伪类和伪元素的。
+不同之处：
+伪类其实就是基于普通DOM元素⽽产⽣的不同状态，他是DOM元素的某⼀特征。
+伪元素能够创建在DOM树中不存在的抽象对象，⽽且这些抽象对象是能够访问到的。
+```
+
+1. Bem 是块（block）、元素（element）、修饰符（modifier）的简写，由 Yandex 团队提出的一种前端 CSS 命名方法论。
+   
+   `-` 中划线 ：仅作为连字符使用，表示某个块或者某个子元素的多单词之间的连接记号。
+
+   __ 双下划线：双下划线用来连接块和块的子元素
+
+   _ 单下划线：单下划线用来描述一个块或者块的子元素的一种状态
+
+2.  HTMLElement.offsetParent 是一个只读属性，返回一个指向最近的（指包含层级上的最近）包含该元素的定位元素或者最近的 table,td,th,body元素。当元素的 style.display 设置为 "none" 时，offsetParent 返回 null。offsetParent 很有用，因为 offsetTop 和 offsetLeft 都是相对于其内边距边界的。
+3.  
+4. flex-basis 分配多余空间之前占据的主轴空间。
+5. 多行文本溢出隐藏变为...
      p {
        overflow: hidden;
        
@@ -12,9 +44,9 @@ tags: css
        line-clamp: 3;
       
      }
-1. !important，作用是提高指定样式规则的应用优先权
-1. $border-color:#ccc !default; //声明变量 !default只能使用与变量中
-1.  sass 的控制指令
+6. !important，作用是提高指定样式规则的应用优先权
+7. $border-color:#ccc !default; //声明变量 !default只能使用与变量中
+8.  sass 的控制指令
 ```text 
       .el-col-0 {
          display: none;

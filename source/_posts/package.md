@@ -3,6 +3,9 @@ title: package
 date: 2019-02-14 17:19:12
 tags: useful package
 ---
+1. Vue-intro  新功能引导  
+1. zebra-editor-core  富文本编辑器
+1.  lucky sheet 在线的excel编辑
 1. generic-pool  资源池，可以reuse 和限制一些比较贵的资源比如数据库链接。
 1. Mind elixir 浏览器思维导图js module
 1.  cp-cli  copy 跨平台

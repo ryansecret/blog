@@ -4,6 +4,25 @@ date: 2017-01-17 14:58:02
 tags: webpack  
 ---
 ### babel相关
+1. DefinePlugin  需要字段是json,stringfy
+1. <!doctype html> 的作用就是让浏览器进入标准模式，使用最新的 HTML5标准来解析渲染页面；如果不写，浏览器就会进入混杂模式，我们需要避免此类情况发生。   
+   
+2. 转义的过程：
+   ```text
+   编写ES6代码
+   babylon 进行解析
+   解析得到 AST
+   plugin 用 babel-traverse 对 AST 树进行遍历转译
+   得到新的 AST树
+   用 babel-generator 通过 AST 树生成 ES5 代码
+   ```
+3. use(new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)) 
+4. require.context 参数：
+```text
+文件夹路径
+是否递归查找子文件夹下的模块
+模块匹配规则，一般匹配文件后缀名
+```
 1. 虽然@babel/polyfill提供了我们想要的所有新方法新类，但是这里依然存在一些问题：
    
    体积太大：比如我只用了String的新特性，但是我把整个包都引进来了，，这不是徒增了很多无用的代码。
