@@ -4,7 +4,7 @@ date: 2020-08-13 15:17:58
 tags:
 ---
 
-
+1. 管道符放到尾部：Hello(?:World|China|) 可以匹配 HelloWorld、HelloChina，也可以只匹配 Hello。
     >console.log('子君' instanceof String)  
 1. prototype
 ```text
@@ -65,6 +65,7 @@ var event = new CustomEvent("cat", {  detail: {    hazcheeseburger: true  }});ob
    当执行到yield语句时，Generator的栈帧同样会被弹出栈外，但Generator在这里耍了个花招——它在堆里保存了栈帧的引用（或拷贝）！这样当iter.next方法被调用时，JS引擎便不会重新创建一个栈帧，而是把堆里的栈帧直接入栈。因为栈帧里保存了函数执行所需的全部上下文以及当前执行的位置，所以当这一切都被恢复如初之时，就好像程序从原本暂停的地方继续向前执行了。
 
     而因为每次yield和iter.next都对应一次出栈和入栈，所以可以直接利用已有的栈机制，实现值的传出和传入。
+
 1. Array(10)  稀疏矩阵
 2. clone
 ```text
@@ -80,6 +81,7 @@ function cloneReg(targe) {
     return result;
 }
 ```     
+
 1. js 在底层存储变量的时候，会在变量的机器码的低位1-3位存储其类型信息👉
    
    000：对象
@@ -93,6 +95,7 @@ function cloneReg(targe) {
    null：所有机器码均为0
    
    undefined：用 −2^30 整数来表示
+
 1. console 分组
 ```javascript
 console.group('action', 'A');
@@ -125,7 +128,6 @@ console.groupEnd();
    false- false- 默认。事件句柄在冒泡阶段执行
 1. 浏览器标签页被隐藏或显示的时候会触发visibilitychange事件. document.addEventListener('visibilitychange')
 2. Object.assign 继承的否Object.keys & Object.assign & JSON.stringify: excluding non-enumerable & __proto__
-
 3. let is not global while var is.
 4. download
 ```javascript
@@ -159,6 +161,7 @@ const json = {
 const str = JSON.stringify(json, null, 2)
 
 ```  
+
 1. proxy 
 ```js
 const negativeArray = els =>
@@ -173,7 +176,7 @@ const negativeArray = els =>
 const unicorn = negativeArray(["京", "程", "一", "灯"]);
 unicorn[-1]; 
 ``` 
-1. 能优化[1,2,5,10].sort()  默认按照字典序  
+  
 1.  对于 undeclared 变量的引用，浏览器会报引用错误，如 ReferenceError: b is not defined 。
 1. Es6->babel paser->babel traverse->babel core
 1.  类数组向数组转换 Array.from slice 。 aguments 就是arrarylike   
@@ -196,21 +199,19 @@ var request = new XMLHttpRequest()
 
 3. Babel stag2 的功能  https://github.com/babel/babel/tree/master/packages/babel-preset-stage-2
 1. 所有的babel 包  https://github.com/babel/babel/tree/master/packages
-1.  npx babel-upgrade
+1. npx babel-upgrade
 1. ES2019 中为Symbol对象添加了只读属性 description ，该对象返回包含Symbol描述的字符串。
-1. 变量的临时死区  
-1. SET 操作的时间复杂度
-1. 如果你传的 context 就 null 或者 undefined，那么 window 对象就是默认的 context（严格模式下默认 context 是 undefined）
-1. 高阶函数的定义
-1. 作用域以及作用域链  函数作用域 —闭包
-1. ES6 模块功能是它的导入模块是导出时模块的实时只读视图。（相比起 CommonJS，导入的是导出模块的拷贝副本，因此也不是实时的）。只读视图和内存拷贝的区别。
-1. atob() 对经过 base-64 编码的字符串进行解码,btoa() base64加吗
-1. Console.dir  显示对象所有的属性和方法
-1. Broadcast Channel API 允许同一原始域和用户代理下的所有窗口,iFrames 等进行交互。也就是说，如果用户打开了同一个网站的的两个标签窗口，如果网站内容发生了变化，那么两个窗口会同时得到更新通知。
-1. escape 在处理 0xff 之外字符的时候，是直接使用字符的 unicode 在前面加上一个 「%u」，而encodeURI则是先进行 UTF-8，再在 UTF-8 的每个字节码前加上一个 「%」； 所以通过encodeUrI 可以获取utf-8 字节长度
-1. js value
-1. Prototype 包含constructor 和 __proto__. 原型链存储共有的属性和方法，减少内存
-1. 基本的数据类型 
+
+ 
+2. 如果你传的 context 就 null 或者 undefined，那么 window 对象就是默认的 context（严格模式下默认 context 是 undefined）
+ 
+3. ES6 模块功能是它的导入模块是导出时模块的实时只读视图。（相比起 CommonJS，导入的是导出模块的拷贝副本，因此也不是实时的）。只读视图和内存拷贝的区别。
+ 
+4. Broadcast Channel API 允许同一原始域和用户代理下的所有窗口,iFrames 等进行交互。也就是说，如果用户打开了同一个网站的的两个标签窗口，如果网站内容发生了变化，那么两个窗口会同时得到更新通知。
+5. escape 在处理 0xff 之外字符的时候，是直接使用字符的 unicode 在前面加上一个 「%u」，而encodeURI则是先进行 UTF-8，再在 UTF-8 的每个字节码前加上一个 「%」； 所以通过encodeUrI 可以获取utf-8 字节长度
+6. js value
+7. Prototype 包含constructor 和 __proto__. 原型链存储共有的属性和方法，减少内存
+8. 基本的数据类型 
 ```text
 基本的数据类型
 undefined
@@ -225,31 +226,12 @@ symbol(ES6)
 1. 懒加载：
    Javascript 脚步通常要等到 DOM 加载完后才会执行，如果加载的资源过多，可能会影响网页的正常使用。
    能够节省流量和减轻服务器压力，更近一步就是能够为公司省成本。
-1. String 和 new String 区别
-1. 
 
-```text
-对象转原始类型，会调用内置的[ToPrimitive]函数，对于该函数而言，其逻辑如下：
-
-如果Symbol.toPrimitive()方法，优先调用再返回
-调用valueOf()，如果转换为原始类型，则返回
-调用toString()，如果转换为原始类型，则返回
-如果都没有返回原始类型，会报错
-var a = {
-  value: 0,
-  valueOf: function() {
-    this.value++;
-    return this.value;
-  }
-};
-console.log(a == 1 && a == 2);//true
-
-```
-1. Same origin 可以使用broadcast channel 两页面间通信。
-1. 注意闭包内this的指向
-2. 对于instanceof,无法判断基本类型，但可以正确判断引用类型
-3. let x = 2_3333_3333 
-4. 哪些操作会造成内存泄漏？
+2. Same origin 可以使用broadcast channel 两页面间通信。
+3. 注意闭包内this的指向
+4. 对于instanceof,无法判断基本类型，但可以正确判断引用类型
+5. let x = 2_3333_3333 
+6. 哪些操作会造成内存泄漏？
 ```text
 1.意外的全局变量
 2.被遗忘的计时器或回调函数

@@ -39,6 +39,7 @@ tags: useful package
 1. is-type-of   node check 数据类型
 1. on-finished  Execute a callback when a HTTP request closes, finishes, or errors
 1. await-event  封装了promise 
+
 ```javascript
 var PassThrough = require('stream').PassThrough
  
@@ -55,14 +56,14 @@ co(function* () {
 stream.write('some chunk’) 
 ```
 1. get-ready  NodeJS mixin to add one-time ready event
-1. ShellJS 是Unix shell命令在Node.js API上的可移植实现
-1. graceful-process   graceful exit process even parent exit on SIGKILL.
-1. semver.gte(process.version, '7.0.0’)  版本的比对 
-1. pkgfiles  自动再package中添加 npm publish 文件
-1. depd  标注方法deprecating 
-1. http-errors   http错误  
-1. Global-tunnel  http请求的全局代理  
-1. humanize-ms  转义为ms  
+2. ShellJS 是Unix shell命令在Node.js API上的可移植实现
+3. graceful-process   graceful exit process even parent exit on SIGKILL.
+4. semver.gte(process.version, '7.0.0’)  版本的比对 
+5. pkgfiles  自动再package中添加 npm publish 文件
+6. depd  标注方法deprecating 
+7. http-errors   http错误  
+8. Global-tunnel  http请求的全局代理  
+9. humanize-ms  转义为ms  
 ```
 transform humanize time to ms  ms('1s') // 1000
 ms(1000) // 1000

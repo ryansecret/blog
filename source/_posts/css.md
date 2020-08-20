@@ -3,7 +3,10 @@ title: css
 date: 2019-05-07 15:12:57
 tags: css
 ---
+1. 它的定位效果完全受限于父级元素们。如果父元素的overflow属性设置了scroll，auto,overlay值，那么，粘性定位将会失效
 
+  当粘性约束矩形在可视范围内为relative，反之，则为fixed
+1. Webpack会先用css-loader去解析这个文件，遇到@import等语句就将相应样式文件引入，最后所有的CSS将使用style-loader生成一个内容为最终解析完的CSS代码的Style标签，放到head标签里。
 1. link属于HTML标签，而@import是css提供的；
    页面被加载时，link会同时被加载，而 @import引用的css会等到页面被加载完再加载；
    @import只在IE5以上才能识别，而link是XHTML标签，无兼容问题；
@@ -59,6 +62,7 @@ tags: css
        }
  ```
 1. 使用%定义一个被继承的样式，类似静态语言中的抽象类，他本身不起作用，只用于被其他人继承。
+  
 2. SCSS 是 Sass 3 引入新的语法，其语法完全兼容 CSS3，并且继承了 Sass 的强大功能。也就是说，任何标准的 CSS3 样式表都是具有相同语义的有效的 SCSS 文件
 
 3. SCSS提供了一个选择器可以选中当前元素的父元素，使用&表示.
@@ -163,9 +167,10 @@ DOM树没有定义的虚拟元素
 1. flex Flex-grow flex-shrink flex-basis
 2. Flex 主轴（x）、交叉轴(y)
 3. calc函数是css3新增的功能，可以使用calc()计算border、margin、pading、font-size和width等属性设置动态值。   width: calc(100% - 200px);
-1.触发BFC条件  BFC（Block Formatting Context）格式化上下文，把它理解成是一个独立的容器，并且这个容器里box的布局与这个容器外的box毫不相干。
-                                               
-1. 递归 o(2**n)-》带备忘录 o(n),自顶向下-》动态规划（自底向上）
+
+1. 触发BFC条件  BFC（Block Formatting Context）格式化上下文，把它理解成是一个独立的容器，并且这个容器里box的布局与这个容器外的box毫不相干。
+
+2. 递归 o(2**n)-》带备忘录 o(n),自顶向下-》动态规划（自底向上）
   ```text
   根元素
   float的值不为none
@@ -184,9 +189,9 @@ DOM树没有定义的虚拟元素
    双飞布局时中间栏内容部分为两边腾开位置。
 
 1. 使用vw设置，vw也是一个相对单位，100vw等于屏幕宽度
-1. Flex-shrink、flex-grow   溢出空间和剩余空间
+ 
 1. max-width/min-width > flex-basis > width > box
-1. &:nth-child(odd)  选择器
+ 
 1. writing-mode: vertical-rl;  设置文字方向
 1. text-align-last  描述的是一段文本中最后一行在被强制换行之前的对齐规则
 ```text
@@ -203,7 +208,7 @@ justify
 1. line-clamp 定义文字显示行数
 1. pointer-events: none; 禁用点击事件
 1. focus-within是一个伪类，现在已经被列入到CSS选择器中。当元素本身或其后代元素获得焦点时，:focus-within伪类的元素就会有效。 
-1. 单冒号(:)用于 CSS3 伪类，双冒号(::)用于 CSS3 伪元素。
+ 
 1. 但是有个好处是当元素没有内容时候，设置height:100%该元素不会被撑开，
    
    但是设置height:100vh，该元素会被撑开屏幕高度一致。 
@@ -214,11 +219,12 @@ justify
 1. 伪元素用于创建一些不在文档树中的元素，并为其添加样式。比如说，我们可以通过:before来在一个元素前增加一些文本，并为这些文本添加样式。虽然用户可以看到这些文本，但是这些文本实际上不在文档树中。常见的伪元素有：::before，::after，::first-line，::first-letter，::selection、::placeholder等. 伪类和伪元素的区别在于有没有创建一个文档书之外的元素。
 1.    
 1. 这是一个叫做@font-face 的CSS @规则 ，它允许网页开发者为其网页指定在线字体。 通过这种作者自备字体的方式，@font-face 可以消除对用户电脑字体的依赖。
-1. overflow:https://developer.mozilla.org/zh-CN/docs/Web/CSS/overflow
 
-1. Element.scrollTop 属性可以获取或设置一个元素的内容垂直滚动的像素数。
+2. overflow:https://developer.mozilla.org/zh-CN/docs/Web/CSS/overflow
 
-offsetTop: 当前元素顶部距离最近父元素顶部的距离,和有没有滚动条没有关系。单位px，只读元素。
+3. Element.scrollTop 属性可以获取或设置一个元素的内容垂直滚动的像素数。
+
+   offsetTop: 当前元素顶部距离最近父元素顶部的距离,和有没有滚动条没有关系。单位px，只读元素。
 
   scrollHeight: 因为子元素比父元素高，父元素不想被子元素撑的一样高就显示出了滚动条，在滚动的过程中本元素有部分被隐藏了，scrollHeight代表包括当前不可见部分的元素的高度。而可见部分的高度其实就是clientHeight，也就是scrollHeight>=clientHeight恒成立。在有滚动条时讨论scrollHeight才有意义，在没有滚动条时scrollHeight==clientHeight恒成立。单位px，只读元素。
 
@@ -232,11 +238,10 @@ https://developer.mozilla.org/zh-CN/docs/Web/CSS/position
 
 1. Image alt 属性是一个必需的属性，它规定在图像无法显示时的替代文本。
 
-
 text-decoration 设置下划线等
 https://jsfiddle.net/ryansecreat/58um7k43/
 
-document​.active​Element
+ document​.active​Element
 
  返回当前页面中获得焦点的元素,也就是说,如果此时用户按下了键盘上某个键,会在该元素上触发键盘事件.该属性是只读的.
  
@@ -246,25 +251,11 @@ document​.active​Element
 1. CSS动画有天然事件支持（TransitionEnd、AnimationEnd，但是它们都需要针对浏览器加前缀），JS则需要自己写事件。
 1. 在实现一些小的交互动效的时候，就多考虑考虑 CSS 动画。对于一些复杂控制的动画，使用 javascript 比较可靠。
 
-#### 块元素是一个元素，占用了全部宽度，在前后都是换行符。
-   ```text
-   块元素的例子：
-   
-   <h1>
-   <p>
-   <div>
-   内联元素只需要必要的宽度，不强制换行。
-   
-   内联元素的例子：
-   
-   <span>
-   <a>
-   
-```
-
+ 
 #### 内容对齐（justify-content）属性应用在弹性容器上，把弹性项沿着弹性容器的主轴线（main axis）对齐。
        
    align-items 设置或检索弹性盒子元素在侧轴（纵轴）方向上的对齐方式。
+
    设置"margin"值为"auto"值，自动获取弹性容器中剩余的空间。所以设置垂直方向margin值为"auto"，可以使弹性子元素在弹性容器的两上轴方向都完全居中。 当容器为flex时会自动居中。
    
    如果在元素上设置了 box-sizing: border-box; 则 padding(内边距) 和 border(边框) 也包含在 width 和 height 中:

@@ -3,6 +3,9 @@ title: html
 date: 2020-08-13 16:17:07
 tags: html
 ---
+1. 
+1. 当用户输入关键字并键入回车之后，这意味着当前页面即将要被替换成新的页面，不过在这个流程继续之前，浏览器还给了当前页面一次执行 `beforeunload` 事件的机会，`beforeunload` 事件允许页面在退出之前执行一些数据清理操作，还可以询问用户是否要离开当前页面。
+
 1. 对HTML5有什么了解？
    
    良好的移动性，以移动设备为主；
@@ -75,9 +78,9 @@ CSS会阻塞JS执行，并不会阻塞JS文件下载
 1.  重绘 只是影响元素的外观和风格，不影响布局的  回流：元素的布局、隐藏等改变需要重新构建
 1.   data-为前端开发者提供自定义属性，这些属性集可以通过对象的dataset属性获取，
 1. 因为 DOM 是属于渲染引擎中的东西，而 JS 又是 JS 引擎中的东西。当我们通过 JS 操作 DOM 的时候，其实这个操作涉及到了两个线程之间的通信，那么势必会带来一些性能上的损耗。
-1. link属于HTML标签，而@import是CSS提供的页面被加载的时，link会同时被加载，而@import引用的CSS会等到页面被加载完再加载
-1. Web quality  : alt
-1. 该WindowEventHandlers.onstorage属性包含一个在storage事件触发时运行的事件处理程序。当更改存储区域时会发生这种情况（例如，存储新项目）。
+2. link属于HTML标签，而@import是CSS提供的页面被加载的时，link会同时被加载，而@import引用的CSS会等到页面被加载完再加载。
+3. Web quality  : alt
+4. 该WindowEventHandlers.onstorage属性包含一个在storage事件触发时运行的事件处理程序。当更改存储区域时会发生这种情况（例如，存储新项目）。
 ```javascript
    window.onstorage = function(e) { console.log('The ' + e.key + ' key has been changed from ' + e.oldValue + ' to ' + e.newValue + '.'); };
 ```

@@ -20,26 +20,24 @@ tags: 零碎
 8. archive [‘ɑːkaɪv]
 9. debt  [det]
 10. typical [‘tɪpɪkl]  
-11. resume [rɪ'zju:m]
-12. parameter [pə’ræmɪtə] 
-13. integer  [‘ɪntɪdʒə]
-14. matrix [ˈmeɪtrɪks]
-15. height [haɪt]
-16. shallow  肤浅的 
-17. tenant  租户，房客
-18. coerce [kəʊˈɜːs]  强制 
-19. indeterminate  [ˌɪndɪˈtɜːrmɪnət]
-20. sup 一口；饮酒  
-21. crumb 面包屑   
-22. prune  修剪；减少；
-23. Unify 整合、统一 
-24. contiguous  kənˈtɪɡjuəs
+11. parameter [pə’ræmɪtə] 
+12. integer  [‘ɪntɪdʒə]
+13. height [haɪt]
+14. shallow  肤浅的 
+15. tenant  租户，房客
+16. coerce [kəʊˈɜːs]  强制 
+17. indeterminate  [ˌɪndɪˈtɜːrmɪnət]
+18. sup 一口；饮酒  
+19. crumb 面包屑   
+20. prune  修剪；减少；
+21. Unify 整合、统一 
+22. contiguous  kənˈtɪɡjuəs
  
+23. 无论你使用的是解释型语言(JavaScript、Python、Ruby)还是编译型语言(c#、Java、Rust)，都有一个共同的部分:将源代码作为纯文本解析为 抽象语法树(abstract syntax tree, AST) 的数据结构。
 
-25. 无论你使用的是解释型语言(JavaScript、Python、Ruby)还是编译型语言(c#、Java、Rust)，都有一个共同的部分:将源代码作为纯文本解析为 抽象语法树(abstract syntax tree, AST) 的数据结构。
-26. AST 不仅以结构化的方式显示源代码，而且在语义分析中扮演着重要角色。在语义分析中，编译器验证程序和语言元素的语法使用是否正确。之后，使用 AST 来生成实际的字节码或者机器码。
+24. AST 不仅以结构化的方式显示源代码，而且在语义分析中扮演着重要角色。在语义分析中，编译器验证程序和语言元素的语法使用是否正确。之后，使用 AST 来生成实际的字节码或者机器码。
 
-28. 要应用更新，Virtual DOM核心功能将发挥作用，即 协调算法，它的工作是提供最优的解决方案来解决以前和当前虚拟DOM 状态之间的差异。
+25. 要应用更新，Virtual DOM核心功能将发挥作用，即 协调算法，它的工作是提供最优的解决方案来解决以前和当前虚拟DOM 状态之间的差异。
 
 ## opentracing
 1. Opentracing 的carrier 有多种实现，tracer 的inject（客户端进程） 和 extract（服务端进程），这样 客户端和服务端 就可以拥有相同的trace context。

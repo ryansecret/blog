@@ -51,11 +51,13 @@ scope hoisting
    函数式组件不能通过$emit对外暴露事件，调用事件只能通过context.listeners.click的方式调用外部传入的事件
    因为函数式组件是没有实例化的，所以在外部通过ref去引用组件时，实际引用的是HTMLElement
    函数式组件的props可以不用显示声明，所以没有在props里面声明的属性都会被自动隐式解析为prop,而普通组件所有未声明的属性都被解析到$attrs里面，并自动挂载到组件根元素上面(可以通过inheritAttrs属性禁止)
+
 3. 「适合引入自动化测试的场景：」
 
 公共库类的开发维护
 中长期项目的迭代/重构
 引用了不可控的第三方依赖
+
 1. Observer 是一个类，它的作用是给对象的属性添加 getter 和 setter，用于依赖收集和派发更新。Render 时通过getter 进行依赖收集。
 2. Dep 是一个 Class，它定义了一些属性和方法，这里需要特别注意的是它有一个静态属性 target，这是一个全局唯一 Watcher，这是一个非常巧妙的设计，
 因为在同一时间只能有一个全局的 Watcher 被计算，另外它的自身属性 subs 也是 Watcher 的数组。
@@ -70,7 +72,7 @@ export const arrayMethods = Object.create(arrayProto)
     Vue.options.components = {}
     Vue.options.directives = {} 
     Vue.options.filters = {}
-2. Object.defineProperty无法监控到数组下标的变化，导致直接通过数组的下标给数组设置值，不能实时响应。 为了解决这个问题，经过vue内部处理后可以使用以下几种方法来监听数组
+ 
 3. vue 父子组件：
 加载渲染过程
 父beforeCreate->父created->父beforeMount->子beforeCreate->子created->子beforeMount->子mounted->父mounted
@@ -111,24 +113,8 @@ async function main(inputFilePath) {
 1. Vm.$watch this._data.$$state 的值，/* 检测store中的_committing的值，如果是true代表不是通过mutation的方法修改的 */
 2. /* 这里new了一个Vue对象，运用Vue内部的响应式实现注册state以及computed*/
     store._vm = new Vue({ data: {$$state: state }, computed })
-3. this.$on('hook:updated', () => {})     
-4. 异步组件属性
-```javascript
-
-const AsyncComponent = () => ({
-  // 需要加载的组件 (应该是一个 `Promise` 对象)
-  component: import('./MyComponent.vue'),
-  // 异步组件加载时使用的组件
-  loading: LoadingComponent,
-  // 加载失败时使用的组件
-  error: ErrorComponent,
-  // 展示加载时组件的延时时间。默认值是 200 (毫秒)
-  delay: 200,
-  // 如果提供了超时时间且组件加载也超时了，
-  // 则使用加载失败时使用的组件。默认值是：`Infinity`
-  timeout: 3000
-})
-```
+3. this.$on('hook:updated', () => {})
+ 
 1. Vue.config.optionMergeStrategies  
 1.  在Vue2.5之前，使用函数式组件只能通过JSX的方式，在之后，可以通过模板语法来生命函数式组件
  ```html
@@ -138,21 +124,12 @@ const AsyncComponent = () => ({
 </template>
 <!--根据上一节第六条，可以省略声明props-->
  ```
-1. Vue beforecreated:data vue 实例化、init events
-1. 只要出现多个插槽，请始终为所有的插槽使用完整的基于`<template>`  的语法
-```html
-   <current-user>
-   <template v-slot:default="slotProps">
-    {{ slotProps.user.firstName }}
-  </template>
 
-  <template v-slot:other="otherSlotProps">
-    ...
-  </template> 
-</current-user>
-``` 
+1. Vue beforecreated:data vue 实例化、init events
+ 
 1.  作用域插槽 this.$scopedSlots.header({ text: this.headerText })
-1. 全局的components ，通过vue 的options merge 到组件上。 最后通过 extend(Vue.options.components, builtInComponents) 把一些内置组件扩展到 Vue.options.components 上，
+   
+2. 全局的components ，通过vue 的options merge 到组件上。 最后通过 extend(Vue.options.components, builtInComponents) 把一些内置组件扩展到 Vue.options.components 上，
 Vue 的内置组件目前有 <keep-alive>、<transition> 和 <transition-group> 组件，这也就是为什么我们在其它组件中使用 <keep-alive> 组件不需要注册的原因
 
 11. components，filters，directives
@@ -194,6 +171,7 @@ modifiers：一个包含修饰符的对象。例如：v-my-directive.foo.bar 中
         });
       }
  ```
+
 1.  ref用创建一个包装对象，只具备一个响应式属性value，如果将对象指定为ref的值，该对象将被reactive方法深度遍历。如果传入 ref 的是一个对象，将调用 reactive 方法进行深层响应转换。所以ref 可以解构
 1. history 模式：
 ```text
@@ -227,7 +205,7 @@ modifiers：一个包含修饰符的对象。例如：v-my-directive.foo.bar 中
 
 Update 调用的时机：1.首次渲染 2.数据更新 
 
-1. 绑定事件时可以用特殊变量 $event 把它传入方法：<button v-on:click="warn('Form cannot be submitted yet.', $event)">
+ 
 1. 
 1. Vue 通过在内存中实现文档结构的虚拟表示来解决此问题，其中虚拟节点（VNode）表示 DOM 树中的节点。当需要操纵时，可以在虚拟 DOM的 内存中执行计算和操作，而不是在真实 DOM 上进行操纵。这自然会更快，并且允许虚拟 DOM 算法计算出最优化的方式来更新实际 DOM 结构。
 1. 
@@ -250,6 +228,7 @@ generate阶段：根据 AST 结构拼接生成 render 函数的字符串。
 
 1. js 链接 defer 和 async
 1. keep-alive 的实现正是用到了 LRU 策略,将最近访问的组件 push 到 this.keys 最后面,this.keys[0]也就是最久没被访问的组件,当缓存实例超过 max 设置值,删除 this.keys[0]
+
 ```text
 defer 和 async 都是并行加载的，主要区别在于下载后何时执行。
 每一个 async 属性的脚本都在它下载结束之后立刻执行，所以就有可能出现脚本执行顺序被打乱的情况
@@ -258,12 +237,12 @@ defer 和 async 都只适用于外部脚本文件，对与内联的 script 标�
 
 ```
 1. preload 用 “as” 或者用 “type” 属性来表示他们请求资源的优先级（比如说 preload 使用 as="style" 属性将获得最高的优先级）。没有 “as” 属性的将被看作异步请求，“Early”意味着在所有未被预加载的图片请求之前被请求（“late”意味着之后）
-1. WebRTC，名称源自网页即时通信（英语：Web Real-Time Communication）的缩写，是一个支持网页浏览器进行实时语音对话或视频对话的API。
  
  
-1. Vue.config.errorHandler   
-1. v-pre  场景:vue 是响应式系统,但是有些静态的标签不需要多次编译,这样可以节省性能
-1. v-loader transformAssetUrls  
+ 
+2. Vue.config.errorHandler   
+3. v-pre  场景:vue 是响应式系统,但是有些静态的标签不需要多次编译,这样可以节省性能
+4. v-loader transformAssetUrls  
 在模板编译过程中，编译器可以将某些特性转换为 require 调用，例如 src 中的 URL。因此这些目标资源可以被 webpack 处理。例如 <img src="./foo.png"> 会找到你文件系统中的 ./foo.png 并将其作为一个依赖包含在你的包里
 
 1. view router加key  场景:由于 Vue 会复用相同组件, 即 /page/1 => /page/2 或者 /page?id=1 => /page?id=2 这类链接跳转时, 将不在执行created, mounted之类的钩子

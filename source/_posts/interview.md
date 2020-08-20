@@ -138,27 +138,6 @@ myerror.name // "MyError"
 myerror.stack
 ```
 
-定义get set ,可在方法体内部拦截
-
-```
-class MyClass {
-  constructor() {
-    // ...
-  }
-  get prop() {
-    return 'getter';
-  }
-  set prop(value) {
-    console.log('setter: '+value);
-  }
-  * [Symbol.iterator]() {
-    for (let arg of this.args) {
-      yield arg;
-    }
-  }
-}
-```
-
 Stream有什么好处?
 参考答案: 非阻塞式数据处理提升效率，片断处理节省内存，管道处理方便可扩展等.
 
@@ -183,37 +162,7 @@ https://my.oschina.net/yushulx/blog/423704
 
 process.argv 数组的第一个元素永远都会是 node，并且第二个参数总是指向你的程序的路径，所以，你应该从第三个元素
 
-
-```
-regex test   if (/^\/api\/parsetime/.test(req.url))
-```
-
-
-回调函数的规则：err 为第一个参数
-
-文件的总行：
-```
-var lines = contents.toString().split('\n').length - 1
-```
-
-
-fs.unlink 删除文件
-
-
-```
-//创建一个tcp 服务器
-var net = require('net')
-
-var server = net.createServer(function (socket) {
-
-  // socket 处理逻辑
-
-})
-
-server.listen(8000)
-```
-
-
+ 
 使用 socket.write(data) 可以写数据到 socket 中，用 socket.end() 可以关闭一个 socket。另外， .end() 方法也可以接收一个数据对象作为参数，因此，你可简单地使用 socket.end(data) 来完成写数据和关闭两个操作。
 
 concat-stream：会连接多个stream,参数中不指定encoding 的话，会自行推断。
