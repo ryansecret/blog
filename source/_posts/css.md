@@ -37,7 +37,7 @@ tags: css
    _ 单下划线：单下划线用来描述一个块或者块的子元素的一种状态
 
 2.  HTMLElement.offsetParent 是一个只读属性，返回一个指向最近的（指包含层级上的最近）包含该元素的定位元素或者最近的 table,td,th,body元素。当元素的 style.display 设置为 "none" 时，offsetParent 返回 null。offsetParent 很有用，因为 offsetTop 和 offsetLeft 都是相对于其内边距边界的。
-3.  
+ 
 4. flex-basis 分配多余空间之前占据的主轴空间。
 5. 多行文本溢出隐藏变为...
      p {
@@ -164,13 +164,14 @@ DOM树没有定义的虚拟元素
 ```
 1.  fr 关键字：Grid 布局还引入了一个另外的长度单位来帮助我们创建灵活的网格轨道。fr 单位代表网格容器中可用空间的一等份。grid-template-columns: 200px 1fr 2fr 表示第一个列宽设置为 200px，后面剩余的宽度分为两部分，宽度分别为剩余宽度的 1/3 和 2/3。
 1. auto-fill 关键字：表示自动填充，让一行（或者一列）中尽可能的容纳更多的单元格。grid-template-columns: repeat(auto-fill, 200px) 表示列宽是 200 px，但列的数量是不固定的，只要浏览器能够容纳得下，就可以放置元素
-1. flex Flex-grow flex-shrink flex-basis
-2. Flex 主轴（x）、交叉轴(y)
-3. calc函数是css3新增的功能，可以使用calc()计算border、margin、pading、font-size和width等属性设置动态值。   width: calc(100% - 200px);
+   
+2. flex Flex-grow flex-shrink flex-basis
+3. Flex 主轴（x）、交叉轴(y)
+4. calc函数是css3新增的功能，可以使用calc()计算border、margin、pading、font-size和width等属性设置动态值。   width: calc(100% - 200px);
 
-1. 触发BFC条件  BFC（Block Formatting Context）格式化上下文，把它理解成是一个独立的容器，并且这个容器里box的布局与这个容器外的box毫不相干。
+5. 触发BFC条件  BFC（Block Formatting Context）格式化上下文，把它理解成是一个独立的容器，并且这个容器里box的布局与这个容器外的box毫不相干。
 
-2. 递归 o(2**n)-》带备忘录 o(n),自顶向下-》动态规划（自底向上）
+6. 递归 o(2**n)-》带备忘录 o(n),自顶向下-》动态规划（自底向上）
   ```text
   根元素
   float的值不为none

@@ -39,6 +39,7 @@ $ git submodule update —remote
 3.  十进制转为 2 进制，除 2 取余，然后余数反向
     
     十进制转为 2 进制小时，**乘 2 取整**
+    
 4. in操作符:检测指定对象(右边)原型链上是否有对应的属性值。 
     hasOwnProperty方法:检测指定对象自身上是否有对应的属性值。两者的区别在于in会查找原型链,而hasOwnProperty不会。
    
@@ -200,18 +201,19 @@ var request = new XMLHttpRequest()
 3. Babel stag2 的功能  https://github.com/babel/babel/tree/master/packages/babel-preset-stage-2
 1. 所有的babel 包  https://github.com/babel/babel/tree/master/packages
 1. npx babel-upgrade
-1. ES2019 中为Symbol对象添加了只读属性 description ，该对象返回包含Symbol描述的字符串。
+
+2. ES2019 中为Symbol对象添加了只读属性 description ，该对象返回包含Symbol描述的字符串。
 
  
-2. 如果你传的 context 就 null 或者 undefined，那么 window 对象就是默认的 context（严格模式下默认 context 是 undefined）
+3. 如果你传的 context 就 null 或者 undefined，那么 window 对象就是默认的 context（严格模式下默认 context 是 undefined）
  
-3. ES6 模块功能是它的导入模块是导出时模块的实时只读视图。（相比起 CommonJS，导入的是导出模块的拷贝副本，因此也不是实时的）。只读视图和内存拷贝的区别。
+4. ES6 模块功能是它的导入模块是导出时模块的实时只读视图。（相比起 CommonJS，导入的是导出模块的拷贝副本，因此也不是实时的）。只读视图和内存拷贝的区别。
  
-4. Broadcast Channel API 允许同一原始域和用户代理下的所有窗口,iFrames 等进行交互。也就是说，如果用户打开了同一个网站的的两个标签窗口，如果网站内容发生了变化，那么两个窗口会同时得到更新通知。
-5. escape 在处理 0xff 之外字符的时候，是直接使用字符的 unicode 在前面加上一个 「%u」，而encodeURI则是先进行 UTF-8，再在 UTF-8 的每个字节码前加上一个 「%」； 所以通过encodeUrI 可以获取utf-8 字节长度
-6. js value
-7. Prototype 包含constructor 和 __proto__. 原型链存储共有的属性和方法，减少内存
-8. 基本的数据类型 
+5. Broadcast Channel API 允许同一原始域和用户代理下的所有窗口,iFrames 等进行交互。也就是说，如果用户打开了同一个网站的的两个标签窗口，如果网站内容发生了变化，那么两个窗口会同时得到更新通知。
+6. escape 在处理 0xff 之外字符的时候，是直接使用字符的 unicode 在前面加上一个 「%u」，而encodeURI则是先进行 UTF-8，再在 UTF-8 的每个字节码前加上一个 「%」； 所以通过encodeUrI 可以获取utf-8 字节长度
+7. js value
+8. Prototype 包含constructor 和 __proto__. 原型链存储共有的属性和方法，减少内存
+9.  基本的数据类型 
 ```text
 基本的数据类型
 undefined

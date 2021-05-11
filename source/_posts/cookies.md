@@ -8,6 +8,12 @@ tags: 零碎
 ### 发版
 1. 发布阶段：更新chagelog ,打 git tag 。
 
+### react 
+1.  useMemo是将父组件传递给子组件的值缓存起来,useMemo 是在DOM渲染之前执行的
+2.  usecallback是将父组件传给子组件的方法给缓存下来
+3.  dva   connect Model 的组件通过 props 可以访问到 dispatch，可以调用 Model 中的 Reducer 或者 Effects
+4.  向主进程发送消息   ipcRenderer.send(channel, ...args)
+5.  webContens.send  向渲染进程发送消息 
 ### word
 1. analogy 类比 [əˈnælədʒi]
 1. pache [ə’pætʃɪ]
@@ -51,8 +57,11 @@ tags: 零碎
 1. Mac 配置：
    Oh my zsh 
    brew install autojump  
+   
    git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+
    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
    plugins=(
      git zsh-autosuggestions autojump zsh-syntax-highlighting
    )
@@ -71,7 +80,7 @@ tags: 零碎
 1. npm version patch -m "Upgrade to %s for reasons”
 1. npm dist-tag add n-n-n-n@1.0.2-1 latest  将某个预发版本更新为最新   
 1. npm ping [--registry <registry>]
-
+1. Npm install  --unsafe-perm
  
 
   

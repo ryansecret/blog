@@ -3,7 +3,8 @@ title: http
 date: 2019-05-14 15:17:39
 tags: http
 ---
-
+1. Origin:scheme, host, and port.
+    same origin 更加严格 
 #### Quic 
 1. 多路复用，避免队头阻塞
 1. 减少 RTT，请求更快速
