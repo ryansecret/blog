@@ -43,7 +43,7 @@
             "exclude": {}
         }, {
             "test": {},
-            "use": ["/Users/chenjingnan/work/ossBak/client/node_modules/mini-css-extract-plugin/dist/loader.js", "css-loader", "postcss-loader", "less-loader"]
+            "use": ["vue-style-loader", "css-loader", "postcss-loader", "less-loader"]
         }, {
             "test": {},
             "loader": "url-loader",
@@ -72,9 +72,9 @@
     },
     "plugins": [{}, {
         "options": {
-            "filename": "static/css/[name].[hash].css",
+            "filename": "static/css/[name].css",
             "ignoreOrder": false,
-            "chunkFilename": "static/css/[name].[id].[hash].css"
+            "chunkFilename": "static/css/[id].css"
         }
     }, {
         "pluginDescriptor": {
