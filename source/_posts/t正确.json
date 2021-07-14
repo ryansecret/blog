@@ -1,8 +1,6 @@
 {
   "context": "/Users/chenjingnan/work/ossBak/client",
-  "entry": {
-    "app": ["./src/main.js"]
-  },
+  "entry": { "app": ["./src/main.js"] },
   "output": {
     "path": "/Users/chenjingnan/work/ossBak/server/app/public",
     "filename": "static/js/[name].[chunkhash].js",
@@ -24,10 +22,7 @@
   },
   "module": {
     "rules": [
-      {
-        "test": {},
-        "loader": ["cache-loader", "vue-loader"]
-      },
+      { "test": {}, "loader": ["cache-loader", "vue-loader"] },
       {
         "resourceQuery": {},
         "type": "javascript/auto",
@@ -36,14 +31,10 @@
       {
         "test": {},
         "use": [
-          {
-            "loader": "cache-loader"
-          },
+          { "loader": "cache-loader" },
           {
             "loader": "babel-loader",
-            "options": {
-              "cwd": "/Users/chenjingnan/work/ossBak/client"
-            }
+            "options": { "cwd": "/Users/chenjingnan/work/ossBak/client" }
           }
         ],
         "exclude": {}
@@ -80,9 +71,7 @@
         "use": [
           {
             "loader": "svg-sprite-loader",
-            "options": {
-              "symbolId": "icon-[name]"
-            }
+            "options": { "symbolId": "icon-[name]" }
           }
         ]
       }
@@ -98,31 +87,18 @@
       }
     },
     {
-      "pluginDescriptor": {
-        "name": "OptimizeCssAssetsWebpackPlugin"
-      },
+      "pluginDescriptor": { "name": "OptimizeCssAssetsWebpackPlugin" },
       "options": {
         "assetProcessors": [
-          {
-            "phase": "compilation.optimize-chunk-assets",
-            "regExp": {}
-          }
+          { "phase": "compilation.optimize-chunk-assets", "regExp": {} }
         ],
         "assetNameRegExp": {},
-        "cssProcessorOptions": {
-          "safe": true,
-          "map": {
-            "inline": false
-          }
-        },
+        "cssProcessorOptions": { "safe": true, "map": { "inline": false } },
         "cssProcessorPluginOptions": {}
       },
       "phaseAssetProcessors": {
         "compilation.optimize-chunk-assets": [
-          {
-            "phase": "compilation.optimize-chunk-assets",
-            "regExp": {}
-          }
+          { "phase": "compilation.optimize-chunk-assets", "regExp": {} }
         ],
         "compilation.optimize-assets": [],
         "emit": []
