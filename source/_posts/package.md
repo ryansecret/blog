@@ -129,3 +129,6 @@ app.get('/index', routeCache.cacheSeconds(20), function(req, res){
 1. Wekan 一个开源的看板软件
 1. droppy  提供web界面的可本地部署的文件管理
 1. uplot 渲染大量数据，占用资源少
+1. https://github.com/jlongster/absurd-sql  sqllite 对indexdb的封装
+2. https://www.npmjs.com/package/zx   zx node shell 的脚本终极方案
+3. 

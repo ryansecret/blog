@@ -413,3 +413,31 @@ Vue 的 _update 是实例的一个私有方法，它被调用的时机有 2 个�
 .right
 ```
  
+
+#### mock vuex
+```
+setup() {
+          useLoginStatusProvide()
+          return {}
+        },
+
+
+        import { provide, inject, ref } from '@vue/composition-api'
+
+const StatusSymbol = Symbol('status')
+
+export const useLoginStatusProvide = () => {
+  const loginStatus = ref(false)
+
+  const setLoginStatus = val => (loginStatus.value = val)
+  provide(StatusSymbol, { loginStatus, setLoginStatus })
+}
+
+export const useLoginStatusInject = () => {
+  const context = inject(StatusSymbol)
+  if (!context) throw new Error('useLoginStatusInject must be used after useLoginStatusProvide')
+
+  return context
+}
+
+```
