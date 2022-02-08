@@ -131,4 +131,15 @@ app.get('/index', routeCache.cacheSeconds(20), function(req, res){
 1. uplot 渲染大量数据，占用资源少
 1. https://github.com/jlongster/absurd-sql  sqllite 对indexdb的封装
 2. https://www.npmjs.com/package/zx   zx node shell 的脚本终极方案
-3. 
+3.  vueuse vue hooks 比较全的
+1. splitpane 拖拽布局控件 https://antoniandre.github.io/splitpanes/
+2. chan  A golang like channel implementation for JavaScript that works well with co.
+3. pump  When using standard source.pipe(dest) source will not be destroyed if dest emits close or an error. You are also not able to provide a callback to tell when then pipe has finished.
+4. npx cloc path 用来统计代码行数
+5. acorn  A tiny, fast JavaScript parser written in JavaScript.
+6.  picocolors  The tiniest and the fastest library for terminal output formatting with ANSI colors.添加背景色的。
+7.  hash-sum  blazing fast unique hash generator
+8.  micromatch  Glob matching for javascript/node.js. A replacement and faster alternative to minimatch and multimatch.
+9.  xterm-addon-attach  An addon for xterm.js that enables attaching to a web socket. This addon requires xterm.js v4+.
+10. node-pty 虚拟的terminal forkpty(3) bindings for node.js. This allows you to fork processes with pseudoterminal file descriptors. It returns a terminal object which allows reads and writes.
+11. 

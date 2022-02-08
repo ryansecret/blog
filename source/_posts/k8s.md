@@ -1,7 +1,7 @@
 ---
 title: k8s
 date: 2021-11-18 17:10:24
-tags:
+tags: k8s
 ---
 
 ### helm 
