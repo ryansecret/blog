@@ -24,7 +24,7 @@
     "hexo-renderer-marked": "^0.2.10",
     "hexo-renderer-stylus": "^0.3.1",
     "hexo-server": "^0.2.0",
-    "marked": "^0.3.6",
+    "marked": "^4.0.10",
     "negotiator": "^0.6.1",
     "on-headers": "^1.0.1",
     "opn": "^4.0.2"
