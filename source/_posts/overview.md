@@ -3,9 +3,82 @@ title: overview
 date: 2021-12-13 17:38:48
 tags: overview
 ---
+1. 
+1. watcheffect onInvalidate 在重新运行或者停止的时候执行
+1. composedPath() 是 Event 接口的一个方法，当对象数组调用该侦听器时返回事件路径。
+1. customref  track and trigger  
+1. vueuse useMemoize 对结果加cache
+1. elementFromPoint 根据point 获取element
+1. Change-case Transform a string between camelCase, PascalCase, Capital Case, snake_case, param-case, CONSTANT_CASE and others.
+1. p-retry It does exponential backoff and supports custom retry strategies for failed operations.
+1. MutationObserver 观察dom 变化
+1. requestFullscreen
+1. passive: Boolean，设置为true时，表示 listener 永远不会调用 preventDefault()。如果 listener 仍然调用了这个函数，客户端将会忽略它并抛出一个控制台警告
+1. shallowReacive  shallowRef  shallowRef生成非递归响应数据，只监听第一层数据的变化
+1. 推荐在大部分时候用 watch 显式的指定依赖以避免不必要的重复触发，也避免在后续代码修改或重构时不小心引入新的依赖。watchEffect 适用于一些逻辑相对简单，依赖源和逻辑强相关的场景（或者懒惰的场景 ）。
+1. Object.fromEntries
+1. URL.revokeObjectURL() 静态方法用来释放一个之前已经存在的、通过调用 URL.createObjectURL() 创建的 URL 对象。
+1. querySelector  返回第一个匹配元素
+1. Array.prototype.at()接收一个正整数或者负整数作为参数，表示获取指定位置的成员
+1. IFC全称：Inline Formatting Context，名为行级格式化上下文。    触发：块级元素中仅包含内联级别元素
+1. The Notification interface of the Notifications API is used to configure and display desktop notifications to the user.
+1. TinyMCE 富文本编辑器
+1. Window.innerHeight  浏览器窗口的视口（viewport）高度（以像素为单位）；如果有水平滚动条，也包括滚动条高度。
+1. vuedraggable 处理拖动数据
+1. path-to-regexp   Turn a path string such as /user/:name into a regular expression. The compile function will return a function for transforming parameters into a valid path:
+1. vue router 重新render,redirect+fullpath.通过添加一个中转页实现。
+1. import { storeToRefs } from "pinia”;
+1. html5 input number
+ ```
+.no-arrow::-webkit-outer-spin-button,
+.no-arrow::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+ ``` 
+2. vue3 类型 MayBeRef
+3. 暂停watch后更新，
+```
+ignoreUpdates(() => {
+  source.value = 'ignored'
+})
+```
 
-1.  临时安全令牌（Security Token Service，STS）
-2.  *** 获取文本px宽度* @param font{String}: 字体样式**
+1. dsp 读取json,csv,xlxs 数据
+1. limu 创建imutable 对象
+2. controlledRef set peek,控制数据的更新
+ ```
+ const num = controlledRef(0, {
+  onBeforeChange(value, oldValue) {
+    // disallow changes larger then ±5 in one operation
+    if (Math.abs(value - oldValue) > 5)
+      return false // returning `false` to dismiss the change
+  },
+})
+ ```
+
+1. flush: post 推迟副作用的初始运行，直到组件的首次渲染完成。
+   watch 通过更改设置 flush: 'sync'，我们可以为每个更改都强制触发侦听器，尽管这通常是不推荐的
+   ```
+
+- `'pre'`: buffers invalidated effects in the same 'tick' and flushes them before rendering
+- `'post'`: async like 'pre' but fires after component updates so you can access the updated DOM
+- `'sync'`: forces the effect to always trigger synchronously
+
+ { flush: 'post' }
+)
+
+   ```
+1. transx vue 动画组件   一个小巧玲珑的 vue 组件切换动画库
+2. ts-morph 修改ts 代码，封装后的ts compiler api
+3. esno 执行ts
+4. https://mermaid-js.github.io/mermaid/#/     mermaid 及其方便的画图工具
+5. vue-parallaxy Is a compontent for fast 60fps parallax scroll effects in vue 2. 实现滚动的视差效果。
+6. useWatermark,Layzcontainer. context menu  vue-vben-admin 中
+7. localForage is a fast and simple storage library for JavaScript。Wraps IndexedDB, WebSQL, or localStorage using a simple but powerful API.
+8.  markRaw 标记对下不会被reactive
+9.  indexeddb-fs is a module that allows you to store data in the browser using an API similar to that of Node's fs module.
+10. 临时安全令牌（Security Token Service，STS）
+11. *** 获取文本px宽度* @param font{String}: 字体样式**
 
 ```
 String.prototype.pxWidth = function(font) {
@@ -133,3 +206,10 @@ After: npm-run-all clean build:*
 
 1. 因为 CommonJS 在运行时进行加载方式的动态解析，在运行时阶段才能确定的导入导出关系，因此无法进行静态编译优化和类型检查。​
 
+1. JSZip  JSZip is a javascript library for creating, reading and editing .zip files, with a lovely and simple AP
+   
+2. spy-debugger  一站式页面调试、抓包工具。远程调试任何手机浏览器页面，任何手机移动端webview（如：微信，HybridApp等）。支持HTTP/HTTPS，无需USB连接设备
+   
+3. viteshot 基于vite 的快照
+
+4. useScrollLock

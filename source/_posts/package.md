@@ -143,3 +143,5 @@ app.get('/index', routeCache.cacheSeconds(20), function(req, res){
 9.  xterm-addon-attach  An addon for xterm.js that enables attaching to a web socket. This addon requires xterm.js v4+.
 10. node-pty 虚拟的terminal forkpty(3) bindings for node.js. This allows you to fork processes with pseudoterminal file descriptors. It returns a terminal object which allows reads and writes.
   asdf
+1. dom-to-image 一个可以将任意DOM节点转换为用JavaScript编写的矢量（SVG）或光栅（PNG或JPEG）图像的库
+ 
