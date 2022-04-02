@@ -3,7 +3,7 @@ title: overview
 date: 2021-12-13 17:38:48
 tags: overview
 ---
-1. 
+1. Markraw 标记不会被reactive
 1. watcheffect onInvalidate 在重新运行或者停止的时候执行
 1. composedPath() 是 Event 接口的一个方法，当对象数组调用该侦听器时返回事件路径。
 1. customref  track and trigger  
