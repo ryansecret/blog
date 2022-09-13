@@ -3,33 +3,85 @@ title: overview
 date: 2021-12-13 17:38:48
 tags: overview
 ---
-1. git config --global push.followTags true
-1. Markraw 标记不会被reactive
-1. watcheffect onInvalidate 在重新运行或者停止的时候执行
-1. composedPath() 是 Event 接口的一个方法，当对象数组调用该侦听器时返回事件路径。
-1. customref  track and trigger  
-1. vueuse useMemoize 对结果加cache
-1. elementFromPoint 根据point 获取element
-1. Change-case Transform a string between camelCase, PascalCase, Capital Case, snake_case, param-case, CONSTANT_CASE and others.
-1. p-retry It does exponential backoff and supports custom retry strategies for failed operations.
-1. MutationObserver 观察dom 变化
-1. requestFullscreen
-1. passive: Boolean，设置为true时，表示 listener 永远不会调用 preventDefault()。如果 listener 仍然调用了这个函数，客户端将会忽略它并抛出一个控制台警告
-1. shallowReacive  shallowRef  shallowRef生成非递归响应数据，只监听第一层数据的变化
-1. 推荐在大部分时候用 watch 显式的指定依赖以避免不必要的重复触发，也避免在后续代码修改或重构时不小心引入新的依赖。watchEffect 适用于一些逻辑相对简单，依赖源和逻辑强相关的场景（或者懒惰的场景 ）。
-1. Object.fromEntries
-1. URL.revokeObjectURL() 静态方法用来释放一个之前已经存在的、通过调用 URL.createObjectURL() 创建的 URL 对象。
-1. querySelector  返回第一个匹配元素
-1. Array.prototype.at()接收一个正整数或者负整数作为参数，表示获取指定位置的成员
-1. IFC全称：Inline Formatting Context，名为行级格式化上下文。    触发：块级元素中仅包含内联级别元素
-1. The Notification interface of the Notifications API is used to configure and display desktop notifications to the user.
-1. TinyMCE 富文本编辑器
-1. Window.innerHeight  浏览器窗口的视口（viewport）高度（以像素为单位）；如果有水平滚动条，也包括滚动条高度。
-1. vuedraggable 处理拖动数据
-1. path-to-regexp   Turn a path string such as /user/:name into a regular expression. The compile function will return a function for transforming parameters into a valid path:
-1. vue router 重新render,redirect+fullpath.通过添加一个中转页实现。
-1. import { storeToRefs } from "pinia”;
-1. html5 input number
+1. watchEffect 不能检测深层的变化，因此reactive 中变化无效，如果需要则 toRefs 转换
+1. V2 $attrs   1. custom events go into a @listerner bucket  2.不能绑定class 
+1. Npm ls 查看依赖
+1. 可以看到结果reactive是递归会将每一层包装成Proxy对象的，深度监听每一层的property
+1. effectScope有一个可选参数为boolean，当传入true时表示阻断与父级的联系，阻断后这个scope对象将不会与父级关联，成为独立的scope。父级的stop也不会影响到它。 
+1. Last-Modified,Etag,Expires 三个同时使用时。先判断 Expire ，然后发送 Http 请求，服务器先判断 last-modified ，再判断 Etag ，必须都没有过期，才能返回 304 响应
+1. klona  fast utility to "deep clone" Objects, Arrays, Dates, RegExps, and more!
+1. Grep string starting with (e.g. 'S’)    grep -o 'S.*’
+1. ~: 如果写入的是 〜0.13.0，则当运行 npm update 时，会更新到补丁版本：即 0.13.1 可以，但 0.14.0 不可以。
+1. >: 接受高于指定版本的任何版本。
+1. ^: 只会执行不更改最左边非零数字的更新。 如果写入的是 ^0.13.0，则当运行 npm update 时，可以更新到 0.13.1、0.13.2 等，但不能更新到 0.14.0 或更高版本。 如果写入的是 ^1.13.0，则当运行 npm update 时，可以更新到 1.13.1、1.14.0 等，但不能更新到 2.0.0 或更高版本。
+2. firefox 子元素不缩小需要设置  You need to add min‑width:0
+3. flex 布局中子级超过了父级的宽度，需要设置 width:0 ,完全由flex 分配宽度。
+4. POSIX stands for Portable Operating System Interface.
+5.  @supports CSS at-rule 相当于功能选择器
+   ```
+   @supports (display: flex) {
+  body {
+    display: flex;
+    min-height: 100vh;
+  }
+}
+   ```
+2. https://github.com/cuixiaorui/mini-vue  vue3 source code 
+3. react 被 startTransition 回调包裹的 setState 触发的渲染 被标记为不紧急渲染，这些渲染可能被其他紧急渲染所抢占。
+4. https://hyper.is/ electron console
+5. https://cmder.net/ windows 端的console 模拟器
+6. Access-Control-Request-Private-Network: true 在所有私有网络预检请求上设置
+   Access-Control-Allow-Private-Network: true 必须在所有私有网络预检响应上设置
+7. 使用 Fragments，我们不需要在DOM中添加额外的节点。我们只需要用 React.Fragment 或才简写 <> 来包裹内容就行了
+8. vite 虚拟模块  虚拟模块是一种很实用的模式，使你可以对使用 ESM 语法的源文件传入一些编译时信息。
+9.  glob Match files using the patterns the shell uses, like stars and stuff.
+10. click.self 
+我们知道在自定义组件上，只能监听自定义事件，一些原生事件（比如click）是没有办法直接触发的，但是使用.native修饰符可以帮我们办到这点
+1. offset-path  定义动画运行路径
+1. Tauri 是一个为所有主流桌面平台构建小型、快速二进制文件的框架。开发人员可以集成任何编译成 HTML、 JS 和 CSS 的前端框架来构建他们的用户界面。应用程序的后端是一个 Rust 二进制文件，具有前端可以与之交互的 API。
+1.  gitsecreat 使用： https://www.mikesay.com/2020/12/16/git-encrypt-file-in-repository/#git-secret%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8
+1. svg2pdf.js 图片转pdf
+1. stream 的另外一个模式: objectMode。它是一种对象模式，我们把一件事情、或一个文件、或一个操作，抽象成一个对象。
+   ```
+   const Readable = require('stream').Readable
+
+   const readable = Readable({ objectMode: true })
+
+    readable.push('a')
+    readable.push('b')
+    readable.push({})
+    readable.push(null)
+
+    readable.on('data', data => console.log(data))
+
+   ```
+2. git config --global push.followTags true
+3. Markraw 标记不会被reactive
+4. watcheffect onInvalidate 在重新运行或者停止的时候执行
+5. composedPath() 是 Event 接口的一个方法，当对象数组调用该侦听器时返回事件路径。
+6. customref  track and trigger  
+7. vueuse useMemoize 对结果加cache
+8. elementFromPoint 根据point 获取element
+9.  Change-case Transform a string between camelCase, PascalCase, Capital Case, snake_case, param-case, CONSTANT_CASE and others.
+10. p-retry It does exponential backoff and supports custom retry strategies for failed operations.
+11. MutationObserver 观察dom 变化
+12. requestFullscreen
+13. passive: Boolean，设置为true时，表示 listener 永远不会调用 preventDefault()。如果 listener 仍然调用了这个函数，客户端将会忽略它并抛出一个控制台警告
+14. shallowReacive  shallowRef  shallowRef生成非递归响应数据，只监听第一层数据的变化
+15. 推荐在大部分时候用 watch 显式的指定依赖以避免不必要的重复触发，也避免在后续代码修改或重构时不小心引入新的依赖。watchEffect 适用于一些逻辑相对简单，依赖源和逻辑强相关的场景（或者懒惰的场景 ）。
+16. Object.fromEntries
+17. URL.revokeObjectURL() 静态方法用来释放一个之前已经存在的、通过调用 URL.createObjectURL() 创建的 URL 对象。
+18. querySelector  返回第一个匹配元素
+19. Array.prototype.at()接收一个正整数或者负整数作为参数，表示获取指定位置的成员
+20. IFC全称：Inline Formatting Context，名为行级格式化上下文。    触发：块级元素中仅包含内联级别元素
+21. The Notification interface of the Notifications API is used to configure and display desktop notifications to the user.
+22. TinyMCE 富文本编辑器
+23. Window.innerHeight  浏览器窗口的视口（viewport）高度（以像素为单位）；如果有水平滚动条，也包括滚动条高度。
+24. vuedraggable 处理拖动数据
+25. path-to-regexp   Turn a path string such as /user/:name into a regular expression. The compile function will return a function for transforming parameters into a valid path:
+26. vue router 重新render,redirect+fullpath.通过添加一个中转页实现。
+27. import { storeToRefs } from "pinia”;
+28. html5 input number
  ```
 .no-arrow::-webkit-outer-spin-button,
 .no-arrow::-webkit-inner-spin-button {
