@@ -7,7 +7,9 @@ title: ryansecreat blog
 subtitle: smile hard
 description: 保持积极昂扬的状态，避免成为别人眼中的傻子
 author: ryansecreat
-language: zh-Hans
+language: 
+  - zh-CN
+  - en
 timezone:
 
 # URL
@@ -62,7 +64,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
@@ -70,3 +72,9 @@ deploy:
   type: git 
   repository: git@github.com:ryansecret/ryansecret.github.io.git
   branch: master
+
+search:
+  path: search.xml
+  field: post
+  content: true
+  format: html
