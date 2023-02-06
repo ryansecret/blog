@@ -3,17 +3,100 @@ title: overview
 date: 2021-12-13 17:38:48
 tags: overview
 ---
-1. watchEffect 不能检测深层的变化，因此reactive 中变化无效，如果需要则 toRefs 转换
-1. V2 $attrs   1. custom events go into a @listerner bucket  2.不能绑定class 
-1. Npm ls 查看依赖
-1. 可以看到结果reactive是递归会将每一层包装成Proxy对象的，深度监听每一层的property
-1. effectScope有一个可选参数为boolean，当传入true时表示阻断与父级的联系，阻断后这个scope对象将不会与父级关联，成为独立的scope。父级的stop也不会影响到它。 
-1. Last-Modified,Etag,Expires 三个同时使用时。先判断 Expire ，然后发送 Http 请求，服务器先判断 last-modified ，再判断 Etag ，必须都没有过期，才能返回 304 响应
-1. klona  fast utility to "deep clone" Objects, Arrays, Dates, RegExps, and more!
-1. Grep string starting with (e.g. 'S’)    grep -o 'S.*’
-1. ~: 如果写入的是 〜0.13.0，则当运行 npm update 时，会更新到补丁版本：即 0.13.1 可以，但 0.14.0 不可以。
-1. >: 接受高于指定版本的任何版本。
-1. ^: 只会执行不更改最左边非零数字的更新。 如果写入的是 ^0.13.0，则当运行 npm update 时，可以更新到 0.13.1、0.13.2 等，但不能更新到 0.14.0 或更高版本。 如果写入的是 ^1.13.0，则当运行 npm update 时，可以更新到 1.13.1、1.14.0 等，但不能更新到 2.0.0 或更高版本。
+1. form.resetfileds 需要form-item 设置prop
+2. Selecting all text in one click
+     Use select-all to automatically select all the text in an element when a user clicks。
+1. text-[12px] 指定字体大小
+2. Using spaces and underscores
+   Since whitespace denotes the end of a class in HTML, replace any spaces in an arbitrary value with an underscore:<div class="before:content-['Hello_World']">
+1. Add borders between horizontal children
+   Add borders between horizontal elements using the divide-x-{width} utilities.
+1. Add borders between stacked children
+   Add borders between stacked elements using the divide-y-{width} utilities.
+1. focus-within (:focus-within)
+   Style an element when it or one of its descendants has focus using the focus-within modifier:
+1. 连续修饰符
+```
+div:has(h2):has(ul) {
+  background: black;
+} 
+```   
+1. currentColor  和font color 一致
+2. target (:target)
+```
+Style an element if its ID matches the current URL fragment using the target modifier:
+
+first (:first-child)   last (:last-child)
+
+only (:only-child)
+Style an element if it’s the only child using the only modifier:
+
+
+
+empty (:empty)
+Style an element if it has no content using the empty modifier:
+
+in-range (:in-range)
+Style an input when it’s value is within a specified range limit using the in-range modifier:
+
+<input min="1" max="5" class="in-range:border-green-500 ..." />
+
+```   
+1. peer 
+   ```
+     <input type="email" class="peer ..."/>
+    <p class="mt-2 invisible peer-invalid:visible text-pink-600 text-sm">
+      Please provide a valid email address.
+    </p>
+   ```   
+2. Style the ::before and ::after pseudo-elements using the before and after modifiers:
+   after:content-['*’] after:ml-0.5
+3. Justify-end Justify-start
+4. Use the border-{side}, border-{side}-0, border-{side}-2, border-{side}-4, or border-{side}-8 utilities to set the border width for one side of an element.
+
+border-x   border-left-width: 1px;border-right-width: 1px;
+
+1. 没有rel=“noopener noreferrer”的情况下使用target=“_blank”是有安全风险，超链接a标签的rel="noopener noreferrer"属性是一种新特性，它能让网站更安全，超链接添加rel="noopener noreferrer"来防止钓鱼网站，因为它获取的window.opener的值为null
+
+1. Use place-content-center to pack items in the center of the block axis: 对应Grid 和 flexbox 
+2. Use place-content-stretch to stretch grid items along their grid areas on the block axis:
+3. Breakpoint prefix sm 限制了最小值
+4. -translate-y-1/2
+5. Use inline-flex to create an inline flex container that flows with text.
+6. Style the ::before and ::after pseudo-elements using the before and after modifiers:
+7. focus:border-blue-400
+8. Use contents to create a “phantom” container whose children act like direct children of the parent.
+```
+<div class="flex ...">
+  <div class="flex-1 ...">01</div>
+  <div class="contents">
+    <div class="flex-1 ...">02</div>
+    <div class="flex-1 ...">03</div>
+  </div>
+  <div class="flex-1 ...">04</div>
+</div>
+```
+1. Sass声明变量必须是『$』开头，后面紧跟变量名和变量值，而且变量名和变量值需要使用冒号：分隔开。
+
+Less 声明变量用『@』开头，其余等同 Sass。
+
+Stylus 中声明变量没有任何限定，结尾的分号可有可无，但变量名和变量值之间必须要有『等号』。
+
+1. 就是当我们对 DOM 结构的修改引发 DOM 几何尺寸变化的时候，会发生回流的过程。
+    还有一种情况，是直接合成。比如利用 CSS3 的transform、opacity、filter这些属性就可以实现合成的效果，也就是大家常说的GPU加速。
+2. base64 -d  解码  linux 
+3. const { name, doubleCount } = storeToRefs(store)  pin
+4. watchEffect 不能检测深层的变化，因此reactive 中变化无效，如果需要则 toRefs 转换
+5. V2 $attrs   1. custom events go into a @listerner bucket  2.不能绑定class 
+6. Npm ls 查看依赖
+7. 可以看到结果reactive是递归会将每一层包装成Proxy对象的，深度监听每一层的property
+8. effectScope有一个可选参数为boolean，当传入true时表示阻断与父级的联系，阻断后这个scope对象将不会与父级关联，成为独立的scope。父级的stop也不会影响到它。 
+9. Last-Modified,Etag,Expires 三个同时使用时。先判断 Expire ，然后发送 Http 请求，服务器先判断 last-modified ，再判断 Etag ，必须都没有过期，才能返回 304 响应
+10. klona  fast utility to "deep clone" Objects, Arrays, Dates, RegExps, and more!
+11. Grep string starting with (e.g. 'S’)    grep -o 'S.*’
+12. ~: 如果写入的是 〜0.13.0，则当运行 npm update 时，会更新到补丁版本：即 0.13.1 可以，但 0.14.0 不可以。
+13. >: 接受高于指定版本的任何版本。
+14. ^: 只会执行不更改最左边非零数字的更新。 如果写入的是 ^0.13.0，则当运行 npm update 时，可以更新到 0.13.1、0.13.2 等，但不能更新到 0.14.0 或更高版本。 如果写入的是 ^1.13.0，则当运行 npm update 时，可以更新到 1.13.1、1.14.0 等，但不能更新到 2.0.0 或更高版本。
 2. firefox 子元素不缩小需要设置  You need to add min‑width:0
 3. flex 布局中子级超过了父级的宽度，需要设置 width:0 ,完全由flex 分配宽度。
 4. POSIX stands for Portable Operating System Interface.
