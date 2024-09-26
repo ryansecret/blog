@@ -3,26 +3,202 @@ title: overview
 date: 2021-12-13 17:38:48
 tags: overview
 ---
-1. form.resetfileds 需要form-item 设置prop
-2. Selecting all text in one click
+1. numeral 处理number
+2. 
+3. JSON5 is an extension to the popular JSON file format that aims to be easier to write and maintain by hand
+
+json5 是json 的超集，key  可以不加引号
+1. du -sh * | sort -n     查询文件大小
+2. 
+3. Window.getComputedStyle()方法返回一个对象
+4. consola  Elegant Console Wrapper
+5. 副本集架构
+    副本集提供3、5、7节点架构，其中包含一个可供读写访问的Primary节点，一个Hidden节点，实例中剩余节点为只读节点。同时，京东云提供扩缩容能力，帮助您按业务需求进行服务器的部署。
+
+副本集	MongoDB副本集是一组维护相同数据集的Mongod进程，副本集提供冗余和高可用，是所有生产部署的基础。
+
+分片集群	分片是一种用于在多台计算机之间分配数据的方法，MongoDB使用分片集群来支持具有非常大数据集和高吞吐量操作的部署，每个分片集群包含Mongos、Shard、Config Server三种组件。
+1.   单可用区部署   可以承受机架级别的故障。
+2.   多可用区部署   可以承受机房级别的故障，但因为不同可用区之间存在一定的网络延迟，所以对于单个更新的响应时间多可用区部署会比单可用区部署长
+3.   kafka
+   ```
+   1 提高京东云 Kafka的吞吐量:
+​ Kafka中主题topic作为主要接受消息的载体，一般会分成一个或多个分区partition，每个partiton相当于是一个子queue，多个partition就相当于多个子queue在同时工作进行写盘和交互处理，因此增加partition可以增加单个主题topic的吞吐量。在物理结构上，每个partition对应一个物理的文件，Kafka中会把消息持久化到本地文件系统中，并且保持o(1)极高的效率。磁盘的IO读写是非常耗资源的性能，所以提高磁盘的iops和吞吐量，可以提高消息写入磁盘的速度，相应的提高吞吐。Kafka中的主题都是由消费组consumer group来消费的。如果这个consumer group里面consumer的数量小于topic里面partition的数量，就会有consumer thread同时处理多个partition。如果这个consumer group里面consumer的数量大于topic里面partition的数量，多出的consumer thread就会闲置，剩下的是一个consumer thread处理一个partition，这就造成了资源的浪费，因为一个partition不可能被两个consumer thread去处理。
+
+建议：1）增加分区数partition可以有效的提高消息的吞吐量，并且分区数最好是集群处理节点broker的整数倍，这样每个副本分配到的分区数比较均匀。
+
+​ 2）采用高iops和高吞吐的磁盘规格和SSD类型的磁盘。
+
+​ 3）增加生产者producer和消费者consumer的数量，并且消费者的数量最好可以和分区数相等。
+
+
+我们把多个 consumer实例放在一个group里有什么好处吗？实际上，consumer group是用于高伸缩性，高容错性的consumer机制。组内多个consumer实例可以同时读取kafka消息，而一旦某个consumer挂了，group会立即崩溃，这时候负责的分区交给其他consumer负责，从而保证group可以正常工作。这过程我们称呼为 重平衡（rebalance）。
+   ```
+4.   redis
+   ```
+   海量存储，无限容量。集群版采用分布式架构，数据分布在多台物理机上，突破单机物理限制，解决海量数据存储在 Redis 上的瓶颈
+   工作时主节点和从节点数据实时同步，当主节点故障时，系统将在15秒左右将从节点提升为主节点，开始提供服务。当完全恢复后，主从所在的AZ会跟创建时保持一致。
+   ES集群将部署在 VPC 内，只有在同一个VPC下才能访问ES集群，因此为保证内网顺利访问，建议选择已有云上业务的区域位置所在 VPC。多可用区部署模式下，也是选择同一个 VPC。同一个 VPC 内，不同可用区子网之间是互通的。
+   ```
+  
+5.   tidb
+    ```
+全新的分布式数据库，支持PB级数据容量，集群QPS上百万。
+真正的多活架构，多个节点可以同时提供数据读写服务，并且读写能力均可通过增加节点的方式进行水平扩展。
+整个集群数据强一致，所有节点读取的数据均为最新数据，无传统主从架构的数据延迟问题。
+与 MySQL 高度兼容，使用 TiDB 像使用单机MySQL一样简单，可以从 MySQL 无缝切换到 TiDB，几乎无需修改代码。
+可直接在同一份数据上进行高效的数据查询、分析，简化了架构，提升了数据分析的实时性，同时降低了成本。
+全面支持IPV6。
+    ```
+1. 多活架构及故障自恢复
+    真正的多活架构，各个节点均可读写。TiDB 使用多副本进行数据存储，并依赖业界最先进的 Raft 多数派选举算法确保数据 100% 强一致性和高可用。主副本故障时自动切换，无需人工介入，自动保障业务的连续性。
+2. 水平弹性扩展
+
+分布式的 TiDB 可随着数据增长而无缝地水平扩展，只需要通过增加更多的机器来满足业务增长需要，应用层可以不用关心存储的容量和吞吐。 TiDB 根据存储、网络、距离等因素，动态进行负载均衡调整，以保证更优的读写性能。    
+2. 将表中的数据按照一定的规则拆分为多个部分，每个部分的数据均存储在不同的计算节点上，每个计算节点上的数据称为一个分片。    
+3. 可用区是指在同一地域下，电力、网络等基础设施互相独立的物理区域。一个地域包含一个或多个可用区，同一地域下的多个可用区可以彼此连通   
+4. 实例是一个独立占用CPU和内存资源的的数据库服务进程，您可在实例中创建或管理多个数据库。
+5. 在集群中，需要先部署 Ingress Controller，再创建 Ingress 资源对象。Ingress Controller 控制器是一个 docker 容器，容器镜像中包含一个负载均衡器（比如：Nginx 或是 HAProxy）和一个 Ingress Controller。
+6. helm get values  terrabase-console-runtime-76887c7974-qtglz  -n tpaas-terrabase   
+7. kubectl edit ing dts-console-ingress -n tpaas-dts 
+8. css selector
+   ```
+   选中后面有h2的h1
+   h1:has(+ h2) {
+     margin: 0 0 0.25rem 0;
+   } 
+
+   is 更精炼的使用selector 
+   ul li,
+   ol li {}
+   等于 
+   :is(ul, ol) li {}
+   
+   body:has(video, audio) {
+     /* styles to apply if the content contains audio OR video */
+   }
+   body:has(video):has(audio) {
+     /* styles to apply if the content contains both audio AND video */
+   }
+
+   这两个函数的区别在于 :where() 函数的优先级总是零，则 :is() 函数的优先级取决于其最特定参数的优先级。
+   ```
+9.  docker build -f ./Dockerfile.base . --build-arg TPAAS_RUNTIME_IMAGE=hub.jdcloud.com/baseimages/openeuler:22.03lts-amd64-depends-tools-v20220801
+10. find ./ -type f -name yarn.lock
+11. Sqids  Sqids (pronounced "squids") is an open-source library that lets you generate YouTube-looking IDs from numbers
+12. ssh-keygen -R ip 清理问题ip
+13. monaco.editor.setModelMarkers(model, "owner", markers); 标记下划线并给出hint
+14. 添加命令  editor.addCommand(monaco.KeyMod.CtrlCmd   可以监控keys 事件  
+15. addAction 添加右键菜单和快捷键\
+16. 显示到对应位置的内容，指定行和列  revealPositionInCenter 
+17. tokenizer 做匹配，rules 指定样式  
+18. registerFoldingRangeProvider 提供折叠功能
+19. provideHover 提供hover {range,contents}
+20. provideInlayHints 提供decorator 的hint
+21. 那就是它们有不同的特殊性。:where() 是简单的，其特异性总是为0，而 :is() 的特异性为最强的选择器。
+22. 特异性等级评分：
+ID——特异性得分为 100
+内联样式——特异性得分为 1000
+元素和伪类——特异性得分为 1
+类、伪类和属性——特异性得分为 10
+1.  helm get values mongodb-back -n tpaas-mongodb
+2.  marker:text-sky-400 用量设置List marker 的样式
+3.  VScode 设置参数
+   ```
+   {
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "kill: process",
+            "type": "shell",
+            "command": "kill",
+            "args": [
+                "-9",
+                "${input:pid}",
+            ],
+            "problemMatcher": []
+        }
+    ],
+    "inputs": [
+        {
+            "id": "pid",
+            "type": "pickString",
+            "description": "pid to kill",
+            "command": "pgrep",
+            "args": [
+                "${input:procesName}"
+            ]
+        },
+        {
+            "id": "procesName",
+            "type": "promptString",
+            "description": "process name",
+            "default": "code"
+        }
+    ]
+}
+   ```
+1. 需要在不同环境下加载npm包不同的入口文件，显然一个 main 字段已经不能够满足我们的需求，这就衍生出来了 module 与 browser 字段。
+https://github.com/SunshowerC/blog/issues/8
+1. ts-morph  Setup, navigation, and manipulation of the TypeScript AST 
+2.  获取文字长度
+   ```
+     function getwidth(txt, font) {
+      var canvas = document.createElement('canvas')
+      var ctx = canvas.getContext('2d')
+      ctx.font = font
+      return ctx.measureText(txt).width
+    }
+   ```
+3. headless ui  https://headlessui.com/ 
+4. @rollup/plugin-node-resolve  自动添加路径index
+5. backdrop:bg-gray-50 设置蒙板
+6.  first-letter:text-7xl  first-line:uppercase
+7. vscode plugin 发布   https://code.visualstudio.com/api/working-with-extensions/publishing-extension     
+8. aimless The missing JS randomness library
+9. vue-js-modal  
+10. gogocode 其中 $_$1 和 $_$2 相当于正则中的通配符，但是在这里只会匹配代码里有效的 AST 节点，$$$ 则可以匹配剩下的节点
+11. window.__INJECTED_PUBLIC_PATH_BY_QIANKUN__，是 qiankun 提供的。根据源码分析，它会拿到微应用html入口url之后，将pathname的最后一项去掉，再组装起来。譬如，子应用入口配置：http://local.soame.domain/mar...，那么经过处理后，会变成http://local.soame.domain/
+
+12. const SpeedMeasurePlugin = require('speed-measure-webpack-plugin')  查看webpack 速度
+13. 一个专注于前端视觉效果的集合应用，包含CSS动效、Canvas动画、人工智能应用等上百个案例 https://github.com/hepengwei/visualization-collection/tree/master
+14. npm i <alias>@npm:<packageName>@<version>   一个包安装不同的版本  
+15. Chokidar    Minimal and efficient cross-platform file watching library
+16. koa2-connect   Use Express/Connect middleware with Koa.
+17. npm list -g --depth 0  
+18. 容器内使用 printenv 命令来查看容器内的环境变量。
+19. daisy-init --origin direct:https://coding.jd.com/daas-fe/dms-new-console.git --branch template
+20. npm cache clean --force    npm cache verify
+21. utilities 模块包含的是原子化的样式（每一个基础类都只实现一个基础的样式功能），应该最后加载的。这样在其中定义的样式就有最高的优先级，即确保基础类应用到 HTML 页面时，可以覆盖其他样式。
+  所有使用 @layer 添加的样式，它们的类名在应用到 HTML 页面时，也像 Tailwind 内置的基础类一样，都支持使用状态变量（这是使用普通方式添加的样式所不具有的优势）
+
+   而且使用指令 @layer 添加自定义样式，也会在编译时自动进行简化 purge 处理，只有在 HTML 页面的元素中使用了类名，相应的自定义样式才会被编译到最终的样式表中。如果希望自定义的样式最后总是编译到样式表中，则可以不使用指令 @layer 直接写在主样式表中（也需要注意 CSS 代码添加的顺序，一般应该保证 @tailwind utilities 模块最后引入）
+1. @tailwindcss/line-clamp
+2. list-disc. list-decimal
+3. form.resetfileds 需要form-item 设置prop,form设置 model 
+4. Selecting all text in one click
      Use select-all to automatically select all the text in an element when a user clicks。
-1. text-[12px] 指定字体大小
-2. Using spaces and underscores
+5. text-[12px] 指定字体大小
+6. Using spaces and underscores
    Since whitespace denotes the end of a class in HTML, replace any spaces in an arbitrary value with an underscore:<div class="before:content-['Hello_World']">
-1. Add borders between horizontal children
+7. Add borders between horizontal children
    Add borders between horizontal elements using the divide-x-{width} utilities.
-1. Add borders between stacked children
+8.  Add borders between stacked children
    Add borders between stacked elements using the divide-y-{width} utilities.
-1. focus-within (:focus-within)
+9.  focus-within (:focus-within)
    Style an element when it or one of its descendants has focus using the focus-within modifier:
-1. 连续修饰符
+10. 连续修饰符
 ```
 div:has(h2):has(ul) {
   background: black;
 } 
 ```   
 1. currentColor  和font color 一致
+ 
 2. target (:target)
+ 
 ```
 Style an element if its ID matches the current URL fragment using the target modifier:
 
@@ -30,7 +206,6 @@ first (:first-child)   last (:last-child)
 
 only (:only-child)
 Style an element if it’s the only child using the only modifier:
-
 
 
 empty (:empty)
@@ -44,7 +219,7 @@ Style an input when it’s value is within a specified range limit using the in-
 ```   
 1. peer 
    ```
-     <input type="email" class="peer ..."/>
+    <input type="email" class="peer ..."/>
     <p class="mt-2 invisible peer-invalid:visible text-pink-600 text-sm">
       Please provide a valid email address.
     </p>
@@ -63,9 +238,8 @@ border-x   border-left-width: 1px;border-right-width: 1px;
 3. Breakpoint prefix sm 限制了最小值
 4. -translate-y-1/2
 5. Use inline-flex to create an inline flex container that flows with text.
-6. Style the ::before and ::after pseudo-elements using the before and after modifiers:
-7. focus:border-blue-400
-8. Use contents to create a “phantom” container whose children act like direct children of the parent.
+6. focus:border-blue-400
+7. Use contents to create a “phantom” container whose children act like direct children of the parent.
 ```
 <div class="flex ...">
   <div class="flex-1 ...">01</div>
@@ -85,7 +259,7 @@ Stylus 中声明变量没有任何限定，结尾的分号可有可无，但变�
 1. 就是当我们对 DOM 结构的修改引发 DOM 几何尺寸变化的时候，会发生回流的过程。
     还有一种情况，是直接合成。比如利用 CSS3 的transform、opacity、filter这些属性就可以实现合成的效果，也就是大家常说的GPU加速。
 2. base64 -d  解码  linux 
-3. const { name, doubleCount } = storeToRefs(store)  pin
+3. const { name, doubleCount } = storeToRefs(store)  
 4. watchEffect 不能检测深层的变化，因此reactive 中变化无效，如果需要则 toRefs 转换
 5. V2 $attrs   1. custom events go into a @listerner bucket  2.不能绑定class 
 6. Npm ls 查看依赖
@@ -110,7 +284,9 @@ Stylus 中声明变量没有任何限定，结尾的分号可有可无，但变�
 }
    ```
 2. https://github.com/cuixiaorui/mini-vue  vue3 source code 
+
 3. react 被 startTransition 回调包裹的 setState 触发的渲染 被标记为不紧急渲染，这些渲染可能被其他紧急渲染所抢占。
+   
 4. https://hyper.is/ electron console
 5. https://cmder.net/ windows 端的console 模拟器
 6. Access-Control-Request-Private-Network: true 在所有私有网络预检请求上设置
@@ -121,15 +297,14 @@ Stylus 中声明变量没有任何限定，结尾的分号可有可无，但变�
 10. click.self 
 我们知道在自定义组件上，只能监听自定义事件，一些原生事件（比如click）是没有办法直接触发的，但是使用.native修饰符可以帮我们办到这点
 1. offset-path  定义动画运行路径
-1. Tauri 是一个为所有主流桌面平台构建小型、快速二进制文件的框架。开发人员可以集成任何编译成 HTML、 JS 和 CSS 的前端框架来构建他们的用户界面。应用程序的后端是一个 Rust 二进制文件，具有前端可以与之交互的 API。
-1.  gitsecreat 使用： https://www.mikesay.com/2020/12/16/git-encrypt-file-in-repository/#git-secret%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8
-1. svg2pdf.js 图片转pdf
-1. stream 的另外一个模式: objectMode。它是一种对象模式，我们把一件事情、或一个文件、或一个操作，抽象成一个对象。
+2. Tauri 是一个为所有主流桌面平台构建小型、快速二进制文件的框架。开发人员可以集成任何编译成 HTML、 JS 和 CSS 的前端框架来构建他们的用户界面。应用程序的后端是一个 Rust 二进制文件，具有前端可以与之交互的 API。
+3.  gitsecreat 使用： https://www.mikesay.com/2020/12/16/git-encrypt-file-in-repository/#git-secret%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8
+4. svg2pdf.js 图片转pdf
+5. stream 的另外一个模式: objectMode。它是一种对象模式，我们把一件事情、或一个文件、或一个操作，抽象成一个对象。
    ```
    const Readable = require('stream').Readable
 
    const readable = Readable({ objectMode: true })
-
     readable.push('a')
     readable.push('b')
     readable.push({})
@@ -138,41 +313,41 @@ Stylus 中声明变量没有任何限定，结尾的分号可有可无，但变�
     readable.on('data', data => console.log(data))
 
    ```
-2. git config --global push.followTags true
-3. Markraw 标记不会被reactive
-4. watcheffect onInvalidate 在重新运行或者停止的时候执行
-5. composedPath() 是 Event 接口的一个方法，当对象数组调用该侦听器时返回事件路径。
-6. customref  track and trigger  
-7. vueuse useMemoize 对结果加cache
-8. elementFromPoint 根据point 获取element
-9.  Change-case Transform a string between camelCase, PascalCase, Capital Case, snake_case, param-case, CONSTANT_CASE and others.
-10. p-retry It does exponential backoff and supports custom retry strategies for failed operations.
-11. MutationObserver 观察dom 变化
-12. requestFullscreen
-13. passive: Boolean，设置为true时，表示 listener 永远不会调用 preventDefault()。如果 listener 仍然调用了这个函数，客户端将会忽略它并抛出一个控制台警告
-14. shallowReacive  shallowRef  shallowRef生成非递归响应数据，只监听第一层数据的变化
-15. 推荐在大部分时候用 watch 显式的指定依赖以避免不必要的重复触发，也避免在后续代码修改或重构时不小心引入新的依赖。watchEffect 适用于一些逻辑相对简单，依赖源和逻辑强相关的场景（或者懒惰的场景 ）。
-16. Object.fromEntries
-17. URL.revokeObjectURL() 静态方法用来释放一个之前已经存在的、通过调用 URL.createObjectURL() 创建的 URL 对象。
-18. querySelector  返回第一个匹配元素
-19. Array.prototype.at()接收一个正整数或者负整数作为参数，表示获取指定位置的成员
-20. IFC全称：Inline Formatting Context，名为行级格式化上下文。    触发：块级元素中仅包含内联级别元素
-21. The Notification interface of the Notifications API is used to configure and display desktop notifications to the user.
-22. TinyMCE 富文本编辑器
-23. Window.innerHeight  浏览器窗口的视口（viewport）高度（以像素为单位）；如果有水平滚动条，也包括滚动条高度。
-24. vuedraggable 处理拖动数据
-25. path-to-regexp   Turn a path string such as /user/:name into a regular expression. The compile function will return a function for transforming parameters into a valid path:
-26. vue router 重新render,redirect+fullpath.通过添加一个中转页实现。
-27. import { storeToRefs } from "pinia”;
-28. html5 input number
+6. git config --global push.followTags true
+7. Markraw 标记不会被reactive
+8. watcheffect onInvalidate 在重新运行或者停止的时候执行
+9. composedPath() 是 Event 接口的一个方法，当对象数组调用该侦听器时返回事件路径。
+10. customref  track and trigger  
+11. vueuse useMemoize 对结果加cache
+12. elementFromPoint 根据point 获取element
+13. Change-case Transform a string between camelCase, PascalCase, Capital Case, snake_case, param-case, CONSTANT_CASE and others.
+14. p-retry It does exponential backoff and supports custom retry strategies for failed operations.
+15. MutationObserver 观察dom 变化
+16. requestFullscreen
+17. passive: Boolean，设置为true时，表示 listener 永远不会调用 preventDefault()。如果 listener 仍然调用了这个函数，客户端将会忽略它并抛出一个控制台警告
+18. shallowReacive  shallowRef  shallowRef生成非递归响应数据，只监听第一层数据的变化
+19. 推荐在大部分时候用 watch 显式的指定依赖以避免不必要的重复触发，也避免在后续代码修改或重构时不小心引入新的依赖。watchEffect 适用于一些逻辑相对简单，依赖源和逻辑强相关的场景（或者懒惰的场景 ）。
+20. Object.fromEntries
+21. URL.revokeObjectURL() 静态方法用来释放一个之前已经存在的、通过调用 URL.createObjectURL() 创建的 URL 对象。
+22. querySelector  返回第一个匹配元素
+23. Array.prototype.at()接收一个正整数或者负整数作为参数，表示获取指定位置的成员
+24. IFC全称：Inline Formatting Context，名为行级格式化上下文。    触发：块级元素中仅包含内联级别元素
+25. The Notification interface of the Notifications API is used to configure and display desktop notifications to the user.
+26. TinyMCE 富文本编辑器
+27. Window.innerHeight  浏览器窗口的视口（viewport）高度（以像素为单位）；如果有水平滚动条，也包括滚动条高度。
+28. vuedraggable 处理拖动数据
+29. path-to-regexp   Turn a path string such as /user/:name into a regular expression. The compile function will return a function for transforming parameters into a valid path:
+30. vue router 重新render,redirect+fullpath.通过添加一个中转页实现。
+31. import { storeToRefs } from "pinia”;
+32. html5 input number
  ```
 .no-arrow::-webkit-outer-spin-button,
 .no-arrow::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
  ``` 
-2. vue3 类型 MayBeRef
-3. 暂停watch后更新，
+1. vue3 类型 MayBeRef
+2. 暂停watch后更新，
 ```
 ignoreUpdates(() => {
   source.value = 'ignored'
@@ -180,8 +355,8 @@ ignoreUpdates(() => {
 ```
 
 1. dsp 读取json,csv,xlxs 数据
-1. limu 创建imutable 对象
-2. controlledRef set peek,控制数据的更新
+2. limu 创建imutable 对象
+3. controlledRef set peek,控制数据的更新
  ```
  const num = controlledRef(0, {
   onBeforeChange(value, oldValue) {
@@ -195,7 +370,6 @@ ignoreUpdates(() => {
 1. flush: post 推迟副作用的初始运行，直到组件的首次渲染完成。
    watch 通过更改设置 flush: 'sync'，我们可以为每个更改都强制触发侦听器，尽管这通常是不推荐的
    ```
-
 - `'pre'`: buffers invalidated effects in the same 'tick' and flushes them before rendering
 - `'post'`: async like 'pre' but fires after component updates so you can access the updated DOM
 - `'sync'`: forces the effect to always trigger synchronously
@@ -220,7 +394,7 @@ ignoreUpdates(() => {
 String.prototype.pxWidth = function(font) {
   // re-use canvas object for better performance
   var canvas = String.prototype.pxWidth.canvas || (String.prototype.pxWidth.canvas = document.createElement("canvas")),
-      context = canvas.getContext("2d"); 3
+      context = canvas.getContext("2d"); 
 
   font && (context.font = font);
   var metrics = context.measureText(this);
@@ -247,7 +421,7 @@ Transfer-Encoding: identity
 
 2. 逐跳消息头  这类消息头仅对单次传输连接有意义，不能通过代理或缓存进行重新转发
 
-1. git merge --squash develop
+ 
 2. mime  https://github.com/sindresorhus/file-type  根据文件内容判断类型
 
 1. 语义化版本控制(SemVer)
@@ -298,7 +472,7 @@ https://microsoft.github.io/monaco-editor/monarch.html
 1. xe-utils 提供工具类
 1. Mitt  Tiny (~200b) functional event emitter / pubsub.
 1. element-resize-detector  
-1. memoize-one 记录最近的返回结果 
+1. memoize-one 记录最近的返回结果,不同参数会重置
 1. 钱其实是“保健因子”，而不是“激励因子”，是多了没用、少了不行的东西
 2. 可以看到整个医改的核心就是放供给、促竞争和扶创新的过程
 3. 破船能过河
@@ -308,7 +482,7 @@ https://microsoft.github.io/monaco-editor/monarch.html
 
 `Domain-style`: 按照一个功能特性或业务创建单独的目录
 
-`Ducks-style`: 优点类似于Domain-style，不过更彻底, 它通常将相关联的元素定义在一个文件下
+`Ducks-style`: 优点类似于Domain-style，不过更彻底, 它通常将相关联的元素定义在一个文件下·
 
 1. 
     强约定，体现团队的规范。首先它应该避免团队成员去关心或更改构建的配置细节，暴露最小化的配置接口。 另外构建工具不仅仅是构建，通常它还会集成代码检查、测试等功能。
@@ -349,3 +523,4 @@ After: npm-run-all clean build:*
 3. viteshot 基于vite 的快照
 
 4. useScrollLock
+

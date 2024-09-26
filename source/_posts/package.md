@@ -3,6 +3,7 @@ title: package
 date: 2019-02-14 17:19:12
 tags: useful package
 ---
+1. vue-loading-overlay 方便添加蒙层
 1. Vue-intro  新功能引导  
 1. zebra-editor-core  富文本编辑器
 1.  lucky sheet 在线的excel编辑
@@ -21,24 +22,23 @@ tags: useful package
 1. Opn: A better node-open. Opens stuff like websites, files, executables. Cross-platform.
 2. Ora:进度条和文字。
 3. joi：数据验
-4. satisfies ：版本工具
-5. minimist：简单的参数处理
-6. read-pkg:规范化解析pkg
-7. inquirer:询问时可以给出选项
-8. Resovel:解析包的安装路径
-9. slash:Convert Windows backslash paths to slash paths: foo\\bar ➔ foo/bar
-1. klaw-sync:回遍历出所有文件，并返回文件路径和文件夹
-1. mime-types content-type 工具：1. 可以根据文件后缀获取 2. 根据content-type获取charset 3. 根据content-type 获取默认的文件名
-1. CodeMirror是一个运行在浏览器中的在线代码编辑器，支持100多种语言，高度可定制。
+4. minimist：简单的参数处理
+5. read-pkg:规范化解析pkg
+6. inquirer:询问时可以给出选项
+7. Resovel:解析包的安装路径
+8. slash:Convert Windows backslash paths to slash paths: foo\\bar ➔ foo/bar
+9. klaw-sync:回遍历出所有文件，并返回文件路径和文件夹
+10. mime-types content-type 工具：1. 可以根据文件后缀获取 2. 根据content-type获取charset 3. 根据content-type 获取默认的文件名
+11. CodeMirror是一个运行在浏览器中的在线代码编辑器，支持100多种语言，高度可定制。
 1. @typescript-eslint/eslint-plugin.  eslint 检测typescript 
 1. nanoid  A tiny, secure, URL-friendly, unique string ID generator for JavaScript.
-1. mm 对mudule 中的方法mock
-1. numerify  用来格式化数字 
+2. mm 对mudule 中的方法mock
+3. numerify  用来格式化数字 
    
-1. utils-lite  前端提供debounce、thorttling、clone、cloneDeep 等方法
-1. is-type-of   node check 数据类型
-1. on-finished  Execute a callback when a HTTP request closes, finishes, or errors
-1. await-event  封装了promise 
+4. utils-lite  前端提供debounce、thorttling、clone、cloneDeep 等方法
+5. is-type-of   node check 数据类型
+6. on-finished  Execute a callback when a HTTP request closes, finishes, or errors
+7. await-event  封装了promise 
 
 ```javascript
 var PassThrough = require('stream').PassThrough
@@ -131,8 +131,8 @@ app.get('/index', routeCache.cacheSeconds(20), function(req, res){
 1. uplot 渲染大量数据，占用资源少
 1. https://github.com/jlongster/absurd-sql  sqllite 对indexdb的封装
 2. https://www.npmjs.com/package/zx   zx node shell 的脚本终极方案
-3.  vueuse vue hooks 比较全的
-1. splitpane 拖拽布局控件 https://antoniandre.github.io/splitpanes/
+ 
+ 
 2. chan  A golang like channel implementation for JavaScript that works well with co.
 3. pump  When using standard source.pipe(dest) source will not be destroyed if dest emits close or an error. You are also not able to provide a callback to tell when then pipe has finished.
 4. npx cloc path 用来统计代码行数
@@ -144,4 +144,5 @@ app.get('/index', routeCache.cacheSeconds(20), function(req, res){
 10. node-pty 虚拟的terminal forkpty(3) bindings for node.js. This allows you to fork processes with pseudoterminal file descriptors. It returns a terminal object which allows reads and writes.
   asdf
 1. dom-to-image 一个可以将任意DOM节点转换为用JavaScript编写的矢量（SVG）或光栅（PNG或JPEG）图像的库
+2. pako js 用来压缩和解压
  

@@ -5,12 +5,13 @@ tags: k8s
 ---
 
 ### helm 
+1. 获取values helm get values mongodb-back -n tpaas-mongodb
+   
+2. helm pull itg/rds-console —version=XXXX —untar
 
-1. helm pull itg/rds-console —version=XXXX —untar
+3. helm uninstall $rds_console_chart_name -n ${{out._predefine.NAMESPACE}}
 
-1. helm uninstall $rds_console_chart_name -n ${{out._predefine.NAMESPACE}}
-
-1. helm add repo
+4. helm add repo
 
 `helm repo add itg ${{helm_repo}} --username ${{cred.helm_zhangchong.username}}   --password ${{cred.helm_zhangchong.password}}  `
 
@@ -42,7 +43,7 @@ helm install --set name=prod myredis ./redis
 
 1.   helm get notes mysite  用来打印发布说明
 
-1. helm get values <release-name>  
+1. helm -n namespace  get values <release-name>    namespace 很关键不然是默认的ns
 
 1. heml install 
 
