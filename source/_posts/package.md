@@ -3,42 +3,49 @@ title: package
 date: 2019-02-14 17:19:12
 tags: useful package
 ---
-1. vue-loading-overlay 方便添加蒙层
-1. Vue-intro  新功能引导  
-1. zebra-editor-core  富文本编辑器
-1.  lucky sheet 在线的excel编辑
-1. generic-pool  资源池，可以reuse 和限制一些比较贵的资源比如数据库链接。
-1. Mind elixir 浏览器思维导图js module
-1.  cp-cli  copy 跨平台
-1.  markdown-it :  markdown parser
-1. web-storage-cache 对HTML5 localStorage 和sessionStorage 进行了扩展，添加了超时时间，序列化方法。可以直接存储json对象，同时可以非常简单的进行超时时间的设置。
-1. ImmortalDB 是在浏览器中存储持久键值数据的最佳方法。保存到 ImmortalDB 的数据被冗余地存储在 Cookies，IndexedDB 和 localStorage 中，并且如果其中的任何数据被删除或损坏，它们将不断进行自我修复。
-1. localForage 是一个快速简单的 JavaScript 存储库。 它通过使用类似于 localStorage 的简单 API 来使用异步存储（IndexedDB 或 WebSQL)），进而改善你的 Web 应用程序的离线体验。
-1. webworker-threads  node 多线程模块处理计算密集任务
-1. Textures.js  基于d3 生成纹理
-1. robotjs 控制键盘、鼠标、屏幕
-1. vue-count-to  的数字滚动组件，vue-count-to是一个无依赖，轻量级的vue组件，可以自行覆盖easingFn。你可以设置 startVal 和 endVal，它会自动判断计数或倒计时
-1. fullpagejs  通过调用本库可轻易创建全屏滚动网站(也称为单页网站)。 本库可创建全屏滚动网站，同时也可在网站中添加横向滚动条。
-1. Opn: A better node-open. Opens stuff like websites, files, executables. Cross-platform.
-2. Ora:进度条和文字。
-3. joi：数据验
-4. minimist：简单的参数处理
-5. read-pkg:规范化解析pkg
-6. inquirer:询问时可以给出选项
-7. Resovel:解析包的安装路径
-8. slash:Convert Windows backslash paths to slash paths: foo\\bar ➔ foo/bar
-9. klaw-sync:回遍历出所有文件，并返回文件路径和文件夹
-10. mime-types content-type 工具：1. 可以根据文件后缀获取 2. 根据content-type获取charset 3. 根据content-type 获取默认的文件名
-11. CodeMirror是一个运行在浏览器中的在线代码编辑器，支持100多种语言，高度可定制。
-1. @typescript-eslint/eslint-plugin.  eslint 检测typescript 
-1. nanoid  A tiny, secure, URL-friendly, unique string ID generator for JavaScript.
-2. mm 对mudule 中的方法mock
-3. numerify  用来格式化数字 
+1. https://docs.tresjs.org/ 3d vue
+1. json-bigint 解析大数字
+1. vue-spinners A collection of loading spinner components for Vuejs
+2. vue-ui-preloader 可定义spinner 速度
+3. https://github.com/epicmaxco/epic-spinners spinner 也可调整速度
+4. Vue pipeline 流程展示  https://jinfang134.github.io/vue-pipeline/
+5. 不同的进度  https://setaman.github.io/vue-ellipse-progress-docs/guide/
+6. vue-loading-overlay 方便添加蒙层
+7. Vue-intro  新功能引导  
+8. zebra-editor-core  富文本编辑器
+9.  lucky sheet 在线的excel编辑
+10. generic-pool  资源池，可以reuse 和限制一些比较贵的资源比如数据库链接。
+11. Mind elixir 浏览器思维导图js module
+12. cp-cli  copy 跨平台
+13. markdown-it :  markdown parser
+14. web-storage-cache 对HTML5 localStorage 和sessionStorage 进行了扩展，添加了超时时间，序列化方法。可以直接存储json对象，同时可以非常简单的进行超时时间的设置。
+15. ImmortalDB 是在浏览器中存储持久键值数据的最佳方法。保存到 ImmortalDB 的数据被冗余地存储在 Cookies，IndexedDB 和 localStorage 中，并且如果其中的任何数据被删除或损坏，它们将不断进行自我修复。
+16. localForage 是一个快速简单的 JavaScript 存储库。 它通过使用类似于 localStorage 的简单 API 来使用异步存储（IndexedDB 或 WebSQL)），进而改善你的 Web 应用程序的离线体验。
+17. webworker-threads  node 多线程模块处理计算密集任务
+18. Textures.js  基于d3 生成纹理
+19. robotjs 控制键盘、鼠标、屏幕
+20. vue-count-to  的数字滚动组件，vue-count-to是一个无依赖，轻量级的vue组件，可以自行覆盖easingFn。你可以设置 startVal 和 endVal，它会自动判断计数或倒计时
+21. fullpagejs  通过调用本库可轻易创建全屏滚动网站(也称为单页网站)。 本库可创建全屏滚动网站，同时也可在网站中添加横向滚动条。
+22. Opn: A better node-open. Opens stuff like websites, files, executables. Cross-platform.
+23. Ora:进度条和文字。
+24. joi：数据验
+25. minimist：简单的参数处理
+26. read-pkg:规范化解析pkg
+27. inquirer:询问时可以给出选项
+28. Resovel:解析包的安装路径
+29. slash:Convert Windows backslash paths to slash paths: foo\\bar ➔ foo/bar
+30. klaw-sync:回遍历出所有文件，并返回文件路径和文件夹
+31. mime-types content-type 工具：1. 可以根据文件后缀获取 2. 根据content-type获取charset 3. 根据content-type 获取默认的文件名
+32. CodeMirror是一个运行在浏览器中的在线代码编辑器，支持100多种语言，高度可定制。
+33. @typescript-eslint/eslint-plugin.  eslint 检测typescript 
+34. nanoid  A tiny, secure, URL-friendly, unique string ID generator for JavaScript.
+35. mm 对mudule 中的方法mock
+36. numerify  用来格式化数字 
    
-4. utils-lite  前端提供debounce、thorttling、clone、cloneDeep 等方法
-5. is-type-of   node check 数据类型
-6. on-finished  Execute a callback when a HTTP request closes, finishes, or errors
-7. await-event  封装了promise 
+37. utils-lite  前端提供debounce、thorttling、clone、cloneDeep 等方法
+38. is-type-of   node check 数据类型
+39. on-finished  Execute a callback when a HTTP request closes, finishes, or errors
+40. await-event  封装了promise 
 
 ```javascript
 var PassThrough = require('stream').PassThrough
@@ -59,26 +66,27 @@ stream.write('some chunk’)
 2. ShellJS 是Unix shell命令在Node.js API上的可移植实现
 3. graceful-process   graceful exit process even parent exit on SIGKILL.
 4. semver.gte(process.version, '7.0.0’)  版本的比对 
-5. pkgfiles  自动再package中添加 npm publish 文件
-6. depd  标注方法deprecating 
-7. http-errors   http错误  
-8. Global-tunnel  http请求的全局代理  
-9. humanize-ms  转义为ms  
+5. js web端版本对比 https://github.com/lukeed/semiver
+6. pkgfiles  自动再package中添加 npm publish 文件
+7. depd  标注方法deprecating 
+8. http-errors   http错误  
+9. Global-tunnel  http请求的全局代理  
+10. humanize-ms  转义为ms  
 ```
 transform humanize time to ms  ms('1s') // 1000
 ms(1000) // 1000
 ```
 1. Exceljs 一个功能强大的excel 处理包
-1. ready-callback 所有注册的事件完成后，才执行ready中方法
-1. Get-ready  NodeJS mixin to add one-time ready event，ready 后执行相关方法
-1. xml2js  将xml 转换为json 
-1. debug  调试状态输出  debug=*  debug=work:*   
-1. delegates  node模块中代理proto中属性的方法、setter和getter
-1. chokidar filewatch 
-1. Puppeteer  headless browser
-1. cross-env Run scripts that set and use environment variables across platforms
-1. simplemde  markdown editor 
-1. serialize-javascript  Serialize JavaScript to a superset of JSON that includes regular expressions and functions.
+2. ready-callback 所有注册的事件完成后，才执行ready中方法
+3. Get-ready  NodeJS mixin to add one-time ready event，ready 后执行相关方法
+4. xml2js  将xml 转换为json 
+5. debug  调试状态输出  debug=*  debug=work:*   
+6. delegates  node模块中代理proto中属性的方法、setter和getter
+7. chokidar filewatch 
+8. Puppeteer  headless browser
+9. cross-env Run scripts that set and use environment variables across platforms
+10. simplemde  markdown editor 
+11. serialize-javascript  Serialize JavaScript to a superset of JSON that includes regular expressions and functions.
 1.route-cache  express router cache
 ```javascript
 var routeCache = require('route-cache');
@@ -145,4 +153,5 @@ app.get('/index', routeCache.cacheSeconds(20), function(req, res){
   asdf
 1. dom-to-image 一个可以将任意DOM节点转换为用JavaScript编写的矢量（SVG）或光栅（PNG或JPEG）图像的库
 2. pako js 用来压缩和解压
+ 
  

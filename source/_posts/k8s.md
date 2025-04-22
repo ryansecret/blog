@@ -41,7 +41,7 @@ helm install --set name=prod myredis ./redis
 
 1. helm list是区分命名空间的。默认情况下，Helm将Kubernetes配置文件设置的命名空间作为默认命名空间（通常名为default）。
 
-1.   helm get notes mysite  用来打印发布说明
+1.  helm get notes mysite  用来打印发布说明
 
 1. helm -n namespace  get values <release-name>    namespace 很关键不然是默认的ns
 

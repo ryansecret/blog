@@ -3,16 +3,255 @@ title: overview
 date: 2021-12-13 17:38:48
 tags: overview
 ---
-1. numeral 处理number
+1. Webpack Loader 和 Plugin 的区别
+定义
+Loader：用于对模块进行转换，如将 TypeScript 转换为 JavaScript，或将 SASS/CSS 转换为 JavaScript。
+Plugin：用于在 Webpack 构建流程中执行更复杂、更广泛的任务，如代码压缩、资源管理、HTML 文件生成等。
+
+1. lazy 渲染
+```
+display: block; // 必须为块级元素
+content-visibility: auto;
+contain-intrinsic-size: auto 100px;
+```
+2. timeago.js
+```
+timeage.format(1544666010224, 'zh_CN') // 输出 “5 年前” 
+timeage.format(Date.now() - 1000, 'zh_CN') // 输出 “刚刚” 
+timeage.format(Date.now() - 1000 * 60 * 5, 'zh_CN') // 输出 “5 分钟前”
+```
+
+1. Temporal提案引入了一个新的API，以更直观和高效的方式 处理日期和时间。例如，Temporal API提供了新的日期、时间和持续时间的数据类型，以及用于创建、操作和格式化这些值的函数。
+2. Cavas 绘图 leafJs 和 vue leaf
+3. 一些 CDN 资源不受同源策略限制，是因为同源策略主要是浏览器的一种安全机制，用于限制不同源的文档或脚本之间的交互操作，
+这样做的主要原因是为了保证 Web 的开放性和可扩展性。如果这些资源也严格受到同源策略的限制，那么将所有相关资源都部署在同一个服务器下会违背 Web 开放的初衷，并且不利于资源的分发和缓存
+1. babel-runtime 的主要作用就是将这些可能被重用的代码抽取成单独的模块，以避免在每个文件中重复出现相同的代码。它通过模块导入的方式引入这些功能，从而避免了对全局作用域的修改或污染。
+具体来说，babel-runtime 包含了诸如 core-js（提供 JavaScript 内置库的垫片，如 array、json、math、promise、symbol 等）、regenerator-runtime（实现了 generator/yield、async/await）以及一些语法转换的辅助函数（如 es5 与 es6 的继承转换等）。
+1.  axios-auth-refresh 同样是刷新验证
+2.  axios-jwt  Store, clear, transmit and automatically refresh JWT authentication tokens
+3.  barba.js
+    Create badass, fluid and smooth transitions between your website’s pages
+4. 通过应用text-wrap: balance属性，浏览器将自动计算单词数并将它们平均分配到两行——非常适合页面标题、卡片标题、工具提示、模态框和FAQ等。
+
+5. 可以使用 :focus-visible 使其仅在键盘操作时才显示焦点样式。这和<button>一类的原生控件表现一致。
+6.  
+```
+:has() 是一种伪类选择器，也被称为 “关系选择器”，它允许你根据元素是否包含特定的其他元素（满足括号内指定的条件）来选择该元素本身。
+.box:has(.selected){
+      background-color: red;
+}
+// 当前hover 元素的上一个元素
+.layout-container .item:has(+ *:hover) {
+  filter: brightness(0.6);
+  transform: translateZ(150px) rotateY(-40deg);
+}
+```
+1. body { color-scheme: light dark; /* 启用浅色模式和深色模式 */ color: light-dark(#333, #fff); /* 文本浅色和深色颜色 */ background-color: light-dark(#fff, #222); /* 背景浅色和深色颜色 */ }
+2. refline.js是完全不依赖设计器环境的参考线组件，方便各种设计器快速接入，支持参考线匹配及吸附功能。
+3. https://github.com/fabiospampinato/cash  js 操作库，like jquery，相对更小
+4. Offfice 文件预览 kkfile  vue-office
+5. 原生的HTML属性完全可以实现hidden。效果类似于添加样式display: none;
+6. 浏览器会根据用户的系统设置自动选择使用哪种颜色。
+7. simple-mind-map   js 思维导图
+8. animation-timeline用于指定动画的时间线。
+9. view()，它可以使动画的时间线基于视口的滚动或其他动态因素进行控制。
+10. vue-virtual-scroller 虚拟化列表
+11. brightness   CSS <filter-function> applies a linear multiplier value on an element or an input image, making the image appear brighter or darker.
+12. Chevrotain   js 语言解释工具
+13. event source 连接建立	基于 HTTP 协议，客户端发起特殊请求，服务器响应；数据传输格式：事件流格式，每个事件由事件类型和数据组成
+14. https://d2lang.com/tour/icons 相对于meimaid 更专业的更复杂的图 
+15. https://file.ch3nyang.top/   用来传文件
+16. CSS margin-trim属性设置在容器元素上，可以让子元素（需边缘接触）的margin设置计算值变成0。
+Dexie.js is a wrapper library for indexedDB
+
+1. 大屏编辑器  https://github.com/MrXujiang/v6.dooring.public
+2. natapp 内网穿透
+3. ngrok 内网穿透  https://juejin.cn/post/6844903815867531278?searchId=20241230094646F4A8A6C4188D3B842710
+4. Mac networkQuality  测试网速 
+5. caffeinate will keep your Mac awake until you stop it, e.g. by pressing Ctrl+C.
+6. https://www.shadcn-vue.com/   
+
+Beautifully designed components that you can copy and paste into your apps. Accessible. Customizable. Open Source.
+2. shape-outside 用来处理图形和文字的布局
+3.  backdrop-filter: blur(10px);   用于模糊背景
+4.  Raycast alfred 替代体
+5.  Hoppscotch is a lightweight, web-based API development suite.
+6.  Infisical is the open source secret management platform that developers use to centralize their application configuration and secrets like API keys and database credentials as well as manage their internal PKI. Additionally, developers use Infisical to prevent secrets leaks to git and securely share secrets amongst engineers. 用来存储程序的敏感信息。
+7.  FinalShell  ssh工具
+8.  TOTP 的全称是"基于时间的一次性密码"（Time-based One-time Password）
+9.  HSL 是一种颜色表示方式，它代表色相（Hue）、饱和度（Saturation）和亮度（Lightness）。在 CSS 中，HSL 颜色模式是一种用于指定颜色的方法，它使用三个值来描述颜色：色相、饱和度和亮度。hsl(hue, saturation, lightness)
+其中，hue 表示色相，saturation 表示饱和度，lightness 表示亮度。每个值都可以是一个百分比或者一个介于 0 到 360 之间的整数。
+1. SharedWorker API 是 HTML5 中提供的一种多线程解决方案，它可以在多个浏览器 TAB 页面之间共享一个后台线程，从而实现跨页面通信。
+与其他 Worker 不同的是，SharedWorker 可以被多个浏览器 TAB 页面共享，且可以在同一域名下的不同页面之间建立连接。这意味着，多个页面可以通过 SharedWorker 实例之间的消息传递，实现跨 TAB 页面的通信。
+1.  File 是 JavaScript 中代表文件的数据结构，它继承自 Blob 对象，包含文件的元数据（如文件名、文件大小、类型等）。File 对象通常由用户通过 <input type="file"> 选择文件时创建，也可以使用 JavaScript 构造函数手动创建。
+2.  localStorage:仅在客户端存储不参与服务器通信，存储大小一般为5M
+3.  如果用 Blob 发送数据，这时需要我们手动设置 Blob 的 MIME type， // 一般设置为 application/x-www-form-urlencoded。 const reportData = (url, data) => { const blob = new Blob([JSON.stringify(data), { type: ' type: 'application/json'', }]); navigator.sendBeacon(url, blob); };
+``发送数据大小限制 目前没有给出具体的发送数据大小限制标准，不过有人做了下面的测试，当数据长度是65536时，异步请求进入浏览器发送队列失败，表明数据大小是有限制，不同的浏览器应该有所差别。``
+4.  1em 表示的是当前元素的字号，可以看到 1em 是 16px，因为当前元素的 font-size 是 16px，浏览器会根据相对单位 em 计算出绝对单位 px，所以当你改变了这个元素的 font-size，其对应的 padding 也会随之变化，设置 padding、height、width、border-radius 这些属性的时候，使用 em 很方便，会动态根据 font-size 变化
+5.  通过百分比设置   html { font-size: 62.5%; }
+6.  「rem」是指根元素（root element，html）的字体大小，好开心的是，从遥远的 IE6 到版本帝 Chrome 他们都约好了，根元素默认的 font-size 都是 16px。 
+7.  汉字转拼音  https://github.com/overtrue/pinyin
+8.  npm disturl 是一个配置项，用于设置npm下载tarball包（通常是Node.js的二进制文件或者一些带有平台相关编译内容的npm模块）时的基础URL。当npm需要从源代码构建依赖项，并且这些依赖项包含需要从特定位置下载的预编译二进制文件时，它会使用这个disturl来定位和下载这些文件。
+9.  Python 问题 ： brew install python-setuptools
+10. width: fit-content   父级大小适配
+
+11. 为了防止 DNS Rebinding 攻击，webpack-dev-server 会取请求头的 host/orign 和配置的 devServer.host 或 devServer.public 做比较，只允许配置相同的请求   
+12. WSS（Web Socket Secure）是WebSocket的加密版本。WS一般默认是80端口，而WSS默认是443端口，大多数网站用的就是80和433端口。
+wss://test.foo.com ws://localhost:4900
+将加密的转发到本机不加密的
+1. HTTP Strict Transport Security   HSTS   grid-auto-flow  
+2. * justify-content:space-evenly:项目与项目的间隔相等，项目与容器边框之间也是同样长度的间隔
+3. 你知道CSS的inset属性吗？这是我们所熟悉的top，left，right和bottom的缩写版本。通过类比短语法margin或属性padding，只要一行代码就可以设置元素的所有偏移量。
+
+4. 生成用户指纹
+   https://github.com/fingerprintjs/fingerprintjs
+   浏览器指纹是无状态的，它无需用户授权便可收集信息，并且不会像 Cookie 一样会被用户禁止或清除，只要你的指纹是唯一的，你就能够被唯一识别和跟踪。当然，一个事物的好坏是取决于怎么使用它，浏览器指纹也可用于一些好的方面，比如：反欺诈，防止刷票、黄牛、机器人，异地或者可疑登录提示，多设备管理，或者在注重用户隐私的情况下，进行一些数据分析，提高用户体验。
+ 
+5. CSS 选择器允许多次出现相同的简单选择器，而且可以增加权重。
+/* 双重 .checkbox__icon！权重现在是 (0,4,0) */
+.newsletter .newsletter__checkbox .checkbox__icon.checkbox__icon {
+  top: 5px;
+}
+1. xterm-pty
+   This is an addon that adds a PTY layer to xterm.js. It is useful to run an Emscripten'ed CUI program.
 2. 
-3. JSON5 is an extension to the popular JSON file format that aims to be easier to write and maintain by hand
+在开发过程中，我们经常需要与命令行进行交互。而如今，node-pty提供了一种全新的方式来实现这一功能，它是一个强大的跨平台终端仿真库，让你能够在Node.js环境中轻松地创建和控制子进程，仿佛它们是真正的终端。   
+1. tidb
+```
+Tidb
+
+* 一键水平扩缩容得益于 TiDB 存储计算分离的架构的设计，可按需对计算、存储分别进行在线扩容或者缩容，扩容或者缩容过程中对应用运维人员透明。
+* 金融级高可用数据采用多副本存储，数据副本通过 Multi-Raft 协议同步事务日志，多数派写入成功事务才能提交，确保数据强一致性且少数副本发生故障时不影响数据的可用性。可按需配置副本地理位置、副本数量等策略，满足不同容灾级别的要求。
+* 实时 HTAP提供行存储引擎 TiKV、列存储引擎 TiFlash 两款存储引擎，TiFlash 通过 Multi-Raft Learner 协议实时从 TiKV 复制数据，确保行存储引擎 TiKV 和列存储引擎 TiFlash 之间的数据强一致。TiKV、TiFlash 可按需部署在不同的机器，解决 HTAP 资源隔离的问题。
+* 云原生的分布式数据库专为云而设计的分布式数据库，通过 TiDB Operator 可在公有云、私有云、混合云中实现部署工具化、自动化。
+* 兼容 MySQL 协议和 MySQL 生态兼容 MySQL 协议、MySQL 常用的功能、MySQL 生态，应用无需或者修改少量代码即可从 MySQL 迁移到 TiDB。提供丰富的数据迁移工具帮助应用便捷完成数据迁移。
+
+
+* TiDB Server：SQL 层，对外暴露 MySQL 协议的连接 endpoint，负责接受客户端的连接，执行 SQL 解析和优化，最终生成分布式执行计划。TiDB 层本身是无状态的，实践中可以启动多个 TiDB 实例，通过负载均衡组件（如 LVS、HAProxy 或 F5）对外提供统一的接入地址，客户端的连接可以均匀地分摊在多个 TiDB 实例上以达到负载均衡的效果。TiDB Server 本身并不存储数据，只是解析 SQL，将实际的数据读取请求转发给底层的存储节点 TiKV（或 TiFlash）。
+
+* PD (Placement Driver) Server：整个 TiDB 集群的元信息管理模块，负责存储每个 TiKV 节点实时的数据分布情况和集群的整体拓扑结构，提供 TiDB Dashboard 管控界面，并为分布式事务分配事务 ID。PD 不仅存储元信息，同时还会根据 TiKV 节点实时上报的数据分布状态，下发数据调度命令给具体的 TiKV 节点，可以说是整个集群的"大脑"。此外，PD 本身也是由至少 3 个节点构成，拥有高可用的能力。建议部署奇数个 PD 节点。
+
+* 存储节点
+
+    * TiKV Server：负责存储数据，从外部看 TiKV 是一个分布式的提供事务的 Key-Value 存储引擎。存储数据的基本单位是 Region，每个 Region 负责存储一个 Key Range（从 StartKey 到 EndKey 的左闭右开区间）的数据，每个 TiKV 节点会负责多个 Region。TiKV 的 API 在 KV 键值对层面提供对分布式事务的原生支持，默认提供了 SI (Snapshot Isolation) 的隔离级别，这也是 TiDB 在 SQL 层面支持分布式事务的核心。TiDB 的 SQL 层做完 SQL 解析后，会将 SQL 的执行计划转换为对 TiKV API 的实际调用。所以，数据都存储在 TiKV 中。另外，TiKV 中的数据都会自动维护多副本（默认为三副本），天然支持高可用和自动故障转移。
+
+    * TiFlash：TiFlash 是一类特殊的存储节点。和普通 TiKV 节点不一样的是，在 TiFlash 内部，数据是以列式的形式进行存储，主要的功能是为分析型的场景加速。
+
+
+```   
+2. clickhouse
+```
+云数据库ClickHouse是开源列式数据库ClickHouse的云上托管服务，数据库内核完全兼容开源社区版本。阿里云提供了一套企业级数据库管理平台，增强了数据安全、集群动态扩容、监控运维等企业级功能，与云上其他数据产品打通，可以便捷地构建云上海量数据分析平台。
+
+云数据库ClickHouse是面向联机分析处理的列式数据库，支持SQL查询，且查询性能好，特别是基于大宽表的聚合分析查询性能非常优异，比其他分析型数据库速度快一个数量级。主要特性如下。
+
+交互式报表
+* 		基于ClickHouse和BI工具构建实时运营监控报表
+  利用ClickHouse构建实时交互式报表，实时分析订单、收入、用户数等核心业务指标；构建用户来源分析系统，跟踪各渠道PV、UV来源。
+
+* 海量数据实时多维查询
+    * 		在数亿至数百亿记录规模大宽表，数百以上维度自由查询，响应时间通常在100毫秒以内。让业务人员能持续探索式查询分析，无需中断分析思路，便于深挖业务价值，具有非常好的查询体验。  
+
+用户画像分析
+随着数据时代的发展，各行各业数据平台的体量越来越大，用户个性化运营的诉求也越来越突出，用户标签系统，做为个性化千人千面运营的基础服务，应运而生。如今，几乎所有行业（如互联网、游戏、教育等）都有实时精准营销的需求。通过系统生成用户画像，在营销时通过条件组合筛选用户，快速提取目标群体。
+
+* 基于ClickHouse构建用户特征行为分析系统
+    * 		利用ClickHouse对人群标签数据进行实时筛选并进行群体画像统计；自定义条件对海量明细日志记录进行过滤，分析用户行为。
+* 用户分群统计
+    * 		构建用户特征大宽表，任意选择用户属性标签数据和筛选条件，进行人群特征统计分析。
+
+* 访客来源分析展示
+    * 		通过批量离线计算对用户访问日志中的用户行为进行关联，生成用户行为路径大宽表同步到ClickHouse，基于ClickHouse构建交互式访客来源探索分析可视化系统。
+
+
+携程旅行网是中国领先的综合性旅行服务公司，提供酒店预订、机票预订、旅游度假等服务。携程在数据处理和分析方面面临着海量数据、高并发查询和复杂业务逻辑的挑战。为了应对这些挑战，携程采用了 ClickHouse 作为其数据仓库和数据分析平台。ClickHouse 帮助携程实现了以下目标：
+* 快速处理海量数据：携程每天需要处理数百万条订单数据，ClickHouse 可以高效地处理这些数据，使得数据分析和查询更加快速。
+* 高并发查询：携程需要应对高并发的查询需求，ClickHouse 可以支持高并发查询，使得数据分析和查询更加高效。
+* 灵活的业务逻辑：携程的业务逻辑非常复杂，需要根据不同的维度和指标进行数据分析和查询，ClickHouse 提供了灵活的数据建模和查询语言，可以满足携程的复杂业务需求。
+通过使用 ClickHouse，携程可以更加高效地管理数据、进行数据分析和查询，为业务决策提供有力的支持。
+
+* 缺乏广泛的社区支持：虽然 ClickHouse 是一款开源免费的工具，但其社区支持仍然相对较弱。与其他热门开源项目相比，ClickHouse 的社区规模和贡献可能较少。
+```
+2. mongodb  	•	分片集群可以提供更加良好的水平扩展能力。在分片集群架构中，各个节点以副本集架构为基础，通过数据分片存储的方式实现高并发读写。您可以通过扩展分片集群架构中的Mongos、Shard节点数量和规格实现IO吞吐和存储等能力的扩展。
+```
+   集群架构
+分片服务（shard）和配置服务（configserver）采用三节点副本集架构，稳定可靠；支持代理服务（mongos）和分片服务（mongos）灵活配置个数，线性扩展数据库系统的存储空间及读写性能。
+
+灵活多变的业务场景
+云数据库MongoDB采用No-Schema的方式，免去您变更表结构的痛苦，非常适用于初创型的业务需求。您可以将模式固定的结构化数据存储在RDS（Relational Database Service）中，模式灵活的业务存储在MongoDB中，高热数据存储在云数据库Redis或云数据库Memcache中，实现对业务数据高效存取，降低存储数据的投入成本。
+
+物联网应用
+云数据库MongoDB具有高性能和异步数据写入功能，特定场景下可达到内存数据库的处理能力。同时，云数据库MongoDB中的分片集群实例，可按需配置Mongos和Shard组件的配置和个数，性能及存储空间可实现无限扩展，非常适合物联网高并发写入的场景。详情请参见变更配置方案概览。
+
+海量数据下，性能优越
+* 在使用场合下，千万级别的文档对象，近 10G 的数据，对有索引的 ID 的查询不比MySQL慢，而对非索引字段的查询，则是全面胜出。MySQL实际无法胜任大数据下任意字段的查询，而MongoDB的查询性能令人惊讶。写入性能同样很令人满意，同样写入百万级别的数据，MongoDB比我以前使用过的CouchDB要快得多，基本 10 分钟以下可以解决。观察过程中，MongoDB远算不上 CPU 杀手。
+
+ 内置Auto-Sharding自动分片支持云级扩展性，分片简单
+
+劣势：
+* 不支持事务操作
+* 所有事务要求严格的系统（银行系统）肯定不能用它。
+* MongoDB占用空间过大
+```
+2. 
+3. Proxy集群版实例，适用于数据容量较大、QPS要求较高的业务场景。该架构类型实例默认提供Proxy代理，当客户端请求时将由代理节点转发至Redis数据节点，通过代理实现负载均衡、长连接等功能特性，
+ ```
+     Cluster是一个无中心的分布式架构，高可用切换机制已内置进集群，其QPS性能优于Proxy集群版实例。
+
+代理模式：客户端通过单机的方式进行连接，流量会通过代理转发到Redis节点，有一些命令使用会受限制
+
+直连模式： 数据流量将直接访问Redis节点。 注意：需要使用支持cluster协议的客户端。
+ ```   
+ 
+
+2. 双机热备，自动切换。当主节点发生故障后，从节点会被迅速提升为新的主节点，继续提供服务。
+3. 灾备实例通过内网专线同步，具有较低的同步时延和更高的稳定性，同步链路质量远优于公网网络。
+         目前推广期专线流量费用免费，商业化收费时间将另行通知。
+4. 使用主备高可用架构，避免了数据库的单点风险。
+5. 提供独立的数据库连接地址，灾备实例可提供读访问能力，用于就近接入、数据分析等场景，设备冗余成本低。
+6. 创建只读实例成功后，您可以开启读写代理，在程序中配置读写代理的地址，由读写代理实现读请求被自动转发到只读实例，写请求被自动转发到主实例。
+7. 创建RDS实例后， 会自动将实例所在的VPC段添加至白名单中，即该VPC段中所有的IP都可以访问。
+8. 透明数据加密（Transparent Data Encryption (简称TDE)）是指可以在文件层对数据和文件进行实时加密和解密，落盘的文件是加密后的内容，而对于上层应用系统和开发人员而言，加解密过程是无感知的，写入和读取的内容是明文内容，所以叫做透明数据加密
+9.  高可用  免费开启读写分离，实现读写请求自动分流，减轻主实例压力。
+
+10. 半同步复制（Semisynchronous replication），介于异步复制和全同步复制之间，主库在执行完客户端提交的事务后不是立刻返回给客户端，而是等待至少一个从库接收到并写到relay log中才返回给客户端
+11. 三节点 数据复制方式是强一致性。金融证券对数据一致性要求高的。
+12. Zod is a TypeScript-first schema declaration and validation library
+13. vsce login ryansecreat
+14. vue-object-state A typescript library that helps you keep track of changes in your dtos
+15. Vue 脚手架 https://github.com/vuejs/awesome-vue?tab=readme-ov-file#scaffold
+16. https://oruga-ui.com/documentation/  headless UI 
+17. https://vue-highlight-text.surge.sh/ 高亮显示
+18. FZF (stylised as fzf)  is a command line based fuzzy finder built using Golang
+```
+const list = ['go', 'javascript', 'python', 'rust', 
+              'swift', 'kotlin', 'elixir', 'java', 
+              'lisp', 'v', 'zig', 'nim', 'rescript', 
+              'd', 'haskell']
+
+const fzf = new Fzf(list)
+const entries = fzf.find('li')
+console.log('ranking is:')
+entries.forEach(entry => console.log(entry.item)
+```
+1. Highlights https://vue-highlight-text.surge.sh/#Example
+2. vue network 画图工具 https://dash14.github.io/v-network-graph/getting-started.html 
+3. VNT  一个简单、高效、能快速组建虚拟局域网的工具
+4. 根据路由生产面包屑  https://nxtchg.github.io/pieces/vue/vs-crumbs/#/foo/bar
+5. Vue breads 与vuerouter 相结合 https://scrum.github.io/vue-2-breadcrumbs/
+6. 根据vue文件生产文档  https://vuese.github.io/vuese-explorer/
+7. numeral 处理number
+8. 在线代码编辑： https://stackblitz.com/
+9. JSON5 is an extension to the popular JSON file format that aims to be easier to write and maintain by hand
 
 json5 是json 的超集，key  可以不加引号
 1. du -sh * | sort -n     查询文件大小
 2. 
 3. Window.getComputedStyle()方法返回一个对象
 4. consola  Elegant Console Wrapper
-5. 副本集架构
+1. 网络访问控制列表（Access Control List，ACL）是一个子网级别无状态的可选安全层，用于控制进出子网的数据流，可以精确到协议和端口粒度，可用作防火墙来控制进出一个或多个子网的流量。没有网络ACL的保护或者没有配置访问控制策略，会导致子网中的服务器所有网络端口更容易在互联网上遭受攻击甚至导致被入侵。
+2. 安全组是一种分布式、有状态的包过滤功能的虚拟防火墙，通过配置安全组规则策略对云主机的出入流量进行安全过滤，实现对云主机的网络访问控制。创建云主机时，须关联相应的安全组，将同一地域内具有相同网络安全隔离需求的云资源加到同一个安全组内，从而控制多个资源的访问流量。
+3. 副本集架构
     副本集提供3、5、7节点架构，其中包含一个可供读写访问的Primary节点，一个Hidden节点，实例中剩余节点为只读节点。同时，京东云提供扩缩容能力，帮助您按业务需求进行服务器的部署。
 
 副本集	MongoDB副本集是一组维护相同数据集的Mongod进程，副本集提供冗余和高可用，是所有生产部署的基础。
@@ -89,8 +328,8 @@ json5 是json 的超集，key  可以不加引号
 12. ssh-keygen -R ip 清理问题ip
 13. monaco.editor.setModelMarkers(model, "owner", markers); 标记下划线并给出hint
 14. 添加命令  editor.addCommand(monaco.KeyMod.CtrlCmd   可以监控keys 事件  
-15. addAction 添加右键菜单和快捷键\
-16. 显示到对应位置的内容，指定行和列  revealPositionInCenter 
+15. addAction 添加右键菜单和快捷键
+16. 显示到对应位置的内容，指定行和列  revealPositionInCenter ·
 17. tokenizer 做匹配，rules 指定样式  
 18. registerFoldingRangeProvider 提供折叠功能
 19. provideHover 提供hover {range,contents}
@@ -353,7 +592,6 @@ ignoreUpdates(() => {
   source.value = 'ignored'
 })
 ```
-
 1. dsp 读取json,csv,xlxs 数据
 2. limu 创建imutable 对象
 3. controlledRef set peek,控制数据的更新
